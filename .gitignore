@@ -1,0 +1,11 @@
+.cache
+.config
+.keras
+.rasa
+
+actions/actions/__pycache__/
+actions/actions/__init__.py
+
+models/
+credentials.yml
+
