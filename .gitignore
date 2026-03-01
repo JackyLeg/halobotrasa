@@ -3,8 +3,8 @@
 .keras
 .rasa
 
-actions/actions/__pycache__/
-actions/actions/__init__.py
+# actions/__pycache__/
+# actions/__init__.py
 
 models/
 credentials.yml
