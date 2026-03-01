@@ -2,9 +2,10 @@
 .config
 .keras
 .rasa
+.DS_Store
 
-# actions/__pycache__/
-# actions/__init__.py
+actions/__pycache__/
+actions/__init__.py
 
 models/
 credentials.yml
