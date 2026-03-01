@@ -7,6 +7,9 @@ services:
       - ./:/app
     command:
       - run
+      - --enable-api
+      - --cors
+      - "*"
     # Link the action server
     depends_on:
       - action_server

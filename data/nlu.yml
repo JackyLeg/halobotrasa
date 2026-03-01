@@ -1,6 +1,7 @@
 version: "3.1"
 
 nlu:
+#DEFAULT#
 - intent: greet
   examples: |
     - hey
@@ -89,3 +90,38 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+#MENU_CUTI#
+- intent: cuti_menu
+  examples: |
+    - menu cuti
+    - saya ingin melihat menu cuti
+    - apa saja menu cuti yang tersedia
+    - tolong tunjukkan menu cuti
+    - cuti
+    - mau cuti
+
+- intent: prosedur_cuti
+  examples: |
+    - Prosedur Cuti
+
+- intent: persyaratan_cuti
+  examples: |
+    - Persyaratan Cuti
+
+- intent: transaksi_cuti
+  examples: |
+    - Transaksi Cuti
+
+- intent: hasil_cuti
+  examples: |
+    - Hasil Cuti
+
+- intent: done
+  examples: |
+    - selesai
+    - terima kasih
+    - itu saja
+    - sudah cukup
+    - tidak ada lagi
+    - done
