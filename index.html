@@ -1,12 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot Sis Trisakti</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bot BOT bekbekbek</title>
+
+    <script type="module"
+        src="https://unpkg.com/@rasahq/chat-widget-ui/dist/rasa-chatwidget/rasa-chatwidget.esm.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@rasahq/chat-widget-ui/dist/rasa-chatwidget/rasa-chatwidget.css" />
+
+    <link rel="stylesheet" href="assets/style.css" />
 </head>
+
 <body>
-    <div id="rasa-chat-widget" data-websocket-url="https://b5f2-202-51-216-113.ngrok-free.app/"></div>
-    <script src="https://unpkg.com/@rasahq/rasa-chat" type="application/javascript"></script>
+    <rasa-chatbot-widget server-url="https://curves-creative-talking-screens.trycloudflare.com/" authentication-token=""
+        sender-id="" initial-payload="utter_greet" rest-enabled="false" widget-title="Bot terbaik"
+        bot-icon="assets/punpun.jpeg" widget-icon="" font-family="Lato, sans-serif" toggle-full-screen="true"
+        message-delay="1000" stream-messages="false" display-timestamp="false" message-timestamp=""
+        input-message-placeholder="Tanya apa saja..." error-message="Something went wrong. Please try again."
+        auto-open="false" enable-feedback="false" feedback-question-text="Was this conversation helpful?"
+        feedback-thank-you-text="Thank you for your feedback!"
+        session-started-text="Session started"></rasa-chatbot-widget>
 </body>
+
 </html>

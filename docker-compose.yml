@@ -2,7 +2,7 @@ services:
   rasa:
     image: rasa/rasa:3.6.21-full
     ports:
-      - "5005:5005"
+      - "5003:5003"
     volumes:
       - ./:/app
     command:
@@ -10,6 +10,9 @@ services:
       - --enable-api
       - --cors
       - "*"
+      - -p 5003
+    environment:
+      - SANIC_NO_UVLOOP=true
     # Link the action server
     depends_on:
       - action_server
@@ -18,4 +21,4 @@ services:
     volumes:
       - ./actions:/app/actions
     expose:
-      - "5055"
+      - "5056"

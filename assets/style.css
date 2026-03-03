@@ -1,0 +1,73 @@
+:root {
+    /* ── Base Colors ── */
+    --color-primary: #003964;
+    --color-secondary: #ffffff;
+    --color-secondary-opposite: #000000;
+    --color-danger: #C6423F;
+
+    /* ── Auto-generated secondary shades ── */
+    --color-secondary-10: color-mix(in srgb, var(--color-secondary), var(--color-secondary-opposite) 10%);
+    --color-secondary-20: color-mix(in srgb, var(--color-secondary), var(--color-secondary-opposite) 20%);
+    --color-secondary-30: color-mix(in srgb, var(--color-secondary), var(--color-secondary-opposite) 30%);
+    --color-secondary-40: color-mix(in srgb, var(--color-secondary), var(--color-secondary-opposite) 40%);
+    --color-secondary-50: color-mix(in srgb, var(--color-secondary), var(--color-secondary-opposite) 50%);
+    --color-secondary-60: color-mix(in srgb, var(--color-secondary), var(--color-secondary-opposite) 60%);
+    --color-secondary-70: color-mix(in srgb, var(--color-secondary), var(--color-secondary-opposite) 70%);
+    --color-secondary-80: color-mix(in srgb, var(--color-secondary), var(--color-secondary-opposite) 80%);
+    --color-secondary-90: color-mix(in srgb, var(--color-secondary), var(--color-secondary-opposite) 90%);
+
+    /* ── Font ── */
+    --widget-font-family: "Lato", sans-serif;
+
+    /* ── Launcher button (the chat bubble) ── */
+    --launcher-background-color: var(--color-primary);
+    --launcher-color: var(--color-secondary);
+
+    /* ── Header ── */
+    --header-background-color: var(--color-primary);
+    --header-color: var(--color-secondary);
+
+    /* ── Messenger / chat window background ── */
+    --messenger-background-color: var(--color-secondary);
+
+    /* ── Input field ── */
+    --input-placeholder-color: var(--color-secondary-opposite);
+    --input-placeholder-opacity: 0.5;
+    --input-background-color: var(--color-secondary);
+    --input-color: var(--color-secondary-opposite);
+    --input-send-color: var(--color-primary);
+
+    /* ── Bot messages ── */
+    --message-robot-icon-background-color: var(--color-primary);
+    --message-robot-icon-color: var(--color-secondary);
+    --message-robot-background-color: var(--color-secondary-10);
+    --message-robot-color: var(--color-secondary-90);
+
+    /* ── User messages ── */
+    --message-user-background-color: var(--color-primary);
+    --message-user-color: var(--color-secondary);
+
+    /* ── Quick reply buttons (unselected) ── */
+    --message-button-color: var(--color-primary);
+    --message-button-background-color: var(--color-secondary);
+    --message-button-border-color: var(--color-primary);
+
+    /* ── Quick reply buttons (selected) ── */
+    --message-selected-button-color: var(--color-secondary);
+    --message-selected-button-background-color: var(--color-primary);
+    --message-selected-button-border-color: var(--color-primary);
+
+    /* ── Accordion ── */
+    --accordion-background-color: var(--color-secondary-10);
+
+    /* ── Session divider ── */
+    --session-divider-color: var(--color-secondary-10);
+    --session-divider-text-color: var(--color-secondary-40);
+
+    /* ── Error toast ── */
+    --error-toast-background-color: var(--color-danger);
+    --error-toast-color: var(--color-secondary);
+
+    /* ── Timestamps ── */
+    --timestamp-color: var(--color-secondary-40);
+}

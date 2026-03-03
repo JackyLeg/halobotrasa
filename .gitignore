@@ -4,10 +4,10 @@
 .rasa
 .DS_Store
 
-actions/__pycache__/
-actions/__init__.py
+/actions/__pycache__/
+/actions/__init__.py
 
-models/
+/models/
 credentials.yml
 
 telegram.txt
