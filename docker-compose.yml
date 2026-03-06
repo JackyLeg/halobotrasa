@@ -10,9 +10,10 @@ services:
       - --enable-api
       - --cors
       - "*"
-      - -p 5003
-    environment:
-      - SANIC_NO_UVLOOP=true
+      - -p
+      - "5003"
+    # environment:
+    #   - SANIC_NO_UVLOOP=true
     # Link the action server
     depends_on:
       - action_server
@@ -20,5 +21,11 @@ services:
     image: rasa/rasa-sdk:3.6.2
     volumes:
       - ./actions:/app/actions
+    command:
+      - start
+      - --actions
+      - actions
+      - -p
+      - "5056"
     expose:
       - "5056"

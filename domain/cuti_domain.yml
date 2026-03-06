@@ -1,14 +1,6 @@
 version: "3.1"
 
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-
   - cuti_menu
   - prosedur_cuti
   - persyaratan_cuti
@@ -30,42 +22,39 @@ slots:
 
   menu_cuti_confirmation:
     type: bool
-    influence_conversation: true
+    influence_conversation: false
     mappings:
     - type: custom
 
+  fakultas:
+    type: categorical
+    values:
+      - Fakultas Hukum
+      - Fakultas Ekonomi dan Bisnis
+      - Fakultas Kedokteran
+      - Fakultas Kedokteran Gigi
+      - Fakultas Teknik Sipil dan Perencanaan
+      - Fakultas Teknologi Industri
+      - Fakultas Teknologi Kebumian dan Energi
+      - Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+      - Fakultas Seni Rupa dan Desain
+    mappings:
+      - type: custom
+
 responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.redd.it/heeermei05i91.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
 #MENU_CUTI#
   utter_ask_menu_cuti:
     - text: "Silakan pilih salah satu opsi cuti berikut:"
       buttons:
         - title: "Prosedur Cuti"
-          payload: "Prosedur Cuti"
+          payload: "/prosedur_cuti"
         - title: "Persyaratan Cuti"
-          payload: "Persyaratan Cuti"
+          payload: "/persyaratan_cuti"
         - title: "Transaksi Cuti"
-          payload: "Transaksi Cuti"
+          payload: "/transaksi_cuti"
         - title: "Hasil Cuti"
-          payload: "Hasil Cuti"
+          payload: "/hasil_cuti"
+
   utter_ask_menu_cuti_confirmation:
     - text: "Anda telah memilih opsi: {menu_cuti}. Apakah itu benar?"
       buttons:
@@ -81,6 +70,69 @@ responses:
     - text: "Anda telah berhasil memilih opsi cuti: {menu_cuti}."
 
   utter_answer_prosedur_cuti:
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Hukum"
+      text: |
+        PROSEDUR CUTI AKADEMIK (FH)
+
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Ekonomi dan Bisnis"
+      text: |
+        PROSEDUR CUTI AKADEMIK (FEB)
+
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Kedokteran"
+      text: |
+        PROSEDUR CUTI AKADEMIK (FK)
+
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Kedokteran Gigi"
+      text: |
+        PROSEDUR CUTI AKADEMIK (FKG)
+
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Teknik Sipil dan Perencanaan"
+      text: |
+        PROSEDUR CUTI AKADEMIK (FTSP)
+
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Teknologi Industri"
+      text: |
+        PROSEDUR CUTI AKADEMIK (FTI)
+
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Teknologi Kebumian dan Energi"
+      text: |
+        PROSEDUR CUTI AKADEMIK (FTKE)
+
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Arsitektur Lanskap dan Teknologi Lingkungan"
+      text: |
+        PROSEDUR CUTI AKADEMIK (FALTL)
+
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Seni Rupa dan Desain"
+      text: |
+        PROSEDUR CUTI AKADEMIK (FSRD)
+
     - text: |
         PROSEDUR CUTI AKADEMIK
         Cuti akademik adalah masa jeda studi yang tetap diperhitungkan dalam masa studi maksimal. Prosedur pengajuannya terbagi menjadi dua kategori:
@@ -101,6 +153,69 @@ responses:
         Mahasiswa wajib mengajukan surat permohonan aktif kembali kepada Dekan (diketahui Dosen Wali & Kaprodi) selambat-lambatnya 1 bulan sebelum masa cuti berakhir, serta menyelesaikan seluruh kewajiban administrasi dan keuangan.
 
   utter_answer_persyaratan_cuti:
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Hukum"
+      text: |
+        PERSYARATAN CUTI AKADEMIK (FH)
+
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Ekonomi dan Bisnis"
+      text: |
+        PERSYARATAN CUTI AKADEMIK (FEB)
+
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Kedokteran"
+      text: |
+        PERSYARATAN CUTI AKADEMIK (FK)
+
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Kedokteran Gigi"
+      text: |
+        PERSYARATAN CUTI AKADEMIK (FKG)
+
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Teknik Sipil dan Perencanaan"
+      text: |
+        PERSYARATAN CUTI AKADEMIK (FTSP)
+
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Teknologi Industri"
+      text: |
+        PERSYARATAN CUTI AKADEMIK (FTI)
+
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Teknologi Kebumian dan Energi"
+      text: |
+        PERSYARATAN CUTI AKADEMIK (FTKE)
+
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Arsitektur Lanskap dan Teknologi Lingkungan"
+      text: |
+        PERSYARATAN CUTI AKADEMIK (FALTL)
+
+    - condition:
+        - type: slot
+          name: fakultas
+          value: "Fakultas Seni Rupa dan Desain"
+      text: |
+        PERSYARATAN CUTI AKADEMIK (FSRD)
+        
     - text: |
         PERSYARATAN CUTI AKADEMIK
         1. Syarat Umum
@@ -132,8 +247,7 @@ responses:
   utter_done:
     - text: "Terima kasih telah menggunakan layanan kami. Semoga harimu menyenangkan!"
 
-# actions:
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+actions:
+  - action_answer_cuti
+  - action_ask_confirmation_cuti
+  - action_deny_cuti

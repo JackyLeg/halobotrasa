@@ -1,0 +1,52 @@
+version: "3.1"
+
+stories:
+# MENU CUTI #
+
+  - story: beginning of flow
+    steps:
+      - intent: cuti_menu
+      - action: utter_ask_menu_cuti
+      - checkpoint: check_menu_cuti
+
+  - story: handle user menu cuti
+    steps:
+      - checkpoint: check_menu_cuti
+      - or:
+          - intent: prosedur_cuti
+          - intent: persyaratan_cuti
+          - intent: transaksi_cuti
+          - intent: hasil_cuti
+      - checkpoint: confirmation_menu_cuti
+
+  - story: confirmation ok
+    steps:
+      - checkpoint: confirmation_menu_cuti
+      - action: action_ask_confirmation_cuti
+      - intent: affirm
+      - slot_was_set:
+          - menu_cuti_confirmation: true
+      - checkpoint: affirm_menu_cuti
+
+  - story: confirmation cancel
+    steps:
+      - checkpoint: confirmation_menu_cuti
+      - action: action_ask_confirmation_cuti
+      - intent: deny
+      - slot_was_set:
+          - menu_cuti_confirmation: false
+      - action: action_deny_cuti
+
+  - story: handle after menu cuti
+    steps:
+      - checkpoint: affirm_menu_cuti
+      - or:
+          - slot_was_set:
+              - menu_cuti: "Prosedur Cuti"
+          - slot_was_set:
+              - menu_cuti: "Persyaratan Cuti"
+          - slot_was_set:
+              - menu_cuti: "Transaksi Cuti"
+          - slot_was_set:
+              - menu_cuti: "Hasil Cuti"
+      - action: action_answer_cuti
