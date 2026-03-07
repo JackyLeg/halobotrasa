@@ -1,0 +1,191 @@
+version: '3.1'
+intents:
+- TAskripsi_menu
+- prosedur_TAskripsi
+- persyaratan_TAskripsi
+- transaksi_TAskripsi
+- hasil_TAskripsi
+- status_TAskripsi
+slots:
+  menu_TAskripsi:
+    type: categorical
+    values:
+    - Prosedur TAskripsi
+    - Persyaratan TAskripsi
+    - Transaksi TAskripsi
+    - Hasil TAskripsi
+    mappings:
+    - type: custom
+    influence_conversation: false
+  menu_TAskripsi_confirmation:
+    type: bool
+    mappings:
+    - type: custom
+    influence_conversation: false
+responses:
+  utter_ask_menu_TAskripsi:
+  - text: 'Please select one of the following TAskripsi options:'
+    buttons:
+    - title: Prosedur TAskripsi
+      payload: /prosedur_TAskripsi
+    - title: Persyaratan TAskripsi
+      payload: /persyaratan_TAskripsi
+    - title: Transaksi TAskripsi
+      payload: /transaksi_TAskripsi
+    - title: Hasil TAskripsi
+      payload: /hasil_TAskripsi
+  utter_ask_menu_TAskripsi_confirmation:
+  - text: 'You have selected the option: {menu_TAskripsi}. Is that correct?'
+    buttons:
+    - title: 'Yes'
+      payload: /affirm
+    - title: 'No'
+      payload: /deny
+  utter_menu_TAskripsi_cancelled:
+  - text: Okay, let's try again. Please select one of the TAskripsi options.
+  utter_menu_TAskripsi_ok:
+  - text: 'You have successfully selected the TAskripsi option: {menu_TAskripsi}.'
+  utter_answer_prosedur_TAskripsi:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PROSEDUR PENGISIAN SKPI (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PROSEDUR PENGISIAN SKPI (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PROSEDUR PENGISIAN SKPI (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PROSEDUR PENGISIAN SKPI (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PROSEDUR PENGISIAN SKPI (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PROSEDUR PENGISIAN SKPI (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PROSEDUR PENGISIAN SKPI (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PROSEDUR PENGISIAN SKPI (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PROSEDUR PENGISIAN SKPI (FSRD)
+
+      '
+  - text: 'PROSEDUR TA SKRIPSI
+
+      '
+  utter_answer_persyaratan_TAskripsi:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PERSYARATAN PENGISIAN SKPI (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PERSYARATAN PENGISIAN SKPI (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PERSYARATAN PENGISIAN SKPI (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PERSYARATAN PENGISIAN SKPI (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PERSYARATAN PENGISIAN SKPI (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PERSYARATAN PENGISIAN SKPI (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PERSYARATAN PENGISIAN SKPI (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PERSYARATAN PENGISIAN SKPI (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PERSYARATAN PENGISIAN SKPI (FSRD)
+
+      '
+  - text: 'PERSYARATAN TA SKRIPSI
+
+      '
+  utter_answer_transaksi_TAskripsi:
+  - text: Silakan lengkapi data pengajuan TAskripsi dan ajukan permohonan TAskripsi.
+  utter_answer_hasil_TAskripsi:
+  - text: Pengajuan TAskripsi kamu telah diproses.
+  utter_answer_error_TAskripsi:
+  - text: Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia.
+actions:
+- action_answer_TAskripsi
+- action_ask_confirmation_TAskripsi
+- action_deny_TAskripsi

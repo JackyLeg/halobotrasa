@@ -1,0 +1,191 @@
+version: '3.1'
+intents:
+- transkrip_menu
+- prosedur_transkrip
+- persyaratan_transkrip
+- transaksi_transkrip
+- hasil_transkrip
+- status_transkrip
+slots:
+  menu_transkrip:
+    type: categorical
+    values:
+    - Prosedur Transkrip
+    - Persyaratan Transkrip
+    - Transaksi Transkrip
+    - Hasil Transkrip
+    mappings:
+    - type: custom
+    influence_conversation: false
+  menu_transkrip_confirmation:
+    type: bool
+    mappings:
+    - type: custom
+    influence_conversation: false
+responses:
+  utter_ask_menu_transkrip:
+  - text: 'Please select one of the following transcript options:'
+    buttons:
+    - title: Prosedur Transkrip
+      payload: /prosedur_transkrip
+    - title: Persyaratan Transkrip
+      payload: /persyaratan_transkrip
+    - title: Transaksi Transkrip
+      payload: /transaksi_transkrip
+    - title: Hasil Transkrip
+      payload: /hasil_transkrip
+  utter_ask_menu_transkrip_confirmation:
+  - text: 'You have selected the option: {menu_transkrip}. Is that correct?'
+    buttons:
+    - title: 'Yes'
+      payload: /affirm
+    - title: 'No'
+      payload: /deny
+  utter_menu_transkrip_cancelled:
+  - text: Okay, let's try again. Please select one of the transcript options.
+  utter_menu_transkrip_ok:
+  - text: 'You have successfully selected the transcript option: {menu_transkrip}.'
+  utter_answer_prosedur_transkrip:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PROSEDUR TRANSKRIP (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PROSEDUR TRANSKRIP (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PROSEDUR TRANSKRIP (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PROSEDUR TRANSKRIP (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PROSEDUR TRANSKRIP (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PROSEDUR TRANSKRIP (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PROSEDUR TRANSKRIP (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PROSEDUR TRANSKRIP (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PROSEDUR TRANSKRIP (FSRD)
+
+      '
+  - text: 'PROSEDUR TRANSKRIP
+
+      '
+  utter_answer_persyaratan_transkrip:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PERSYARATAN TRANSKRIP (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PERSYARATAN TRANSKRIP (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PERSYARATAN TRANSKRIP (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PERSYARATAN TRANSKRIP (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PERSYARATAN TRANSKRIP (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PERSYARATAN TRANSKRIP (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PERSYARATAN TRANSKRIP (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PERSYARATAN TRANSKRIP (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PERSYARATAN TRANSKRIP (FSRD)
+
+      '
+  - text: 'PERSYARATAN TRANSKRIP
+
+      '
+  utter_answer_transaksi_transkrip:
+  - text: TRANSAKSI TRANSKRIP
+  utter_answer_hasil_transkrip:
+  - text: HASIL TRANSKRIP
+  utter_answer_error_transkrip:
+  - text: Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia.
+actions:
+- action_answer_transkrip
+- action_ask_confirmation_transkrip
+- action_deny_transkrip

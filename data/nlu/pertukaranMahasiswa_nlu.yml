@@ -1,0 +1,32 @@
+version: "3.1"
+
+nlu:
+#MENU_PERTUKARANMAHASISWA#
+- intent: pertukaranMahasiswa_menu
+  examples: |
+    - menu pertukaran mahasiswa
+    - saya ingin melihat menu pertukaran mahasiswa
+    - apa saja menu pertukaran mahasiswa yang tersedia
+    - tolong tunjukkan menu pertukaran mahasiswa
+    - pertukaran mahasiswa
+    - mau pertukaran mahasiswa
+
+- intent: prosedur_pertukaranMahasiswa
+  examples: |
+    - Prosedur Pertukaran Mahasiswa
+
+- intent: persyaratan_pertukaranMahasiswa
+  examples: |
+    - Persyaratan Pertukaran Mahasiswa
+
+- intent: transaksi_pertukaranMahasiswa
+  examples: |
+    - Transaksi Pertukaran Mahasiswa
+
+- intent: hasil_pertukaranMahasiswa
+  examples: |
+    - Hasil Pertukaran Mahasiswa
+
+- intent: status_pertukaranMahasiswa
+  examples: |
+    - Status Pertukaran Mahasiswa

@@ -1,0 +1,205 @@
+version: '3.1'
+intents:
+- skpi_menu
+- prosedur_skpi
+- persyaratan_skpi
+- transaksi_skpi
+- hasil_skpi
+- status_skpi
+slots:
+  menu_skpi:
+    type: categorical
+    values:
+    - Prosedur SKPI
+    - Persyaratan SKPI
+    - Transaksi SKPI
+    - Hasil SKPI
+    mappings:
+    - type: custom
+    influence_conversation: false
+  menu_skpi_confirmation:
+    type: bool
+    mappings:
+    - type: custom
+    influence_conversation: false
+responses:
+  utter_ask_menu_skpi:
+  - text: 'Please select one of the following SKPI options:'
+    buttons:
+    - title: Prosedur SKPI
+      payload: /prosedur_skpi
+    - title: Persyaratan SKPI
+      payload: /persyaratan_skpi
+    - title: Transaksi SKPI
+      payload: /transaksi_skpi
+    - title: Hasil SKPI
+      payload: /hasil_skpi
+  utter_ask_menu_skpi_confirmation:
+  - text: 'You have selected the option: {menu_skpi}. Is that correct?'
+    buttons:
+    - title: 'Yes'
+      payload: /affirm
+    - title: 'No'
+      payload: /deny
+  utter_menu_skpi_cancelled:
+  - text: Okay, let's try again. Please select one of the SKPI options.
+  utter_menu_skpi_ok:
+  - text: 'You have successfully selected the SKPI option: {menu_skpi}.'
+  utter_answer_prosedur_skpi:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PROSEDUR PENGISIAN SKPI (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PROSEDUR PENGISIAN SKPI (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PROSEDUR PENGISIAN SKPI (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PROSEDUR PENGISIAN SKPI (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PROSEDUR PENGISIAN SKPI (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PROSEDUR PENGISIAN SKPI (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PROSEDUR PENGISIAN SKPI (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PROSEDUR PENGISIAN SKPI (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PROSEDUR PENGISIAN SKPI (FSRD)
+
+      '
+  - text: "PROSEDUR PENGISIAN SKPI\nUntuk mengisi SKPI (Surat Keterangan Pendamping\
+      \ Ijazah), silakan ikuti langkah berikut:\n1. Akses laman: https://student.trisakti.ac.id/\n\
+      2. Klik menu SKPI.\n3. Isi data pada lima tab berikut:\n  - Penghargaan → Prestasi\
+      \ selama kuliah (universitas, fakultas, prodi, regional, nasional, internasional).\n\
+      \  - Organisasi → Pengalaman organisasi atau kepanitiaan.\n  - Bahasa Asing\
+      \ → Sertifikat bahasa internasional (contoh: TOEFL).\n  - Pembentukan Karakter\
+      \ → Kegiatan pengembangan diri (PKM, UKM, seminar, workshop, dll).\n  - Praktek\
+      \ Profesional → Magang, PKL, atau kegiatan penerapan ilmu di dunia kerja.\n\
+      4. Semua kegiatan wajib diisi dalam Bahasa Indonesia dan Bahasa Inggris sesuai\
+      \ kolom yang tersedia.\n"
+  utter_answer_persyaratan_skpi:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PERSYARATAN PENGISIAN SKPI (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PERSYARATAN PENGISIAN SKPI (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PERSYARATAN PENGISIAN SKPI (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PERSYARATAN PENGISIAN SKPI (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PERSYARATAN PENGISIAN SKPI (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PERSYARATAN PENGISIAN SKPI (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PERSYARATAN PENGISIAN SKPI (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PERSYARATAN PENGISIAN SKPI (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PERSYARATAN PENGISIAN SKPI (FSRD)
+
+      '
+  - text: "PERSYARATAN PENGISIAN SKPI\nSetiap kegiatan yang diinput wajib dilengkapi\
+      \ bukti pendukung, seperti:\n  - SK Rektor/Dekan\n  - Sertifikat\n  - Piagam\
+      \ penghargaan\n  - Dokumen resmi lainnya\nData harus diisi lengkap dan benar\
+      \ pada masing-masing kategori.\nPengisian dilakukan dalam dua bahasa (Indonesia\
+      \ & Inggris).\n"
+  utter_answer_transaksi_skpi:
+  - text: Silakan lengkapi dan ajukan data SKPI sesuai dengan kegiatan yang telah
+      anda ikuti.
+  utter_answer_hasil_skpi:
+  - text: 'Pengajuan SKPI anda sedang diproses.
+
+      Anda dapat melihat status dan hasil SKPI melalui sistem.
+
+      '
+  utter_answer_error_skpi:
+  - text: Maaf, menu tidak ditemukan.
+actions:
+- action_answer_skpi
+- action_ask_confirmation_skpi
+- action_deny_skpi

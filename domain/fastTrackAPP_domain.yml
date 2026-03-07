@@ -1,0 +1,191 @@
+version: '3.1'
+intents:
+- fastTrackAPP_menu
+- prosedur_fastTrackAPP
+- persyaratan_fastTrackAPP
+- transaksi_fastTrackAPP
+- hasil_fastTrackAPP
+- status_fastTrackAPP
+slots:
+  menu_fastTrackAPP:
+    type: categorical
+    values:
+    - Prosedur Fast Track App
+    - Persyaratan Fast Track App
+    - Transaksi Fast Track App
+    - Hasil Fast Track App
+    mappings:
+    - type: custom
+    influence_conversation: false
+  menu_fastTrackAPP_confirmation:
+    type: bool
+    mappings:
+    - type: custom
+    influence_conversation: false
+responses:
+  utter_ask_menu_fastTrackAPP:
+  - text: 'Please select one of the following fast track app options:'
+    buttons:
+    - title: Prosedur Fast Track App
+      payload: /prosedur_fastTrackAPP
+    - title: Persyaratan Fast Track App
+      payload: /persyaratan_fastTrackAPP
+    - title: Transaksi Fast Track App
+      payload: /transaksi_fastTrackAPP
+    - title: Hasil Fast Track App
+      payload: /hasil_fastTrackAPP
+  utter_ask_menu_fastTrackAPP_confirmation:
+  - text: 'You have selected the option: {menu_fastTrackAPP}. Is that correct?'
+    buttons:
+    - title: 'Yes'
+      payload: /affirm
+    - title: 'No'
+      payload: /deny
+  utter_menu_fastTrackAPP_cancelled:
+  - text: Okay, let's try again. Please select one of the fast track app options.
+  utter_menu_fastTrackAPP_ok:
+  - text: 'You have successfully selected the fast track app option: {menu_fastTrackAPP}.'
+  utter_answer_prosedur_fastTrackAPP:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PROSEDUR FAST TRACK APP (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PROSEDUR FAST TRACK APP (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PROSEDUR FAST TRACK APP (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PROSEDUR FAST TRACK APP (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PROSEDUR FAST TRACK APP (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PROSEDUR FAST TRACK APP (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PROSEDUR FAST TRACK APP (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PROSEDUR FAST TRACK APP (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PROSEDUR FAST TRACK APP (FSRD)
+
+      '
+  - text: 'PROSEDUR FAST TRACK APP
+
+      '
+  utter_answer_persyaratan_fastTrackAPP:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PERSYARATAN FAST TRACK APP (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PERSYARATAN FAST TRACK APP (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PERSYARATAN FAST TRACK APP (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PERSYARATAN FAST TRACK APP (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PERSYARATAN FAST TRACK APP (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PERSYARATAN FAST TRACK APP (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PERSYARATAN FAST TRACK APP (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PERSYARATAN FAST TRACK APP (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PERSYARATAN FAST TRACK APP (FSRD)
+
+      '
+  - text: 'PERSYARATAN FAST TRACK APP
+
+      '
+  utter_answer_transaksi_fastTrackAPP:
+  - text: Silakan lengkapi data pengajuan cuti akademik dan ajukan permohonan cuti.
+  utter_answer_hasil_fastTrackAPP:
+  - text: Pengajuan cuti akademik kamu telah diproses.
+  utter_answer_error_fastTrackAPP:
+  - text: Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia.
+actions:
+- action_answer_fastTrackAPP
+- action_ask_confirmation_fastTrackAPP
+- action_deny_fastTrackAPP

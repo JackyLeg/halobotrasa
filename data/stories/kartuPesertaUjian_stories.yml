@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU KARTU PESERTA UJIAN #
+
+  - story: beginning of flow kartuPesertaUjian
+    steps:
+      - intent: kartuPesertaUjian_menu
+      - action: utter_ask_menu_kartuPesertaUjian
+      - checkpoint: check_menu_kartuPesertaUjian
+
+  - story: handle user menu kartuPesertaUjian
+    steps:
+      - checkpoint: check_menu_kartuPesertaUjian
+      - or:
+          - intent: prosedur_kartuPesertaUjian
+          - intent: persyaratan_kartuPesertaUjian
+          - intent: transaksi_kartuPesertaUjian
+          - intent: hasil_kartuPesertaUjian
+          - intent: status_kartuPesertaUjian
+      - checkpoint: confirmation_menu_kartuPesertaUjian
+
+  - story: confirmation ok kartuPesertaUjian
+    steps:
+      - checkpoint: confirmation_menu_kartuPesertaUjian
+      - action: action_ask_confirmation_kartuPesertaUjian
+      - intent: affirm
+      - slot_was_set:
+          - menu_kartuPesertaUjian_confirmation: true
+      - checkpoint: affirm_menu_kartuPesertaUjian
+
+  - story: confirmation cancel kartuPesertaUjian
+    steps:
+      - checkpoint: confirmation_menu_kartuPesertaUjian
+      - action: action_ask_confirmation_kartuPesertaUjian
+      - intent: deny
+      - slot_was_set:
+          - menu_kartuPesertaUjian_confirmation: false
+      - action: action_deny_kartuPesertaUjian
+      - checkpoint: check_menu_kartuPesertaUjian
+
+  - story: handle after menu kartuPesertaUjian
+    steps:
+      - checkpoint: affirm_menu_kartuPesertaUjian
+      - or:
+          - slot_was_set:
+              - menu_kartuPesertaUjian: "Prosedur Kartu Peserta Ujian"
+          - slot_was_set:
+              - menu_kartuPesertaUjian: "Persyaratan Kartu Peserta Ujian"
+          - slot_was_set:
+              - menu_kartuPesertaUjian: "Transaksi Kartu Peserta Ujian"
+          - slot_was_set:
+              - menu_kartuPesertaUjian: "Hasil Kartu Peserta Ujian"
+          - slot_was_set:
+              - menu_kartuPesertaUjian: "Status Kartu Peserta Ujian"
+      - action: action_answer_kartuPesertaUjian

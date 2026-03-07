@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU KONSELING #
+
+  - story: beginning of flow konseling
+    steps:
+      - intent: konseling_menu
+      - action: utter_ask_menu_konseling
+      - checkpoint: check_menu_konseling
+
+  - story: handle user menu konseling
+    steps:
+      - checkpoint: check_menu_konseling
+      - or:
+          - intent: prosedur_konseling
+          - intent: persyaratan_konseling
+          - intent: transaksi_konseling
+          - intent: hasil_konseling
+          - intent: status_konseling
+      - checkpoint: confirmation_menu_konseling
+
+  - story: confirmation ok konseling
+    steps:
+      - checkpoint: confirmation_menu_konseling
+      - action: action_ask_confirmation_konseling
+      - intent: affirm
+      - slot_was_set:
+          - menu_konseling_confirmation: true
+      - checkpoint: affirm_menu_konseling
+
+  - story: confirmation cancel konseling
+    steps:
+      - checkpoint: confirmation_menu_konseling
+      - action: action_ask_confirmation_konseling
+      - intent: deny
+      - slot_was_set:
+          - menu_konseling_confirmation: false
+      - action: action_deny_konseling
+      - checkpoint: check_menu_konseling
+
+  - story: handle after menu konseling
+    steps:
+      - checkpoint: affirm_menu_konseling
+      - or:
+          - slot_was_set:
+              - menu_konseling: "Prosedur Konseling"
+          - slot_was_set:
+              - menu_konseling: "Persyaratan Konseling"
+          - slot_was_set:
+              - menu_konseling: "Transaksi Konseling"
+          - slot_was_set:
+              - menu_konseling: "Hasil Konseling"
+          - slot_was_set:
+              - menu_konseling: "Status Konseling"
+      - action: action_answer_konseling

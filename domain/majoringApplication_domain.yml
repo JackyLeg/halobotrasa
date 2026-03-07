@@ -1,0 +1,192 @@
+version: '3.1'
+intents:
+- majoringApplication_menu
+- prosedur_majoringApplication
+- persyaratan_majoringApplication
+- transaksi_majoringApplication
+- hasil_majoringApplication
+- status_majoringApplication
+slots:
+  menu_majoringApplication:
+    type: categorical
+    values:
+    - Prosedur Majoring Application
+    - Persyaratan Majoring Application
+    - Transaksi Majoring Application
+    - Hasil Majoring Application
+    mappings:
+    - type: custom
+    influence_conversation: false
+  menu_majoringApplication_confirmation:
+    type: bool
+    mappings:
+    - type: custom
+    influence_conversation: false
+responses:
+  utter_ask_menu_majoringApplication:
+  - text: 'Please select one of the following majoring application options:'
+    buttons:
+    - title: Prosedur Majoring Application
+      payload: /prosedur_majoringApplication
+    - title: Persyaratan Majoring Application
+      payload: /persyaratan_majoringApplication
+    - title: Transaksi Majoring Application
+      payload: /transaksi_majoringApplication
+    - title: Hasil Majoring Application
+      payload: /hasil_majoringApplication
+  utter_ask_menu_majoringApplication_confirmation:
+  - text: 'You have selected the option: {menu_majoringApplication}. Is that correct?'
+    buttons:
+    - title: 'Yes'
+      payload: /affirm
+    - title: 'No'
+      payload: /deny
+  utter_menu_majoringApplication_cancelled:
+  - text: Okay, let's try again. Please select one of the majoring application options.
+  utter_menu_majoringApplication_ok:
+  - text: 'You have successfully selected the majoring application option: {menu_majoringApplication}.'
+  utter_answer_prosedur_majoringApplication:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PROSEDUR MAJORING APPLICATION (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PROSEDUR MAJORING APPLICATION (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PROSEDUR MAJORING APPLICATION (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PROSEDUR MAJORING APPLICATION (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PROSEDUR MAJORING APPLICATION (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PROSEDUR MAJORING APPLICATION (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PROSEDUR MAJORING APPLICATION (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PROSEDUR MAJORING APPLICATION (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PROSEDUR MAJORING APPLICATION (FSRD)
+
+      '
+  - text: 'PROSEDUR MAJORING APPLICATION
+
+      '
+  utter_answer_persyaratan_majoringApplication:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PERSYARATAN MAJORING APPLICATION (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PERSYARATAN MAJORING APPLICATION (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PERSYARATAN MAJORING APPLICATION (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PERSYARATAN MAJORING APPLICATION (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PERSYARATAN MAJORING APPLICATION (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PERSYARATAN MAJORING APPLICATION (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PERSYARATAN MAJORING APPLICATION (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PERSYARATAN MAJORING APPLICATION (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PERSYARATAN MAJORING APPLICATION (FSRD)
+
+      '
+  - text: 'PERSYARATAN MAJORING APPLICATION
+
+      '
+  utter_answer_transaksi_majoringApplication:
+  - text: Silakan lengkapi data pengajuan majoring application dan ajukan permohonan
+      majoring application.
+  utter_answer_hasil_majoringApplication:
+  - text: Pengajuan majoring application kamu telah diproses.
+  utter_answer_error_majoringApplication:
+  - text: Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia.
+actions:
+- action_answer_majoringApplication
+- action_ask_confirmation_majoringApplication
+- action_deny_majoringApplication

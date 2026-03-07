@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU PEMBAYARAN #
+
+  - story: beginning of flow pembayaran
+    steps:
+      - intent: pembayaran_menu
+      - action: utter_ask_menu_pembayaran
+      - checkpoint: check_menu_pembayaran
+
+  - story: handle user menu pembayaran
+    steps:
+      - checkpoint: check_menu_pembayaran
+      - or:
+          - intent: prosedur_pembayaran
+          - intent: persyaratan_pembayaran
+          - intent: transaksi_pembayaran
+          - intent: hasil_pembayaran
+          - intent: status_pembayaran
+      - checkpoint: confirmation_menu_pembayaran
+
+  - story: confirmation ok pembayaran
+    steps:
+      - checkpoint: confirmation_menu_pembayaran
+      - action: action_ask_confirmation_pembayaran
+      - intent: affirm
+      - slot_was_set:
+          - menu_pembayaran_confirmation: true
+      - checkpoint: affirm_menu_pembayaran
+
+  - story: confirmation cancel pembayaran
+    steps:
+      - checkpoint: confirmation_menu_pembayaran
+      - action: action_ask_confirmation_pembayaran
+      - intent: deny
+      - slot_was_set:
+          - menu_pembayaran_confirmation: false
+      - action: action_deny_pembayaran
+      - checkpoint: check_menu_pembayaran
+
+  - story: handle after menu pembayaran
+    steps:
+      - checkpoint: affirm_menu_pembayaran
+      - or:
+          - slot_was_set:
+              - menu_pembayaran: "Prosedur Pembayaran"
+          - slot_was_set:
+              - menu_pembayaran: "Persyaratan Pembayaran"
+          - slot_was_set:
+              - menu_pembayaran: "Transaksi Pembayaran"
+          - slot_was_set:
+              - menu_pembayaran: "Hasil Pembayaran"
+          - slot_was_set:
+              - menu_pembayaran: "Status Pembayaran"
+      - action: action_answer_pembayaran

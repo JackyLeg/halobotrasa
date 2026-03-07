@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU KONVERSI #
+
+  - story: beginning of flow konversi
+    steps:
+      - intent: konversi_menu
+      - action: utter_ask_menu_konversi
+      - checkpoint: check_menu_konversi
+
+  - story: handle user menu konversi
+    steps:
+      - checkpoint: check_menu_konversi
+      - or:
+          - intent: prosedur_konversi
+          - intent: persyaratan_konversi
+          - intent: transaksi_konversi
+          - intent: hasil_konversi
+          - intent: status_konversi
+      - checkpoint: confirmation_menu_konversi
+
+  - story: confirmation ok konversi
+    steps:
+      - checkpoint: confirmation_menu_konversi
+      - action: action_ask_confirmation_konversi
+      - intent: affirm
+      - slot_was_set:
+          - menu_konversi_confirmation: true
+      - checkpoint: affirm_menu_konversi
+
+  - story: confirmation cancel konversi
+    steps:
+      - checkpoint: confirmation_menu_konversi
+      - action: action_ask_confirmation_konversi
+      - intent: deny
+      - slot_was_set:
+          - menu_konversi_confirmation: false
+      - action: action_deny_konversi
+      - checkpoint: check_menu_konversi
+
+  - story: handle after menu konversi
+    steps:
+      - checkpoint: affirm_menu_konversi
+      - or:
+          - slot_was_set:
+              - menu_konversi: "Prosedur Konversi"
+          - slot_was_set:
+              - menu_konversi: "Persyaratan Konversi"
+          - slot_was_set:
+              - menu_konversi: "Transaksi Konversi"
+          - slot_was_set:
+              - menu_konversi: "Hasil Konversi"
+          - slot_was_set:
+              - menu_konversi: "Status Konversi"
+      - action: action_answer_konversi

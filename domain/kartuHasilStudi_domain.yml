@@ -1,0 +1,208 @@
+version: '3.1'
+intents:
+- kartuHasilStudi_menu
+- prosedur_kartuHasilStudi
+- persyaratan_kartuHasilStudi
+- transaksi_kartuHasilStudi
+- hasil_kartuHasilStudi
+- status_kartuHasilStudi
+slots:
+  menu_kartuHasilStudi:
+    type: categorical
+    values:
+    - Prosedur KHS
+    - Persyaratan KHS
+    - Hasil KHS
+    mappings:
+    - type: custom
+    influence_conversation: false
+  menu_kartuHasilStudi_confirmation:
+    type: bool
+    mappings:
+    - type: custom
+    influence_conversation: false
+responses:
+  utter_ask_menu_kartuHasilStudi:
+  - text: 'Please select one of the following kartu hasil studi options:'
+    buttons:
+    - title: Prosedur KHS
+      payload: /prosedur_kartuHasilStudi
+    - title: Persyaratan KHS
+      payload: /persyaratan_kartuHasilStudi
+    - title: Hasil KHS
+      payload: /hasil_kartuHasilStudi
+  utter_ask_menu_kartuHasilStudi_confirmation:
+  - text: 'You have selected the option: {menu_kartuHasilStudi}. Is that correct?'
+    buttons:
+    - title: 'Yes'
+      payload: /affirm
+    - title: 'No'
+      payload: /deny
+  utter_menu_kartuHasilStudi_cancelled:
+  - text: Okay, let's try again. Please select one of the kartu hasil studi options.
+  utter_menu_kartuHasilStudi_ok:
+  - text: 'You have successfully selected the kartu hasil studi option: {menu_kartuHasilStudi}.'
+  utter_answer_prosedur_kartuHasilStudi:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PROSEDUR MENGAKSES KARTU HASIL STUDI (KHS) (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PROSEDUR MENGAKSES KARTU HASIL STUDI (KHS) (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PROSEDUR MENGAKSES KARTU HASIL STUDI (KHS) (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PROSEDUR MENGAKSES KARTU HASIL STUDI (KHS) (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PROSEDUR MENGAKSES KARTU HASIL STUDI (KHS) (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PROSEDUR MENGAKSES KARTU HASIL STUDI (KHS) (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PROSEDUR MENGAKSES KARTU HASIL STUDI (KHS) (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PROSEDUR MENGAKSES KARTU HASIL STUDI (KHS) (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PROSEDUR MENGAKSES KARTU HASIL STUDI (KHS) (FSRD)
+
+      '
+  - text: "PROSEDUR MENGAKSES KARTU HASIL STUDI (KHS)\n  1. Penerbitan: KHS diterbitkan\
+      \ secara resmi oleh Universitas pada setiap akhir semester setelah masa penilaian\
+      \ dosen berakhir.\n  2. Akses Mahasiswa: Anda dapat melihat dan mengunduh KHS\
+      \ secara mandiri melalui portal student.trisakti.ac.id.\n  3. Pemantauan: Dosen\
+      \ Wali Anda juga akan menerima salinan KHS melalui sistem sis.trisakti.ac.id\
+      \ untuk kepentingan evaluasi akademik dan bimbingan semester berikutnya.\n \
+      \ -------\n  4. Melihat Kartu Hasil Studi (KHS) & Transkrip Nilai melalui laman\
+      \ https://student.trisakti.ac.id/:\n    a. Mahasiswa mengakses laman https://student.trisakti.ac.id/\n\
+      \    b. Pilih menu Examination Result, pada menu ini terdapat empat tab yaitu\
+      \ :\n      1) Coursework, dapat dilihat detail atau rincian dari nilai matakuliah\n\
+      \      2) Kartu Hasil Studi, menampilkan nilai yang diperoleh tiap semester\n\
+      \      3) Passed Transcript, menampilkan nilai yang lulus saja\n      4) All\
+      \ Transcript, menampilkan seluruh nilai yang sudah ditempuh. Baik KHS maupun\
+      \ transkrip dapat diunduh dalam format pdf\n      \n"
+  utter_answer_persyaratan_kartuHasilStudi:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PERSYARATAN MENGAKSES KARTU HASIL STUDI (KHS) (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PERSYARATAN MENGAKSES KARTU HASIL STUDI (KHS) (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PERSYARATAN MENGAKSES KARTU HASIL STUDI (KHS) (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PERSYARATAN MENGAKSES KARTU HASIL STUDI (KHS) (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PERSYARATAN MENGAKSES KARTU HASIL STUDI (KHS) (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PERSYARATAN MENGAKSES KARTU HASIL STUDI (KHS) (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PERSYARATAN MENGAKSES KARTU HASIL STUDI (KHS) (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PERSYARATAN MENGAKSES KARTU HASIL STUDI (KHS) (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PERSYARATAN MENGAKSES KARTU HASIL STUDI (KHS) (FSRD)
+
+      '
+  - text: "PERSYARATAN MENGAKSES KARTU HASIL STUDI (KHS)\n  Agar KHS dapat diakses\
+      \ dan diunduh, mahasiswa wajib memenuhi ketentuan berikut:\n  - Penyelesaian\
+      \ KRS: Telah melakukan pengisian KRS secara sah pada awal semester.\n  - Evaluasi\
+      \ Perkuliahan: Mengikuti seluruh rangkaian evaluasi (UTS/UAS) dan memenuhi persyaratan\
+      \ kehadiran minimal yang ditentukan.\n  - Administrasi Keuangan: Pastikan seluruh\
+      \ kewajiban administrasi keuangan semester berjalan telah terselesaikan (sesuai\
+      \ kebijakan Fakultas masing-masing untuk membuka akses nilai).\n  \n  *Catatan:\
+      \ Jika nilai mata kuliah tertentu belum muncul, pastikan Anda telah mengisi\
+      \ kuesioner evaluasi dosen (jika diwajibkan) atau silakan hubungi Sekretariat\
+      \ Program Studi.\n  \n"
+  utter_answer_hasil_kartuHasilStudi:
+  - text: 'Berikut adalah nilai mata kuliah kamu pada semester yang dipilih.
+
+      Kamu juga dapat melihat rekap nilai dalam bentuk Kartu Hasil Studi (KHS).
+
+      '
+  utter_answer_error_kartuHasilStudi:
+  - text: Maaf, menu tidak ditemukan.
+actions:
+- action_answer_kartuHasilStudi
+- action_ask_confirmation_kartuHasilStudi
+- action_deny_kartuHasilStudi

@@ -1,0 +1,32 @@
+version: "3.1"
+
+nlu:
+#MENU_KARTUHASILSTUDI#
+- intent: kartuHasilStudi_menu
+  examples: |
+    - menu khs
+    - saya ingin melihat menu khs
+    - apa saja menu khs yang tersedia
+    - tolong tunjukkan menu khs
+    - khs
+    - mau khs
+
+- intent: prosedur_kartuHasilStudi
+  examples: |
+    - Prosedur KHS
+
+- intent: persyaratan_kartuHasilStudi
+  examples: |
+    - Persyaratan KHS
+
+- intent: transaksi_kartuHasilStudi
+  examples: |
+    - Transaksi KHS
+
+- intent: hasil_kartuHasilStudi
+  examples: |
+    - Hasil KHS
+
+- intent: status_kartuHasilStudi
+  examples: |
+    - Status KHS

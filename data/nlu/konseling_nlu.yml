@@ -1,0 +1,32 @@
+version: "3.1"
+
+nlu:
+#MENU_KONSELING#
+- intent: konseling_menu
+  examples: |
+    - menu konseling
+    - saya ingin melihat menu konseling
+    - apa saja menu konseling yang tersedia
+    - tolong tunjukkan menu konseling
+    - konseling
+    - mau konseling
+
+- intent: prosedur_konseling
+  examples: |
+    - Prosedur Konseling
+
+- intent: persyaratan_konseling
+  examples: |
+    - Persyaratan Konseling
+
+- intent: transaksi_konseling
+  examples: |
+    - Transaksi Konseling
+
+- intent: hasil_konseling
+  examples: |
+    - Hasil Konseling
+
+- intent: status_konseling
+  examples: |
+    - Status Konseling

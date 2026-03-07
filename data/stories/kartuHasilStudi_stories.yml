@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU KHS #
+
+  - story: beginning of flow kartuHasilStudi
+    steps:
+      - intent: kartuHasilStudi_menu
+      - action: utter_ask_menu_kartuHasilStudi
+      - checkpoint: check_menu_kartuHasilStudi
+
+  - story: handle user menu kartuHasilStudi
+    steps:
+      - checkpoint: check_menu_kartuHasilStudi
+      - or:
+          - intent: prosedur_kartuHasilStudi
+          - intent: persyaratan_kartuHasilStudi
+          - intent: transaksi_kartuHasilStudi
+          - intent: hasil_kartuHasilStudi
+          - intent: status_kartuHasilStudi
+      - checkpoint: confirmation_menu_kartuHasilStudi
+
+  - story: confirmation ok kartuHasilStudi
+    steps:
+      - checkpoint: confirmation_menu_kartuHasilStudi
+      - action: action_ask_confirmation_kartuHasilStudi
+      - intent: affirm
+      - slot_was_set:
+          - menu_kartuHasilStudi_confirmation: true
+      - checkpoint: affirm_menu_kartuHasilStudi
+
+  - story: confirmation cancel kartuHasilStudi
+    steps:
+      - checkpoint: confirmation_menu_kartuHasilStudi
+      - action: action_ask_confirmation_kartuHasilStudi
+      - intent: deny
+      - slot_was_set:
+          - menu_kartuHasilStudi_confirmation: false
+      - action: action_deny_kartuHasilStudi
+      - checkpoint: check_menu_kartuHasilStudi
+
+  - story: handle after menu kartuHasilStudi
+    steps:
+      - checkpoint: affirm_menu_kartuHasilStudi
+      - or:
+          - slot_was_set:
+              - menu_kartuHasilStudi: "Prosedur KHS"
+          - slot_was_set:
+              - menu_kartuHasilStudi: "Persyaratan KHS"
+          - slot_was_set:
+              - menu_kartuHasilStudi: "Transaksi KHS"
+          - slot_was_set:
+              - menu_kartuHasilStudi: "Hasil KHS"
+          - slot_was_set:
+              - menu_kartuHasilStudi: "Status KHS"
+      - action: action_answer_kartuHasilStudi

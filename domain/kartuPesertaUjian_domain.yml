@@ -1,0 +1,192 @@
+version: '3.1'
+intents:
+- kartuPesertaUjian_menu
+- prosedur_kartuPesertaUjian
+- persyaratan_kartuPesertaUjian
+- transaksi_kartuPesertaUjian
+- hasil_kartuPesertaUjian
+- status_kartuPesertaUjian
+slots:
+  menu_kartuPesertaUjian:
+    type: categorical
+    values:
+    - Prosedur Kartu Peserta Ujian
+    - Persyaratan Kartu Peserta Ujian
+    - Transaksi Kartu Peserta Ujian
+    - Hasil Kartu Peserta Ujian
+    mappings:
+    - type: custom
+    influence_conversation: false
+  menu_kartuPesertaUjian_confirmation:
+    type: bool
+    mappings:
+    - type: custom
+    influence_conversation: false
+responses:
+  utter_ask_menu_kartuPesertaUjian:
+  - text: 'Please select one of the following kartu peserta ujian options:'
+    buttons:
+    - title: Prosedur Kartu Peserta Ujian
+      payload: /prosedur_kartuPesertaUjian
+    - title: Persyaratan Kartu Peserta Ujian
+      payload: /persyaratan_kartuPesertaUjian
+    - title: Transaksi Kartu Peserta Ujian
+      payload: /transaksi_kartuPesertaUjian
+    - title: Hasil Kartu Peserta Ujian
+      payload: /hasil_kartuPesertaUjian
+  utter_ask_menu_kartuPesertaUjian_confirmation:
+  - text: 'You have selected the option: {menu_kartuPesertaUjian}. Is that correct?'
+    buttons:
+    - title: 'Yes'
+      payload: /affirm
+    - title: 'No'
+      payload: /deny
+  utter_menu_kartuPesertaUjian_cancelled:
+  - text: Okay, let's try again. Please select one of the kartu peserta ujian options.
+  utter_menu_kartuPesertaUjian_ok:
+  - text: 'You have successfully selected the kartu peserta ujian option: {menu_kartuPesertaUjian}.'
+  utter_answer_prosedur_kartuPesertaUjian:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PROSEDUR KPU (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PROSEDUR KPU (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PROSEDUR KPU (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PROSEDUR KPU (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PROSEDUR KPU (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PROSEDUR KPU (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PROSEDUR KPU (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PROSEDUR KPU (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PROSEDUR KPU (FSRD)
+
+      '
+  - text: 'PROSEDUR KPU
+
+      '
+  utter_answer_persyaratan_kartuPesertaUjian:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PERSYARATAN KPU (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PERSYARATAN KPU (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PERSYARATAN KPU (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PERSYARATAN KPU (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PERSYARATAN KPU (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PERSYARATAN KPU (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PERSYARATAN KPU (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PERSYARATAN KPU (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PERSYARATAN KPU (FSRD)
+
+      '
+  - text: 'PERSYARATAN KPU
+
+      '
+  utter_answer_transaksi_kartuPesertaUjian:
+  - text: Silakan lengkapi data pengajuan kartu peserta ujian dan ajukan permohonan
+      kartu peserta ujian.
+  utter_answer_hasil_kartuPesertaUjian:
+  - text: Pengajuan kartu peserta ujian kamu telah diproses.
+  utter_answer_error_kartuPesertaUjian:
+  - text: Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia.
+actions:
+- action_answer_kartuPesertaUjian
+- action_ask_confirmation_kartuPesertaUjian
+- action_deny_kartuPesertaUjian

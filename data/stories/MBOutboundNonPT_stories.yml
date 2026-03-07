@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU MBOUTBOUNDNONPT #
+
+  - story: beginning of flow MBOutboundNonPT
+    steps:
+      - intent: MBOutboundNonPT_menu
+      - action: utter_ask_menu_MBOutboundNonPT
+      - checkpoint: check_menu_MBOutboundNonPT
+
+  - story: handle user menu MBOutboundNonPT
+    steps:
+      - checkpoint: check_menu_MBOutboundNonPT
+      - or:
+          - intent: prosedur_MBOutboundNonPT
+          - intent: persyaratan_MBOutboundNonPT
+          - intent: transaksi_MBOutboundNonPT
+          - intent: hasil_MBOutboundNonPT
+          - intent: status_MBOutboundNonPT
+      - checkpoint: confirmation_menu_MBOutboundNonPT
+
+  - story: confirmation ok MBOutboundNonPT
+    steps:
+      - checkpoint: confirmation_menu_MBOutboundNonPT
+      - action: action_ask_confirmation_MBOutboundNonPT
+      - intent: affirm
+      - slot_was_set:
+          - menu_MBOutboundNonPT_confirmation: true
+      - checkpoint: affirm_menu_MBOutboundNonPT
+
+  - story: confirmation cancel MBOutboundNonPT
+    steps:
+      - checkpoint: confirmation_menu_MBOutboundNonPT
+      - action: action_ask_confirmation_MBOutboundNonPT
+      - intent: deny
+      - slot_was_set:
+          - menu_MBOutboundNonPT_confirmation: false
+      - action: action_deny_MBOutboundNonPT
+      - checkpoint: check_menu_MBOutboundNonPT
+
+  - story: handle after menu MBOutboundNonPT
+    steps:
+      - checkpoint: affirm_menu_MBOutboundNonPT
+      - or:
+          - slot_was_set:
+              - menu_MBOutboundNonPT: "Prosedur MBOutboundNonPT"
+          - slot_was_set:
+              - menu_MBOutboundNonPT: "Persyaratan MBOutboundNonPT"
+          - slot_was_set:
+              - menu_MBOutboundNonPT: "Transaksi MBOutboundNonPT"
+          - slot_was_set:
+              - menu_MBOutboundNonPT: "Hasil MBOutboundNonPT"
+          - slot_was_set:
+              - menu_MBOutboundNonPT: "Status MBOutboundNonPT"
+      - action: action_answer_MBOutboundNonPT

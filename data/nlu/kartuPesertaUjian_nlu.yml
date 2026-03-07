@@ -1,0 +1,32 @@
+version: "3.1"
+
+nlu:
+#MENU_KARTUPESERTAUJIAN#
+- intent: kartuPesertaUjian_menu
+  examples: |
+    - menu kartu peserta ujian
+    - saya ingin melihat menu kartu peserta ujian
+    - apa saja menu kartu peserta ujian yang tersedia
+    - tolong tunjukkan menu kartu peserta ujian
+    - kartu peserta ujian
+    - mau kartu peserta ujian
+
+- intent: prosedur_kartuPesertaUjian
+  examples: |
+    - Prosedur Kartu Peserta Ujian
+
+- intent: persyaratan_kartuPesertaUjian
+  examples: |
+    - Persyaratan Kartu Peserta Ujian
+
+- intent: transaksi_kartuPesertaUjian
+  examples: |
+    - Transaksi Kartu Peserta Ujian
+
+- intent: hasil_kartuPesertaUjian
+  examples: |
+    - Hasil Kartu Peserta Ujian
+
+- intent: status_kartuPesertaUjian
+  examples: |
+    - Status Kartu Peserta Ujian

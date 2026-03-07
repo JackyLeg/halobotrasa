@@ -1,0 +1,32 @@
+version: "3.1"
+
+nlu:
+#MENU_SKPI#
+- intent: skpi_menu
+  examples: |
+    - menu skpi
+    - saya ingin melihat menu skpi
+    - apa saja menu skpi yang tersedia
+    - tolong tunjukkan menu skpi
+    - skpi
+    - mau skpi
+
+- intent: prosedur_skpi
+  examples: |
+    - Prosedur SKPI
+
+- intent: persyaratan_skpi
+  examples: |
+    - Persyaratan SKPI
+
+- intent: transaksi_skpi
+  examples: |
+    - Transaksi SKPI
+
+- intent: hasil_skpi
+  examples: |
+    - Hasil SKPI
+
+- intent: status_skpi
+  examples: |
+    - Status SKPI

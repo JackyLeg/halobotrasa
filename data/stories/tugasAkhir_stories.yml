@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU TUGAS AKHIR #
+
+  - story: beginning of flow tugasAkhir
+    steps:
+      - intent: tugasAkhir_menu
+      - action: utter_ask_menu_tugasAkhir
+      - checkpoint: check_menu_tugasAkhir
+
+  - story: handle user menu tugasAkhir
+    steps:
+      - checkpoint: check_menu_tugasAkhir
+      - or:
+          - intent: prosedur_tugasAkhir
+          - intent: persyaratan_tugasAkhir
+          - intent: transaksi_tugasAkhir
+          - intent: hasil_tugasAkhir
+          - intent: status_tugasAkhir
+      - checkpoint: confirmation_menu_tugasAkhir
+
+  - story: confirmation ok tugasAkhir
+    steps:
+      - checkpoint: confirmation_menu_tugasAkhir
+      - action: action_ask_confirmation_tugasAkhir
+      - intent: affirm
+      - slot_was_set:
+          - menu_tugasAkhir_confirmation: true
+      - checkpoint: affirm_menu_tugasAkhir
+
+  - story: confirmation cancel tugasAkhir
+    steps:
+      - checkpoint: confirmation_menu_tugasAkhir
+      - action: action_ask_confirmation_tugasAkhir
+      - intent: deny
+      - slot_was_set:
+          - menu_tugasAkhir_confirmation: false
+      - action: action_deny_tugasAkhir
+      - checkpoint: check_menu_tugasAkhir
+
+  - story: handle after menu tugasAkhir
+    steps:
+      - checkpoint: affirm_menu_tugasAkhir
+      - or:
+          - slot_was_set:
+              - menu_tugasAkhir: "Prosedur Tugas Akhir"
+          - slot_was_set:
+              - menu_tugasAkhir: "Persyaratan Tugas Akhir"
+          - slot_was_set:
+              - menu_tugasAkhir: "Transaksi Tugas Akhir"
+          - slot_was_set:
+              - menu_tugasAkhir: "Hasil Tugas Akhir"
+          - slot_was_set:
+              - menu_tugasAkhir: "Status Tugas Akhir"
+      - action: action_answer_tugasAkhir

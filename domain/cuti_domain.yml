@@ -59,9 +59,9 @@ responses:
     - text: "Anda telah memilih opsi: {menu_cuti}. Apakah itu benar?"
       buttons:
         - title: "Ya"
-          payload: "Ya, itu benar"
+          payload: "/affirm"
         - title: "Tidak"
-          payload: "Tidak, saya ingin mengubahnya"
+          payload: "/deny"
 
   utter_menu_cuti_cancelled:
     - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi cuti."

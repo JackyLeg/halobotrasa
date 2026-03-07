@@ -1,0 +1,205 @@
+version: '3.1'
+intents:
+- graduationProcess_menu
+- prosedur_graduationProcess
+- persyaratan_graduationProcess
+- transaksi_graduationProcess
+- hasil_graduationProcess
+- status_graduationProcess
+slots:
+  menu_graduationProcess:
+    type: categorical
+    values:
+    - Prosedur Graduation Process
+    - Persyaratan Graduation Process
+    - Transaksi Graduation Process
+    - Hasil Graduation Process
+    mappings:
+    - type: custom
+    influence_conversation: false
+  menu_graduationProcess_confirmation:
+    type: bool
+    mappings:
+    - type: custom
+    influence_conversation: false
+responses:
+  utter_ask_menu_graduationProcess:
+  - text: 'Please select one of the following graduation process options:'
+    buttons:
+    - title: Prosedur Graduation Process
+      payload: /prosedur_graduationProcess
+    - title: Persyaratan Graduation Process
+      payload: /persyaratan_graduationProcess
+    - title: Transaksi Graduation Process
+      payload: /transaksi_graduationProcess
+    - title: Hasil Graduation Process
+      payload: /hasil_graduationProcess
+  utter_ask_menu_graduationProcess_confirmation:
+  - text: 'You have selected the option: {menu_graduationProcess}. Is that correct?'
+    buttons:
+    - title: 'Yes'
+      payload: /affirm
+    - title: 'No'
+      payload: /deny
+  utter_menu_graduationProcess_cancelled:
+  - text: Okay, let's try again. Please select one of the graduation process options.
+  utter_menu_graduationProcess_ok:
+  - text: 'You have successfully selected the graduation process option: {menu_graduationProcess}.'
+  utter_answer_prosedur_graduationProcess:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PROSEDUR GRADUATION PROCESS (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PROSEDUR GRADUATION PROCESS (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PROSEDUR GRADUATION PROCESS (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PROSEDUR GRADUATION PROCESS (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PROSEDUR GRADUATION PROCESS (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PROSEDUR GRADUATION PROCESS (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PROSEDUR GRADUATION PROCESS (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PROSEDUR GRADUATION PROCESS (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PROSEDUR GRADUATION PROCESS (FSRD)
+
+      '
+  - text: 'PROSEDUR GRADUATION PROCESS
+
+      '
+  utter_answer_persyaratan_graduationProcess:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PERSYARATAN GRADUATION PROCESS (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PERSYARATAN GRADUATION PROCESS (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PERSYARATAN GRADUATION PROCESS (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PERSYARATAN GRADUATION PROCESS (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PERSYARATAN GRADUATION PROCESS (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PERSYARATAN GRADUATION PROCESS (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PERSYARATAN GRADUATION PROCESS (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PERSYARATAN GRADUATION PROCESS (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PERSYARATAN GRADUATION PROCESS (FSRD)
+
+      '
+  - text: "PERSYARATAN GRADUATION PROCESS\n1. Syarat Umum\n  - Masa Studi: Telah mengikuti\
+      \ kegiatan akademik minimal 2 semester.\n      Durasi Maksimal: Program D4,\
+      \ S1, dan S3: Maksimal 4 semester.\n  - Program D3, Profesi, dan S2: Maksimal\
+      \ 2 semester.\n  - Ketentuan Pengambilan: Cuti dapat diambil per semester atau\
+      \ maksimal 2 semester berturut-turut.\n2. Kelengkapan Dokumen (Cuti Terencana)\n\
+      \  Mahasiswa wajib menyerahkan Surat Permohonan Cuti kepada Dekan yang ditandatangani\
+      \ oleh mahasiswa dan orang tua/wali, berisi:\n  - Data diri lengkap (Nama, NIM,\
+      \ Alamat, Fakultas/Jurusan).\n  - Alasan pengajuan cuti yang jelas.\n  - Periode\
+      \ waktu cuti (semester mulai dan berakhir).\n3. Syarat Khusus (Berdasarkan Kondisi)\n\
+      \  - Karena Sakit: Melampirkan Surat Keterangan Rawat Inap (minimal sakit 1\
+      \ bulan atau setara 4 kali tatap muka berturut-turut).\n  - Bela/Tugas Negara\
+      \ & Universitas: Melampirkan Surat Tugas dari Wakil Rektor Bidang Kemahasiswaan.\n\
+      \  - Cuti Tidak Terencana: Untuk aktif kembali, mahasiswa wajib melampirkan\
+      \ Laporan Kronologis Kejadian yang ditandatangani orang tua/wali dan Dosen Wali,\
+      \ serta menyelesaikan seluruh kewajiban administrasi keuangan.\n\n*Catatan:\
+      \ Pastikan seluruh kewajiban administrasi keuangan pada semester sebelumnya\
+      \ telah lunas sebelum mengajukan permohonan.\n"
+  utter_answer_transaksi_graduationProcess:
+  - text: Silakan lengkapi data pengajuan proses kelulusan dan ajukan permohonan kelulusan.
+  utter_answer_hasil_graduationProcess:
+  - text: Pengajuan proses kelulusan kamu telah diproses.
+  utter_answer_error_graduationProcess:
+  - text: Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia.
+actions:
+- action_answer_graduationProcess
+- action_ask_confirmation_graduationProcess
+- action_deny_graduationProcess

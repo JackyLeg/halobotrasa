@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU SKPM FK #
+
+  - story: beginning of flow skpmFK
+    steps:
+      - intent: skpmFK_menu
+      - action: utter_ask_menu_skpmFK
+      - checkpoint: check_menu_skpmFK
+
+  - story: handle user menu skpmFK
+    steps:
+      - checkpoint: check_menu_skpmFK
+      - or:
+          - intent: prosedur_skpmFK
+          - intent: persyaratan_skpmFK
+          - intent: transaksi_skpmFK
+          - intent: hasil_skpmFK
+          - intent: status_skpmFK
+      - checkpoint: confirmation_menu_skpmFK
+
+  - story: confirmation ok skpmFK
+    steps:
+      - checkpoint: confirmation_menu_skpmFK
+      - action: action_ask_confirmation_skpmFK
+      - intent: affirm
+      - slot_was_set:
+          - menu_skpmFK_confirmation: true
+      - checkpoint: affirm_menu_skpmFK
+
+  - story: confirmation cancel skpmFK
+    steps:
+      - checkpoint: confirmation_menu_skpmFK
+      - action: action_ask_confirmation_skpmFK
+      - intent: deny
+      - slot_was_set:
+          - menu_skpmFK_confirmation: false
+      - action: action_deny_skpmFK
+      - checkpoint: check_menu_skpmFK
+
+  - story: handle after menu skpmFK
+    steps:
+      - checkpoint: affirm_menu_skpmFK
+      - or:
+          - slot_was_set:
+              - menu_skpmFK: "Prosedur SKPM FK"
+          - slot_was_set:
+              - menu_skpmFK: "Persyaratan SKPM FK"
+          - slot_was_set:
+              - menu_skpmFK: "Transaksi SKPM FK"
+          - slot_was_set:
+              - menu_skpmFK: "Hasil SKPM FK"
+          - slot_was_set:
+              - menu_skpmFK: "Status SKPM FK"
+      - action: action_answer_skpmFK

@@ -1,0 +1,32 @@
+version: "3.1"
+
+nlu:
+#MENU_KONVERSI#
+- intent: konversi_menu
+  examples: |
+    - menu konversi
+    - saya ingin melihat menu konversi
+    - apa saja menu konversi yang tersedia
+    - tolong tunjukkan menu konversi
+    - konversi
+    - mau konversi
+
+- intent: prosedur_konversi
+  examples: |
+    - Prosedur Konversi
+
+- intent: persyaratan_konversi
+  examples: |
+    - Persyaratan Konversi
+
+- intent: transaksi_konversi
+  examples: |
+    - Transaksi Konversi
+
+- intent: hasil_konversi
+  examples: |
+    - Hasil Konversi
+
+- intent: status_konversi
+  examples: |
+    - Status Konversi

@@ -1,0 +1,238 @@
+version: '3.1'
+intents:
+- kartuRencanaStudi_menu
+- prosedur_kartuRencanaStudi
+- persyaratan_kartuRencanaStudi
+- transaksi_kartuRencanaStudi
+- hasil_kartuRencanaStudi
+- status_kartuRencanaStudi
+slots:
+  menu_kartuRencanaStudi:
+    type: categorical
+    values:
+    - Prosedur KRS
+    - Persyaratan KRS
+    - Transaksi KRS
+    - Hasil KRS
+    mappings:
+    - type: custom
+    influence_conversation: false
+  menu_kartuRencanaStudi_confirmation:
+    type: bool
+    mappings:
+    - type: custom
+    influence_conversation: false
+responses:
+  utter_ask_menu_kartuRencanaStudi:
+  - text: 'Please select one of the following kartu rencana studi options:'
+    buttons:
+    - title: Prosedur KRS
+      payload: /prosedur_kartuRencanaStudi
+    - title: Persyaratan KRS
+      payload: /persyaratan_kartuRencanaStudi
+    - title: Transaksi KRS
+      payload: /transaksi_kartuRencanaStudi
+    - title: Hasil KRS
+      payload: /hasil_kartuRencanaStudi
+  utter_ask_menu_kartuRencanaStudi_confirmation:
+  - text: 'You have selected the option: {menu_kartuRencanaStudi}. Is that correct?'
+    buttons:
+    - title: 'Yes'
+      payload: /affirm
+    - title: 'No'
+      payload: /deny
+  utter_menu_kartuRencanaStudi_cancelled:
+  - text: Okay, let's try again. Please select one of the kartu rencana studi options.
+  utter_menu_kartuRencanaStudi_ok:
+  - text: 'You have successfully selected the kartu rencana studi option: {menu_kartuRencanaStudi}.'
+  utter_answer_prosedur_kartuRencanaStudi:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PROSEDUR KRS (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PROSEDUR KRS (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PROSEDUR KRS (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PROSEDUR KRS (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PROSEDUR KRS (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PROSEDUR KRS (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PROSEDUR KRS (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PROSEDUR KRS (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PROSEDUR KRS (FSRD)
+
+      '
+  - text: "PROSEDUR PENGISIAN KARTU RENCANA STUDI (KRS):\nKRS wajib diisi oleh mahasiswa\
+      \ setiap awal semester melalui portal student.trisakti.ac.id untuk mendapatkan\
+      \ hak mengikuti kegiatan akademik. Berikut adalah langkah-langkahnya:\n  1.\
+      \ Tahap Pra-KRS (Registrasi Administrasi)\n    Sebelum mengisi KRS, Anda wajib\
+      \ menyelesaikan registrasi administrasi:\n    - Mahasiswa Lama: Melakukan pembayaran\
+      \ Biaya Penyelenggaraan Pendidikan (BPP) Pokok dan memenuhi persyaratan lain\
+      \ yang ditetapkan Fakultas.\n    - Mahasiswa Baru: KRS Semester 1 akan terisi\
+      \ secara otomatis (paket) setelah memperoleh NIM, kecuali bagi mahasiswa jalur\
+      \ Pindahan/RPL.\n  2. Tahap Pengisian KRS (Registrasi Akademik)\n    Setelah\
+      \ status administrasi aktif, ikuti alur berikut:\n    - Konsultasi: Menghubungi\
+      \ Dosen Wali untuk merencanakan mata kuliah yang akan diambil.\n    - Persetujuan\
+      \ Awal: Dosen Wali memberikan izin akses pengisian KRS.\n    - Input Data: Mahasiswa\
+      \ mengisi KRS secara mandiri pada Sistem Informasi Akademik sesuai jadwal kalender\
+      \ akademik.\n    - Validasi Akhir: Dosen Wali memberikan persetujuan (approve)\
+      \ KRS paling lambat pada hari terakhir masa pengisian.\n  3. Perubahan KRS (Batal\
+      \ Tambah)\n    Jika terdapat perubahan mata kuliah, prosedur Batal Tambah wajib\
+      \ diselesaikan paling lambat 7 hari kerja setelah masa pengisian KRS dimulai.\n\
+      \  *Catatan: Pastikan Anda memantau jadwal pada Kalender Akademik agar tidak\
+      \ melewati batas waktu pengisian, karena keterlambatan dapat berakibat pada\
+      \ status akademik non-aktif.\n\n\nPROSEDUR PENGISIAN KRS MELALUI LAMAN https://student.trisakti.ac.id/\n\
+      \  a. Mahasiswa mengakses laman https://student.trisakti.ac.id/\n  b. Klik menu\
+      \ Register Course untuk mengisi Kartu Rencana Studi.\n  c. Pilih Semester dan\
+      \ tahun akademik yang akan ditempuh, ada 2 jenis pengisian KRS yaitu:\n    1)\
+      \ KRS Reguler, pilih semester dan tahun akademik dengan kode (R)\n    2) KRS\
+      \ Remedial semester berjalan, pilih semester dan tahun akademik dengan kode\
+      \ (Rmd)\nCatatan :\n  a. Sebelum mengisi KRS mahasiswa wajib melakukan proses\
+      \ perwalian\n  b. Mahasiswa baru bisa mengisi KRS setelah Dosen Pembimbing Akademik/Dosen\
+      \ Wali merespon permintaan perwalian.\n"
+  utter_answer_persyaratan_kartuRencanaStudi:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PERSYARATAN KRS (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PERSYARATAN KRS (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PERSYARATAN KRS (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PERSYARATAN KRS (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PERSYARATAN KRS (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PERSYARATAN KRS (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PERSYARATAN KRS (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PERSYARATAN KRS (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PERSYARATAN KRS (FSRD)
+
+      '
+  - text: "PERSYARATAN PENGISIAN KARTU RENCANA STUDI (KRS):\nUntuk dapat melakukan\
+      \ pengisian Kartu Rencana Studi (KRS), mahasiswa wajib memenuhi persyaratan\
+      \ administratif dan akademik sebagai berikut:\n1. Status Registrasi Administrasi\n\
+      \  - Pembayaran BPP: Telah melunasi Biaya Penyelenggaraan Pendidikan (BPP) Pokok\
+      \ untuk semester berjalan.\n  - Status Aktif: Terdaftar secara resmi di sistem\
+      \ informasi universitas sebagai mahasiswa aktif.\n  - Persyaratan Khusus: Memenuhi\
+      \ kewajiban administratif tambahan yang ditentukan oleh masing-masing Fakultas\
+      \ (jika ada).\n2. Ketentuan Akademik\n  - Konsultasi Dosen Wali: Wajib melakukan\
+      \ konsultasi rencana studi dengan Dosen Wali untuk menentukan beban SKS dan\
+      \ mata kuliah yang akan diambil.\n  - Persetujuan (Approval): Mendapatkan izin/persetujuan\
+      \ dari Dosen Wali melalui Sistem Informasi Akademik untuk membuka akses pengisian.\n\
+      \  - Jadwal Kalender Akademik: Pengisian hanya dapat dilakukan dalam periode\
+      \ yang telah ditetapkan dalam Kalender Akademik Universitas Trisakti.\n3. Ketentuan\
+      \ Khusus Mahasiswa Baru\n  - Mahasiswa baru jalur reguler tidak perlu melakukan\
+      \ pengisian mandiri pada semester pertama, karena KRS akan terisi secara otomatis\
+      \ dengan paket perkuliahan semester I.\n  - Mahasiswa jalur Pindahan, Transfer\
+      \ Kredit, atau RPL tetap wajib mengikuti prosedur pengisian mandiri.\n\n*Catatan:\
+      \ Pastikan Anda telah menyelesaikan pembayaran BPP tepat waktu agar sinkronisasi\
+      \ status pada portal student.trisakti.ac.id tidak terhambat.\n"
+  utter_answer_transaksi_kartuRencanaStudi:
+  - id: transaksi_krs
+    text: 'Silakan pilih mata kuliah yang akan kamu ambil pada semester ini.
+
+      Setelah selesai, ajukan KRS untuk diproses oleh Dosen Pembimbing Akademik. (Tombol
+      Pengisian KRS)
+
+      '
+  utter_answer_hasil_kartuRencanaStudi:
+  - text: Pengajuan KRS kamu sudah diproses.
+  utter_answer_error_kartuRencanaStudi:
+  - text: Maaf, menu tidak ditemukan.
+actions:
+- action_answer_kartuRencanaStudi
+- action_ask_confirmation_kartuRencanaStudi
+- action_deny_kartuRencanaStudi

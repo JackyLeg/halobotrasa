@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU MAJORING APPLICATION #
+
+  - story: beginning of flow majoringApplication
+    steps:
+      - intent: majoringApplication_menu
+      - action: utter_ask_menu_majoringApplication
+      - checkpoint: check_menu_majoringApplication
+
+  - story: handle user menu majoringApplication
+    steps:
+      - checkpoint: check_menu_majoringApplication
+      - or:
+          - intent: prosedur_majoringApplication
+          - intent: persyaratan_majoringApplication
+          - intent: transaksi_majoringApplication
+          - intent: hasil_majoringApplication
+          - intent: status_majoringApplication
+      - checkpoint: confirmation_menu_majoringApplication
+
+  - story: confirmation ok majoringApplication
+    steps:
+      - checkpoint: confirmation_menu_majoringApplication
+      - action: action_ask_confirmation_majoringApplication
+      - intent: affirm
+      - slot_was_set:
+          - menu_majoringApplication_confirmation: true
+      - checkpoint: affirm_menu_majoringApplication
+
+  - story: confirmation cancel majoringApplication
+    steps:
+      - checkpoint: confirmation_menu_majoringApplication
+      - action: action_ask_confirmation_majoringApplication
+      - intent: deny
+      - slot_was_set:
+          - menu_majoringApplication_confirmation: false
+      - action: action_deny_majoringApplication
+      - checkpoint: check_menu_majoringApplication
+
+  - story: handle after menu majoringApplication
+    steps:
+      - checkpoint: affirm_menu_majoringApplication
+      - or:
+          - slot_was_set:
+              - menu_majoringApplication: "Prosedur Majoring Application"
+          - slot_was_set:
+              - menu_majoringApplication: "Persyaratan Majoring Application"
+          - slot_was_set:
+              - menu_majoringApplication: "Transaksi Majoring Application"
+          - slot_was_set:
+              - menu_majoringApplication: "Hasil Majoring Application"
+          - slot_was_set:
+              - menu_majoringApplication: "Status Majoring Application"
+      - action: action_answer_majoringApplication

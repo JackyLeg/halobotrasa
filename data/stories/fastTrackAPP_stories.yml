@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU FASTTRACKAPP #
+
+  - story: beginning of flow fastTrackAPP
+    steps:
+      - intent: fastTrackAPP_menu
+      - action: utter_ask_menu_fastTrackAPP
+      - checkpoint: check_menu_fastTrackAPP
+
+  - story: handle user menu fastTrackAPP
+    steps:
+      - checkpoint: check_menu_fastTrackAPP
+      - or:
+          - intent: prosedur_fastTrackAPP
+          - intent: persyaratan_fastTrackAPP
+          - intent: transaksi_fastTrackAPP
+          - intent: hasil_fastTrackAPP
+          - intent: status_fastTrackAPP
+      - checkpoint: confirmation_menu_fastTrackAPP
+
+  - story: confirmation ok fastTrackAPP
+    steps:
+      - checkpoint: confirmation_menu_fastTrackAPP
+      - action: action_ask_confirmation_fastTrackAPP
+      - intent: affirm
+      - slot_was_set:
+          - menu_fastTrackAPP_confirmation: true
+      - checkpoint: affirm_menu_fastTrackAPP
+
+  - story: confirmation cancel fastTrackAPP
+    steps:
+      - checkpoint: confirmation_menu_fastTrackAPP
+      - action: action_ask_confirmation_fastTrackAPP
+      - intent: deny
+      - slot_was_set:
+          - menu_fastTrackAPP_confirmation: false
+      - action: action_deny_fastTrackAPP
+      - checkpoint: check_menu_fastTrackAPP
+
+  - story: handle after menu fastTrackAPP
+    steps:
+      - checkpoint: affirm_menu_fastTrackAPP
+      - or:
+          - slot_was_set:
+              - menu_fastTrackAPP: "Prosedur FastTrackApp"
+          - slot_was_set:
+              - menu_fastTrackAPP: "Persyaratan FastTrackApp"
+          - slot_was_set:
+              - menu_fastTrackAPP: "Transaksi FastTrackApp"
+          - slot_was_set:
+              - menu_fastTrackAPP: "Hasil FastTrackApp"
+          - slot_was_set:
+              - menu_fastTrackAPP: "Status FastTrackApp"
+      - action: action_answer_fastTrackAPP

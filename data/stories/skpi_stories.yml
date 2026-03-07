@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU SKPI #
+
+  - story: beginning of flow skpi
+    steps:
+      - intent: skpi_menu
+      - action: utter_ask_menu_skpi
+      - checkpoint: check_menu_skpi
+
+  - story: handle user menu skpi
+    steps:
+      - checkpoint: check_menu_skpi
+      - or:
+          - intent: prosedur_skpi
+          - intent: persyaratan_skpi
+          - intent: transaksi_skpi
+          - intent: hasil_skpi
+          - intent: status_skpi
+      - checkpoint: confirmation_menu_skpi
+
+  - story: confirmation ok skpi
+    steps:
+      - checkpoint: confirmation_menu_skpi
+      - action: action_ask_confirmation_skpi
+      - intent: affirm
+      - slot_was_set:
+          - menu_skpi_confirmation: true
+      - checkpoint: affirm_menu_skpi
+
+  - story: confirmation cancel skpi
+    steps:
+      - checkpoint: confirmation_menu_skpi
+      - action: action_ask_confirmation_skpi
+      - intent: deny
+      - slot_was_set:
+          - menu_skpi_confirmation: false
+      - action: action_deny_skpi
+      - checkpoint: check_menu_skpi
+
+  - story: handle after menu skpi
+    steps:
+      - checkpoint: affirm_menu_skpi
+      - or:
+          - slot_was_set:
+              - menu_skpi: "Prosedur SKPI"
+          - slot_was_set:
+              - menu_skpi: "Persyaratan SKPI"
+          - slot_was_set:
+              - menu_skpi: "Transaksi SKPI"
+          - slot_was_set:
+              - menu_skpi: "Hasil SKPI"
+          - slot_was_set:
+              - menu_skpi: "Status SKPI"
+      - action: action_answer_skpi

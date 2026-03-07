@@ -1,0 +1,191 @@
+version: '3.1'
+intents:
+- konseling_menu
+- prosedur_konseling
+- persyaratan_konseling
+- transaksi_konseling
+- hasil_konseling
+- status_konseling
+slots:
+  menu_konseling:
+    type: categorical
+    values:
+    - Prosedur Konseling
+    - Persyaratan Konseling
+    - Transaksi Konseling
+    - Hasil Konseling
+    mappings:
+    - type: custom
+    influence_conversation: false
+  menu_konseling_confirmation:
+    type: bool
+    mappings:
+    - type: custom
+    influence_conversation: false
+responses:
+  utter_ask_menu_konseling:
+  - text: 'Please select one of the following konseling options:'
+    buttons:
+    - title: Prosedur Konseling
+      payload: /prosedur_konseling
+    - title: Persyaratan Konseling
+      payload: /persyaratan_konseling
+    - title: Transaksi Konseling
+      payload: /transaksi_konseling
+    - title: Hasil Konseling
+      payload: /hasil_konseling
+  utter_ask_menu_konseling_confirmation:
+  - text: 'You have selected the option: {menu_konseling}. Is that correct?'
+    buttons:
+    - title: 'Yes'
+      payload: /affirm
+    - title: 'No'
+      payload: /deny
+  utter_menu_konseling_cancelled:
+  - text: Okay, let's try again. Please select one of the konseling options.
+  utter_menu_konseling_ok:
+  - text: 'You have successfully selected the konseling option: {menu_konseling}.'
+  utter_answer_prosedur_konseling:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PROSEDUR KONSELING (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PROSEDUR KONSELING (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PROSEDUR KONSELING (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PROSEDUR KONSELING (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PROSEDUR KONSELING (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PROSEDUR KONSELING (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PROSEDUR KONSELING (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PROSEDUR KONSELING (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PROSEDUR KONSELING (FSRD)
+
+      '
+  - text: 'PROSEDUR KONSELING
+
+      '
+  utter_answer_persyaratan_konseling:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PERSYARATAN KONSELING (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PERSYARATAN KONSELING (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PERSYARATAN KONSELING (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PERSYARATAN KONSELING (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PERSYARATAN KONSELING (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PERSYARATAN KONSELING (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PERSYARATAN KONSELING (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PERSYARATAN KONSELING (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PERSYARATAN KONSELING (FSRD)
+
+      '
+  - text: 'PERSYARATAN KONSELING
+
+      '
+  utter_answer_transaksi_konseling:
+  - text: Silakan lengkapi data pengajuan konseling dan ajukan permohonan konseling.
+  utter_answer_hasil_konseling:
+  - text: Pengajuan konseling kamu telah diproses.
+  utter_answer_error_konseling:
+  - text: Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia.
+actions:
+- action_answer_konseling
+- action_ask_confirmation_konseling
+- action_deny_konseling

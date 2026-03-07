@@ -1,0 +1,191 @@
+version: '3.1'
+intents:
+- konversi_menu
+- prosedur_konversi
+- persyaratan_konversi
+- transaksi_konversi
+- hasil_konversi
+- status_konversi
+slots:
+  menu_konversi:
+    type: categorical
+    values:
+    - Prosedur Konversi
+    - Persyaratan Konversi
+    - Transaksi Konversi
+    - Hasil Konversi
+    mappings:
+    - type: custom
+    influence_conversation: false
+  menu_konversi_confirmation:
+    type: bool
+    mappings:
+    - type: custom
+    influence_conversation: false
+responses:
+  utter_ask_menu_konversi:
+  - text: 'Please select one of the following konversi options:'
+    buttons:
+    - title: Prosedur Konversi
+      payload: /prosedur_konversi
+    - title: Persyaratan Konversi
+      payload: /persyaratan_konversi
+    - title: Transaksi Konversi
+      payload: /transaksi_konversi
+    - title: Hasil Konversi
+      payload: /hasil_konversi
+  utter_ask_menu_konversi_confirmation:
+  - text: 'You have selected the option: {menu_konversi}. Is that correct?'
+    buttons:
+    - title: 'Yes'
+      payload: /affirm
+    - title: 'No'
+      payload: /deny
+  utter_menu_konversi_cancelled:
+  - text: Okay, let's try again. Please select one of the konversi options.
+  utter_menu_konversi_ok:
+  - text: 'You have successfully selected the konversi option: {menu_konversi}.'
+  utter_answer_prosedur_konversi:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PROSEDUR KONVERSI (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PROSEDUR KONVERSI (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PROSEDUR KONVERSI (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PROSEDUR KONVERSI (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PROSEDUR KONVERSI (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PROSEDUR KONVERSI (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PROSEDUR KONVERSI (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PROSEDUR KONVERSI (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PROSEDUR KONVERSI (FSRD)
+
+      '
+  - text: 'PROSEDUR KONVERSI
+
+      '
+  utter_answer_persyaratan_konversi:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PERSYARATAN KONVERSI (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PERSYARATAN KONVERSI (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PERSYARATAN KONVERSI (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PERSYARATAN KONVERSI (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PERSYARATAN KONVERSI (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PERSYARATAN KONVERSI (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PERSYARATAN KONVERSI (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PERSYARATAN KONVERSI (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PERSYARATAN KONVERSI (FSRD)
+
+      '
+  - text: 'PERSYARATAN KONVERSI
+
+      '
+  utter_answer_transaksi_konversi:
+  - text: Silakan lengkapi data pengajuan konversi dan ajukan permohonan konversi.
+  utter_answer_hasil_konversi:
+  - text: Pengajuan konversi kamu telah diproses.
+  utter_answer_error_konversi:
+  - text: Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia.
+actions:
+- action_answer_konversi
+- action_ask_confirmation_konversi
+- action_deny_konversi

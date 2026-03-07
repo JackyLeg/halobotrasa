@@ -1,0 +1,192 @@
+version: '3.1'
+intents:
+- MBOutboundNonPT_menu
+- prosedur_MBOutboundNonPT
+- persyaratan_MBOutboundNonPT
+- transaksi_MBOutboundNonPT
+- hasil_MBOutboundNonPT
+- status_MBOutboundNonPT
+slots:
+  menu_MBOutboundNonPT:
+    type: categorical
+    values:
+    - Prosedur MB Outbound Non PT
+    - Persyaratan MB Outbound Non PT
+    - Transaksi MB Outbound Non PT
+    - Hasil MB Outbound Non PT
+    mappings:
+    - type: custom
+    influence_conversation: false
+  menu_MBOutboundNonPT_confirmation:
+    type: bool
+    mappings:
+    - type: custom
+    influence_conversation: false
+responses:
+  utter_ask_menu_MBOutboundNonPT:
+  - text: 'Please select one of the following MB Outbound Non PT options:'
+    buttons:
+    - title: Prosedur MB Outbound Non PT
+      payload: /prosedur_MBOutboundNonPT
+    - title: Persyaratan MB Outbound Non PT
+      payload: /persyaratan_MBOutboundNonPT
+    - title: Transaksi MB Outbound Non PT
+      payload: /transaksi_MBOutboundNonPT
+    - title: Hasil MB Outbound Non PT
+      payload: /hasil_MBOutboundNonPT
+  utter_ask_menu_MBOutboundNonPT_confirmation:
+  - text: 'You have selected the option: {menu_MBOutboundNonPT}. Is that correct?'
+    buttons:
+    - title: 'Yes'
+      payload: /affirm
+    - title: 'No'
+      payload: /deny
+  utter_menu_MBOutboundNonPT_cancelled:
+  - text: Okay, let's try again. Please select one of the MB Outbound Non PT options.
+  utter_menu_MBOutboundNonPT_ok:
+  - text: 'You have successfully selected the MB Outbound Non PT option: {menu_MBOutboundNonPT}.'
+  utter_answer_prosedur_MBOutboundNonPT:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PROSEDUR MB OUTBOUND NON PT (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PROSEDUR MB OUTBOUND NON PT (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PROSEDUR MB OUTBOUND NON PT (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PROSEDUR MB OUTBOUND NON PT (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PROSEDUR MB OUTBOUND NON PT (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PROSEDUR MB OUTBOUND NON PT (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PROSEDUR MB OUTBOUND NON PT (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PROSEDUR MB OUTBOUND NON PT (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PROSEDUR MB OUTBOUND NON PT (FSRD)
+
+      '
+  - text: 'PROSEDUR MB OUTBOUND NON PT
+
+      '
+  utter_answer_persyaratan_MBOutboundNonPT:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PERSYARATAN MB OUTBOUND NON PT (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PERSYARATAN MB OUTBOUND NON PT (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PERSYARATAN MB OUTBOUND NON PT (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PERSYARATAN MB OUTBOUND NON PT (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PERSYARATAN MB OUTBOUND NON PT (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PERSYARATAN MB OUTBOUND NON PT (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PERSYARATAN MB OUTBOUND NON PT (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PERSYARATAN MB OUTBOUND NON PT (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PERSYARATAN MB OUTBOUND NON PT (FSRD)
+
+      '
+  - text: 'PERSYARATAN MB OUTBOUND NON PT
+
+      '
+  utter_answer_transaksi_MBOutboundNonPT:
+  - text: Silakan lengkapi data pengajuan MB Outbound Non PT dan ajukan permohonan
+      MB Outbound Non PT.
+  utter_answer_hasil_MBOutboundNonPT:
+  - text: Pengajuan MB Outbound Non PT kamu telah diproses.
+  utter_answer_error_MBOutboundNonPT:
+  - text: Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia.
+actions:
+- action_answer_MBOutboundNonPT
+- action_ask_confirmation_MBOutboundNonPT
+- action_deny_MBOutboundNonPT

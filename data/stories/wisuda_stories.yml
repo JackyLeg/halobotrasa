@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU WISUDA #
+
+  - story: beginning of flow wisuda
+    steps:
+      - intent: wisuda_menu
+      - action: utter_ask_menu_wisuda
+      - checkpoint: check_menu_wisuda
+
+  - story: handle user menu wisuda
+    steps:
+      - checkpoint: check_menu_wisuda
+      - or:
+          - intent: prosedur_wisuda
+          - intent: persyaratan_wisuda
+          - intent: transaksi_wisuda
+          - intent: hasil_wisuda
+          - intent: status_wisuda
+      - checkpoint: confirmation_menu_wisuda
+
+  - story: confirmation ok wisuda
+    steps:
+      - checkpoint: confirmation_menu_wisuda
+      - action: action_ask_confirmation_wisuda
+      - intent: affirm
+      - slot_was_set:
+          - menu_wisuda_confirmation: true
+      - checkpoint: affirm_menu_wisuda
+
+  - story: confirmation cancel wisuda
+    steps:
+      - checkpoint: confirmation_menu_wisuda
+      - action: action_ask_confirmation_wisuda
+      - intent: deny
+      - slot_was_set:
+          - menu_wisuda_confirmation: false
+      - action: action_deny_wisuda
+      - checkpoint: check_menu_wisuda
+
+  - story: handle after menu wisuda
+    steps:
+      - checkpoint: affirm_menu_wisuda
+      - or:
+          - slot_was_set:
+              - menu_wisuda: "Prosedur Wisuda"
+          - slot_was_set:
+              - menu_wisuda: "Persyaratan Wisuda"
+          - slot_was_set:
+              - menu_wisuda: "Transaksi Wisuda"
+          - slot_was_set:
+              - menu_wisuda: "Hasil Wisuda"
+          - slot_was_set:
+              - menu_wisuda: "Status Wisuda"
+      - action: action_answer_wisuda

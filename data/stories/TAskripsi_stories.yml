@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU TASKRIPSI #
+
+  - story: beginning of flow TAskripsi
+    steps:
+      - intent: TAskripsi_menu
+      - action: utter_ask_menu_TAskripsi
+      - checkpoint: check_menu_TAskripsi
+
+  - story: handle user menu TAskripsi
+    steps:
+      - checkpoint: check_menu_TAskripsi
+      - or:
+          - intent: prosedur_TAskripsi
+          - intent: persyaratan_TAskripsi
+          - intent: transaksi_TAskripsi
+          - intent: hasil_TAskripsi
+          - intent: status_TAskripsi
+      - checkpoint: confirmation_menu_TAskripsi
+
+  - story: confirmation ok TAskripsi
+    steps:
+      - checkpoint: confirmation_menu_TAskripsi
+      - action: action_ask_confirmation_TAskripsi
+      - intent: affirm
+      - slot_was_set:
+          - menu_TAskripsi_confirmation: true
+      - checkpoint: affirm_menu_TAskripsi
+
+  - story: confirmation cancel TAskripsi
+    steps:
+      - checkpoint: confirmation_menu_TAskripsi
+      - action: action_ask_confirmation_TAskripsi
+      - intent: deny
+      - slot_was_set:
+          - menu_TAskripsi_confirmation: false
+      - action: action_deny_TAskripsi
+      - checkpoint: check_menu_TAskripsi
+
+  - story: handle after menu TAskripsi
+    steps:
+      - checkpoint: affirm_menu_TAskripsi
+      - or:
+          - slot_was_set:
+              - menu_TAskripsi: "Prosedur TAskripsi"
+          - slot_was_set:
+              - menu_TAskripsi: "Persyaratan TAskripsi"
+          - slot_was_set:
+              - menu_TAskripsi: "Transaksi TAskripsi"
+          - slot_was_set:
+              - menu_TAskripsi: "Hasil TAskripsi"
+          - slot_was_set:
+              - menu_TAskripsi: "Status TAskripsi"
+      - action: action_answer_TAskripsi

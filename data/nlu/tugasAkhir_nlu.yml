@@ -1,0 +1,32 @@
+version: "3.1"
+
+nlu:
+#MENU_TUGASAKHIR#
+- intent: tugasAkhir_menu
+  examples: |
+    - menu tugas akhir
+    - saya ingin melihat menu tugas akhir
+    - apa saja menu tugas akhir yang tersedia
+    - tolong tunjukkan menu tugas akhir
+    - tugas akhir
+    - mau tugas akhir
+
+- intent: prosedur_tugasAkhir
+  examples: |
+    - Prosedur Tugas Akhir
+
+- intent: persyaratan_tugasAkhir
+  examples: |
+    - Persyaratan Tugas Akhir
+
+- intent: transaksi_tugasAkhir
+  examples: |
+    - Transaksi Tugas Akhir
+
+- intent: hasil_tugasAkhir
+  examples: |
+    - Hasil Tugas Akhir
+
+- intent: status_tugasAkhir
+  examples: |
+    - Status Tugas Akhir

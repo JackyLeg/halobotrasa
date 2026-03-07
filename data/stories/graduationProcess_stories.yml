@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU GRADUATION PROCESS #
+
+  - story: beginning of flow graduationProcess
+    steps:
+      - intent: graduationProcess_menu
+      - action: utter_ask_menu_graduationProcess
+      - checkpoint: check_menu_graduationProcess
+
+  - story: handle user menu graduationProcess
+    steps:
+      - checkpoint: check_menu_graduationProcess
+      - or:
+          - intent: prosedur_graduationProcess
+          - intent: persyaratan_graduationProcess
+          - intent: transaksi_graduationProcess
+          - intent: hasil_graduationProcess
+          - intent: status_graduationProcess
+      - checkpoint: confirmation_menu_graduationProcess
+
+  - story: confirmation ok graduationProcess
+    steps:
+      - checkpoint: confirmation_menu_graduationProcess
+      - action: action_ask_confirmation_graduationProcess
+      - intent: affirm
+      - slot_was_set:
+          - menu_graduationProcess_confirmation: true
+      - checkpoint: affirm_menu_graduationProcess
+
+  - story: confirmation cancel graduationProcess
+    steps:
+      - checkpoint: confirmation_menu_graduationProcess
+      - action: action_ask_confirmation_graduationProcess
+      - intent: deny
+      - slot_was_set:
+          - menu_graduationProcess_confirmation: false
+      - action: action_deny_graduationProcess
+      - checkpoint: check_menu_graduationProcess
+
+  - story: handle after menu graduationProcess
+    steps:
+      - checkpoint: affirm_menu_graduationProcess
+      - or:
+          - slot_was_set:
+              - menu_graduationProcess: "Prosedur Graduation Process"
+          - slot_was_set:
+              - menu_graduationProcess: "Persyaratan Graduation Process"
+          - slot_was_set:
+              - menu_graduationProcess: "Transaksi Graduation Process"
+          - slot_was_set:
+              - menu_graduationProcess: "Hasil Graduation Process"
+          - slot_was_set:
+              - menu_graduationProcess: "Status Graduation Process"
+      - action: action_answer_graduationProcess

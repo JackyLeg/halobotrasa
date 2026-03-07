@@ -1,0 +1,32 @@
+version: "3.1"
+
+nlu:
+#MENU_KARTURENCANASTUDI#
+- intent: kartuRencanaStudi_menu
+  examples: |
+    - menu krs
+    - saya ingin melihat menu krs
+    - apa saja menu krs yang tersedia
+    - tolong tunjukkan menu krs
+    - krs
+    - mau krs
+
+- intent: prosedur_kartuRencanaStudi
+  examples: |
+    - Prosedur KRS
+
+- intent: persyaratan_kartuRencanaStudi
+  examples: |
+    - Persyaratan KRS
+
+- intent: transaksi_kartuRencanaStudi
+  examples: |
+    - Transaksi KRS
+
+- intent: hasil_kartuRencanaStudi
+  examples: |
+    - Hasil KRS
+
+- intent: status_kartuRencanaStudi
+  examples: |
+    - Status KRS

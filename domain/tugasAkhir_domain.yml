@@ -1,0 +1,206 @@
+version: '3.1'
+intents:
+- tugasAkhir_menu
+- prosedur_tugasAkhir
+- persyaratan_tugasAkhir
+- transaksi_tugasAkhir
+- hasil_tugasAkhir
+- status_tugasAkhir
+slots:
+  menu_tugasAkhir:
+    type: categorical
+    values:
+    - Prosedur Tugas Akhir
+    - Persyaratan Tugas Akhir
+    - Transaksi Tugas Akhir
+    - Hasil Tugas Akhir
+    mappings:
+    - type: custom
+    influence_conversation: false
+  menu_tugasAkhir_confirmation:
+    type: bool
+    mappings:
+    - type: custom
+    influence_conversation: false
+responses:
+  utter_ask_menu_tugasAkhir:
+  - text: 'Please select one of the following tugas akhir options:'
+    buttons:
+    - title: Prosedur Tugas Akhir
+      payload: /prosedur_tugasAkhir
+    - title: Persyaratan Tugas Akhir
+      payload: /persyaratan_tugasAkhir
+    - title: Transaksi Tugas Akhir
+      payload: /transaksi_tugasAkhir
+    - title: Hasil Tugas Akhir
+      payload: /hasil_tugasAkhir
+  utter_ask_menu_tugasAkhir_confirmation:
+  - text: 'You have selected the option: {menu_tugasAkhir}. Is that correct?'
+    buttons:
+    - title: 'Yes'
+      payload: /affirm
+    - title: 'No'
+      payload: /deny
+  utter_menu_tugasAkhir_cancelled:
+  - text: Okay, let's try again. Please select one of the tugas akhir options.
+  utter_menu_tugasAkhir_ok:
+  - text: 'You have successfully selected the tugas akhir option: {menu_tugasAkhir}.'
+  utter_answer_prosedur_tugasAkhir:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PROSEDUR TUGAS AKHIR (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PROSEDUR TUGAS AKHIR (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PROSEDUR TUGAS AKHIR (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PROSEDUR TUGAS AKHIR (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PROSEDUR TUGAS AKHIR (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PROSEDUR TUGAS AKHIR (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PROSEDUR TUGAS AKHIR (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PROSEDUR TUGAS AKHIR (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PROSEDUR TUGAS AKHIR (FSRD)
+
+      '
+  - text: 'PROSEDUR TUGAS AKHIR
+
+      '
+  utter_answer_persyaratan_tugasAkhir:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PERSYARATAN TUGAS AKHIR (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PERSYARATAN TUGAS AKHIR (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PERSYARATAN TUGAS AKHIR (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PERSYARATAN TUGAS AKHIR (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PERSYARATAN TUGAS AKHIR (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PERSYARATAN TUGAS AKHIR (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PERSYARATAN TUGAS AKHIR (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PERSYARATAN TUGAS AKHIR (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PERSYARATAN TUGAS AKHIR (FSRD)
+
+      '
+  - text: "PERSYARATAN TUGAS AKHIR\n1. Syarat Umum\n  - Masa Studi: Telah mengikuti\
+      \ kegiatan akademik minimal 2 semester.\n      Durasi Maksimal: Program D4,\
+      \ S1, dan S3: Maksimal 4 semester.\n  - Program D3, Profesi, dan S2: Maksimal\
+      \ 2 semester.\n  - Ketentuan Pengambilan: Cuti dapat diambil per semester atau\
+      \ maksimal 2 semester berturut-turut.\n2. Kelengkapan Dokumen (Cuti Terencana)\n\
+      \  Mahasiswa wajib menyerahkan Surat Permohonan Cuti kepada Dekan yang ditandatangani\
+      \ oleh mahasiswa dan orang tua/wali, berisi:\n  - Data diri lengkap (Nama, NIM,\
+      \ Alamat, Fakultas/Jurusan).\n  - Alasan pengajuan cuti yang jelas.\n  - Periode\
+      \ waktu cuti (semester mulai dan berakhir).\n3. Syarat Khusus (Berdasarkan Kondisi)\n\
+      \  - Karena Sakit: Melampirkan Surat Keterangan Rawat Inap (minimal sakit 1\
+      \ bulan atau setara 4 kali tatap muka berturut-turut).\n  - Bela/Tugas Negara\
+      \ & Universitas: Melampirkan Surat Tugas dari Wakil Rektor Bidang Kemahasiswaan.\n\
+      \  - Cuti Tidak Terencana: Untuk aktif kembali, mahasiswa wajib melampirkan\
+      \ Laporan Kronologis Kejadian yang ditandatangani orang tua/wali dan Dosen Wali,\
+      \ serta menyelesaikan seluruh kewajiban administrasi keuangan.\n\n*Catatan:\
+      \ Pastikan seluruh kewajiban administrasi keuangan pada semester sebelumnya\
+      \ telah lunas sebelum mengajukan permohonan.\n"
+  utter_answer_transaksi_tugasAkhir:
+  - text: Silakan lengkapi data pengajuan tugas akhir dan ajukan permohonan tugas
+      akhir.
+  utter_answer_hasil_tugasAkhir:
+  - text: Pengajuan tugas akhir kamu telah diproses.
+  utter_answer_error_tugasAkhir:
+  - text: Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia.
+actions:
+- action_answer_tugasAkhir
+- action_ask_confirmation_tugasAkhir
+- action_deny_tugasAkhir

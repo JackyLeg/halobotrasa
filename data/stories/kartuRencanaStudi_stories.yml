@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU KRS #
+
+  - story: beginning of flow kartuRencanaStudi
+    steps:
+      - intent: kartuRencanaStudi_menu
+      - action: utter_ask_menu_kartuRencanaStudi
+      - checkpoint: check_menu_kartuRencanaStudi
+
+  - story: handle user menu kartuRencanaStudi
+    steps:
+      - checkpoint: check_menu_kartuRencanaStudi
+      - or:
+          - intent: prosedur_kartuRencanaStudi
+          - intent: persyaratan_kartuRencanaStudi
+          - intent: transaksi_kartuRencanaStudi
+          - intent: hasil_kartuRencanaStudi
+          - intent: status_kartuRencanaStudi
+      - checkpoint: confirmation_menu_kartuRencanaStudi
+
+  - story: confirmation ok kartuRencanaStudi
+    steps:
+      - checkpoint: confirmation_menu_kartuRencanaStudi
+      - action: action_ask_confirmation_kartuRencanaStudi
+      - intent: affirm
+      - slot_was_set:
+          - menu_kartuRencanaStudi_confirmation: true
+      - checkpoint: affirm_menu_kartuRencanaStudi
+
+  - story: confirmation cancel kartuRencanaStudi
+    steps:
+      - checkpoint: confirmation_menu_kartuRencanaStudi
+      - action: action_ask_confirmation_kartuRencanaStudi
+      - intent: deny
+      - slot_was_set:
+          - menu_kartuRencanaStudi_confirmation: false
+      - action: action_deny_kartuRencanaStudi
+      - checkpoint: check_menu_kartuRencanaStudi
+
+  - story: handle after menu kartuRencanaStudi
+    steps:
+      - checkpoint: affirm_menu_kartuRencanaStudi
+      - or:
+          - slot_was_set:
+              - menu_kartuRencanaStudi: "Prosedur KRS"
+          - slot_was_set:
+              - menu_kartuRencanaStudi: "Persyaratan KRS"
+          - slot_was_set:
+              - menu_kartuRencanaStudi: "Transaksi KRS"
+          - slot_was_set:
+              - menu_kartuRencanaStudi: "Hasil KRS"
+          - slot_was_set:
+              - menu_kartuRencanaStudi: "Status KRS"
+      - action: action_answer_kartuRencanaStudi

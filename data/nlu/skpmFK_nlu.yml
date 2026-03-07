@@ -1,0 +1,32 @@
+version: "3.1"
+
+nlu:
+#MENU_SKPMFK#
+- intent: skpmFK_menu
+  examples: |
+    - menu skpm fk
+    - saya ingin melihat menu skpm fk
+    - apa saja menu skpm fk yang tersedia
+    - tolong tunjukkan menu skpm fk
+    - skpm fk
+    - mau skpm fk
+
+- intent: prosedur_skpmFK
+  examples: |
+    - Prosedur SKPM FK
+
+- intent: persyaratan_skpmFK
+  examples: |
+    - Persyaratan SKPM FK
+
+- intent: transaksi_skpmFK
+  examples: |
+    - Transaksi SKPM FK
+
+- intent: hasil_skpmFK
+  examples: |
+    - Hasil SKPM FK
+
+- intent: status_skpmFK
+  examples: |
+    - Status SKPM FK

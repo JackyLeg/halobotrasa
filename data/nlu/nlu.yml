@@ -46,6 +46,7 @@ nlu:
 
 - intent: deny
   examples: |
+    - tidak, saya ingin mengubahnya
     - no
     - n
     - never

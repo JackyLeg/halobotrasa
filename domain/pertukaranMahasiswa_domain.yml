@@ -1,0 +1,192 @@
+version: '3.1'
+intents:
+- pertukaranMahasiswa_menu
+- prosedur_pertukaranMahasiswa
+- persyaratan_pertukaranMahasiswa
+- transaksi_pertukaranMahasiswa
+- hasil_pertukaranMahasiswa
+- status_pertukaranMahasiswa
+slots:
+  menu_pertukaranMahasiswa:
+    type: categorical
+    values:
+    - Prosedur Pertukaran Mahasiswa
+    - Persyaratan Pertukaran Mahasiswa
+    - Transaksi Pertukaran Mahasiswa
+    - Hasil Pertukaran Mahasiswa
+    mappings:
+    - type: custom
+    influence_conversation: false
+  menu_pertukaranMahasiswa_confirmation:
+    type: bool
+    mappings:
+    - type: custom
+    influence_conversation: false
+responses:
+  utter_ask_menu_pertukaranMahasiswa:
+  - text: 'Please select one of the following pertukaran mahasiswa options:'
+    buttons:
+    - title: Prosedur Pertukaran Mahasiswa
+      payload: /prosedur_pertukaranMahasiswa
+    - title: Persyaratan Pertukaran Mahasiswa
+      payload: /persyaratan_pertukaranMahasiswa
+    - title: Transaksi Pertukaran Mahasiswa
+      payload: /transaksi_pertukaranMahasiswa
+    - title: Hasil Pertukaran Mahasiswa
+      payload: /hasil_pertukaranMahasiswa
+  utter_ask_menu_pertukaranMahasiswa_confirmation:
+  - text: 'You have selected the option: {menu_pertukaranMahasiswa}. Is that correct?'
+    buttons:
+    - title: 'Yes'
+      payload: /affirm
+    - title: 'No'
+      payload: /deny
+  utter_menu_pertukaranMahasiswa_cancelled:
+  - text: Okay, let's try again. Please select one of the pertukaran mahasiswa options.
+  utter_menu_pertukaranMahasiswa_ok:
+  - text: 'You have successfully selected the pertukaran mahasiswa option: {menu_pertukaranMahasiswa}.'
+  utter_answer_prosedur_pertukaranMahasiswa:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PROSEDUR PERTUKARAN MAHASISWA (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PROSEDUR PERTUKARAN MAHASISWA (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PROSEDUR PERTUKARAN MAHASISWA (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PROSEDUR PERTUKARAN MAHASISWA (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PROSEDUR PERTUKARAN MAHASISWA (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PROSEDUR PERTUKARAN MAHASISWA (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PROSEDUR PERTUKARAN MAHASISWA (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PROSEDUR PERTUKARAN MAHASISWA (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PROSEDUR PERTUKARAN MAHASISWA (FSRD)
+
+      '
+  - text: 'PROSEDUR PERTUKARAN MAHASISWA
+
+      '
+  utter_answer_persyaratan_pertukaranMahasiswa:
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Hukum
+    text: 'PERSYARATAN PERTUKARAN MAHASISWA (FH)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Ekonomi dan Bisnis
+    text: 'PERSYARATAN PERTUKARAN MAHASISWA (FEB)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran
+    text: 'PERSYARATAN PERTUKARAN MAHASISWA (FK)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Kedokteran Gigi
+    text: 'PERSYARATAN PERTUKARAN MAHASISWA (FKG)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknik Sipil dan Perencanaan
+    text: 'PERSYARATAN PERTUKARAN MAHASISWA (FTSP)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Industri
+    text: 'PERSYARATAN PERTUKARAN MAHASISWA (FTI)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Teknologi Kebumian dan Energi
+    text: 'PERSYARATAN PERTUKARAN MAHASISWA (FTKE)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+    text: 'PERSYARATAN PERTUKARAN MAHASISWA (FALTL)
+
+      '
+  - condition:
+    - type: slot
+      name: fakultas
+      value: Fakultas Seni Rupa dan Desain
+    text: 'PERSYARATAN PERTUKARAN MAHASISWA (FSRD)
+
+      '
+  - text: 'PERSYARATAN PERTUKARAN MAHASISWA
+
+      '
+  utter_answer_transaksi_pertukaranMahasiswa:
+  - text: Silakan lengkapi data pengajuan pertukaran mahasiswa dan ajukan permohonan
+      pertukaran mahasiswa.
+  utter_answer_hasil_pertukaranMahasiswa:
+  - text: Pengajuan pertukaran mahasiswa kamu telah diproses.
+  utter_answer_error_pertukaranMahasiswa:
+  - text: Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia.
+actions:
+- action_answer_pertukaranMahasiswa
+- action_ask_confirmation_pertukaranMahasiswa
+- action_deny_pertukaranMahasiswa

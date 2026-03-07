@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU TRANSKRIP #
+
+  - story: beginning of flow transkrip
+    steps:
+      - intent: transkrip_menu
+      - action: utter_ask_menu_transkrip
+      - checkpoint: check_menu_transkrip
+
+  - story: handle user menu transkrip
+    steps:
+      - checkpoint: check_menu_transkrip
+      - or:
+          - intent: prosedur_transkrip
+          - intent: persyaratan_transkrip
+          - intent: transaksi_transkrip
+          - intent: hasil_transkrip
+          - intent: status_transkrip
+      - checkpoint: confirmation_menu_transkrip
+
+  - story: confirmation ok transkrip
+    steps:
+      - checkpoint: confirmation_menu_transkrip
+      - action: action_ask_confirmation_transkrip
+      - intent: affirm
+      - slot_was_set:
+          - menu_transkrip_confirmation: true
+      - checkpoint: affirm_menu_transkrip
+
+  - story: confirmation cancel transkrip
+    steps:
+      - checkpoint: confirmation_menu_transkrip
+      - action: action_ask_confirmation_transkrip
+      - intent: deny
+      - slot_was_set:
+          - menu_transkrip_confirmation: false
+      - action: action_deny_transkrip
+      - checkpoint: check_menu_transkrip
+
+  - story: handle after menu transkrip
+    steps:
+      - checkpoint: affirm_menu_transkrip
+      - or:
+          - slot_was_set:
+              - menu_transkrip: "Prosedur Transkrip"
+          - slot_was_set:
+              - menu_transkrip: "Persyaratan Transkrip"
+          - slot_was_set:
+              - menu_transkrip: "Transaksi Transkrip"
+          - slot_was_set:
+              - menu_transkrip: "Hasil Transkrip"
+          - slot_was_set:
+              - menu_transkrip: "Status Transkrip"
+      - action: action_answer_transkrip

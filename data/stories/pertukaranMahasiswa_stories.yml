@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+# MENU PERTUKARAN MAHASISWA #
+
+  - story: beginning of flow pertukaranMahasiswa
+    steps:
+      - intent: pertukaranMahasiswa_menu
+      - action: utter_ask_menu_pertukaranMahasiswa
+      - checkpoint: check_menu_pertukaranMahasiswa
+
+  - story: handle user menu pertukaranMahasiswa
+    steps:
+      - checkpoint: check_menu_pertukaranMahasiswa
+      - or:
+          - intent: prosedur_pertukaranMahasiswa
+          - intent: persyaratan_pertukaranMahasiswa
+          - intent: transaksi_pertukaranMahasiswa
+          - intent: hasil_pertukaranMahasiswa
+          - intent: status_pertukaranMahasiswa
+      - checkpoint: confirmation_menu_pertukaranMahasiswa
+
+  - story: confirmation ok pertukaranMahasiswa
+    steps:
+      - checkpoint: confirmation_menu_pertukaranMahasiswa
+      - action: action_ask_confirmation_pertukaranMahasiswa
+      - intent: affirm
+      - slot_was_set:
+          - menu_pertukaranMahasiswa_confirmation: true
+      - checkpoint: affirm_menu_pertukaranMahasiswa
+
+  - story: confirmation cancel pertukaranMahasiswa
+    steps:
+      - checkpoint: confirmation_menu_pertukaranMahasiswa
+      - action: action_ask_confirmation_pertukaranMahasiswa
+      - intent: deny
+      - slot_was_set:
+          - menu_pertukaranMahasiswa_confirmation: false
+      - action: action_deny_pertukaranMahasiswa
+      - checkpoint: check_menu_pertukaranMahasiswa
+
+  - story: handle after menu pertukaranMahasiswa
+    steps:
+      - checkpoint: affirm_menu_pertukaranMahasiswa
+      - or:
+          - slot_was_set:
+              - menu_pertukaranMahasiswa: "Prosedur Pertukaran Mahasiswa"
+          - slot_was_set:
+              - menu_pertukaranMahasiswa: "Persyaratan Pertukaran Mahasiswa"
+          - slot_was_set:
+              - menu_pertukaranMahasiswa: "Transaksi Pertukaran Mahasiswa"
+          - slot_was_set:
+              - menu_pertukaranMahasiswa: "Hasil Pertukaran Mahasiswa"
+          - slot_was_set:
+              - menu_pertukaranMahasiswa: "Status Pertukaran Mahasiswa"
+      - action: action_answer_pertukaranMahasiswa

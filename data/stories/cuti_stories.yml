@@ -36,6 +36,7 @@ stories:
       - slot_was_set:
           - menu_cuti_confirmation: false
       - action: action_deny_cuti
+      - checkpoint: check_menu_cuti
 
   - story: handle after menu cuti
     steps:

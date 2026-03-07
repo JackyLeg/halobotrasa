@@ -1,0 +1,32 @@
+version: "3.1"
+
+nlu:
+#MENU_FASTTRACKAPP#
+- intent: fastTrackAPP_menu
+  examples: |
+    - menu fasttrackapp
+    - saya ingin melihat menu fasttrackapp
+    - apa saja menu fasttrackapp yang tersedia
+    - tolong tunjukkan menu fasttrackapp
+    - fasttrackapp
+    - mau fasttrackapp
+
+- intent: prosedur_fastTrackAPP
+  examples: |
+    - Prosedur FastTrackApp
+
+- intent: persyaratan_fastTrackAPP
+  examples: |
+    - Persyaratan FastTrackApp
+
+- intent: transaksi_fastTrackAPP
+  examples: |
+    - Transaksi FastTrackApp
+
+- intent: hasil_fastTrackAPP
+  examples: |
+    - Hasil FastTrackApp
+
+- intent: status_fastTrackAPP
+  examples: |
+    - Status FastTrackApp

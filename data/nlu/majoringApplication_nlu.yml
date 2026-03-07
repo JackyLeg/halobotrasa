@@ -1,0 +1,32 @@
+version: "3.1"
+
+nlu:
+#MENU_MAJORINGAPPLICATION#
+- intent: majoringApplication_menu
+  examples: |
+    - menu majoring application
+    - saya ingin melihat menu majoring application
+    - apa saja menu majoring application yang tersedia
+    - tolong tunjukkan menu majoring application
+    - majoring application
+    - mau majoring application
+
+- intent: prosedur_majoringApplication
+  examples: |
+    - Prosedur Majoring Application
+
+- intent: persyaratan_majoringApplication
+  examples: |
+    - Persyaratan Majoring Application
+
+- intent: transaksi_majoringApplication
+  examples: |
+    - Transaksi Majoring Application
+
+- intent: hasil_majoringApplication
+  examples: |
+    - Hasil Majoring Application
+
+- intent: status_majoringApplication
+  examples: |
+    - Status Majoring Application
