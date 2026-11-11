@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - rps_menu
+  - prosedur_rps
+  - persyaratan_rps
+  - transaksi_rps
+  - hasil_rps
+
+slots:
+  menu_rps:
+    type: categorical
+    influence_conversation: false
+    values:
+      - "Prosedur RPS"
+      - "Persyaratan RPS"
+      - "Transaksi RPS"
+      - "Hasil RPS"
+      - "RPS Procedure"
+      - "RPS Requirements"
+      - "RPS Transaction"
+      - "RPS Results"
+    mappings:
+      - type: custom
+
+  menu_rps_confirmation:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_menu_rps:
+    - text: "Silakan pilih salah satu opsi RPS berikut:"
+      buttons:
+        - title: "Prosedur RPS"
+          payload: "/prosedur_rps"
+        - title: "Persyaratan RPS"
+          payload: "/persyaratan_rps"
+        - title: "Transaksi RPS"
+          payload: "/transaksi_rps"
+        - title: "Hasil RPS"
+          payload: "/hasil_rps"
+
+  utter_ask_menu_rps_confirmation:
+    - text: "Anda telah memilih opsi: {menu_rps}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
+  utter_menu_rps_cancelled:
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi RPS."
+
+  utter_menu_rps_ok:
+    - text: "Anda telah berhasil memilih opsi RPS: {menu_rps}."
+
+  utter_answer_prosedur_rps:
+    - text: "PROSEDUR RPS"
+
+  utter_answer_persyaratan_rps:
+    - text: "PERSYARATAN RPS"
+
+  utter_answer_transaksi_rps:
+    - text: "Silakan lengkapi data RPS."
+
+  utter_answer_hasil_rps:
+    - text: "Pengajuan RPS kamu telah diproses."
+
+  utter_answer_error_rps:
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
+actions:
+  - action_answer_rps
+  - action_ask_confirmation_rps
+  - action_deny_rps

@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - bkd_menu
+  - prosedur_bkd
+  - persyaratan_bkd
+  - transaksi_bkd
+  - hasil_bkd
+
+slots:
+  menu_bkd:
+    type: categorical
+    influence_conversation: false
+    values:
+      - "Prosedur BKD"
+      - "Persyaratan BKD"
+      - "Transaksi BKD"
+      - "Hasil BKD"
+      - "BKD Procedure"
+      - "BKD Requirements"
+      - "BKD Transaction"
+      - "BKD Results"
+    mappings:
+      - type: custom
+
+  menu_bkd_confirmation:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_menu_bkd:
+    - text: "Silakan pilih salah satu opsi BKD berikut:"
+      buttons:
+        - title: "Prosedur BKD"
+          payload: "/prosedur_bkd"
+        - title: "Persyaratan BKD"
+          payload: "/persyaratan_bkd"
+        - title: "Transaksi BKD"
+          payload: "/transaksi_bkd"
+        - title: "Hasil BKD"
+          payload: "/hasil_bkd"
+
+  utter_ask_menu_bkd_confirmation:
+    - text: "Anda telah memilih opsi: {menu_bkd}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
+  utter_menu_bkd_cancelled:
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi BKD."
+
+  utter_menu_bkd_ok:
+    - text: "Anda telah berhasil memilih opsi BKD: {menu_bkd}."
+
+  utter_answer_prosedur_bkd:
+    - text: "PROSEDUR BKD"
+
+  utter_answer_persyaratan_bkd:
+    - text: "PERSYARATAN BKD"
+
+  utter_answer_transaksi_bkd:
+    - text: "Silakan lengkapi data BKD."
+
+  utter_answer_hasil_bkd:
+    - text: "Pengajuan BKD kamu telah diproses."
+
+  utter_answer_error_bkd:
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
+actions:
+  - action_answer_bkd
+  - action_ask_confirmation_bkd
+  - action_deny_bkd

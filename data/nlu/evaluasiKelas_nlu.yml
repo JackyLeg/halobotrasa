@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: evaluasiKelas_menu
+  examples: |
+    - menu evaluasi kelas
+    - tolong buka menu evaluasi kelas
+    - saya ingin melihat menu evaluasi kelas
+    - apa saja menu evaluasi kelas yang tersedia
+    - evaluasi kelas
+    - mau evaluasi kelas
+    - buka evaluasi kelas
+
+- intent: prosedur_evaluasiKelas
+  examples: |
+    - Prosedur Evaluasi Kelas
+    - prosedur evaluasi kelas
+    - bagaimana prosedur evaluasi kelas
+    - cara evaluasi kelas
+    - alur evaluasi kelas
+
+- intent: persyaratan_evaluasiKelas
+  examples: |
+    - Persyaratan Evaluasi Kelas
+    - persyaratan evaluasi kelas
+    - apa saja syarat evaluasi kelas
+    - persyaratan evaluasi kelas
+    - syarat evaluasi kelas
+
+- intent: transaksi_evaluasiKelas
+  examples: |
+    - Transaksi Evaluasi Kelas
+    - transaksi evaluasi kelas
+    - transaksi evaluasi kelas
+    - pengajuan evaluasi kelas
+    - ajukan evaluasi kelas
+
+- intent: hasil_evaluasiKelas
+  examples: |
+    - Hasil Evaluasi Kelas
+    - hasil evaluasi kelas
+    - hasil evaluasi kelas
+    - cek hasil evaluasi kelas
+    - lihat hasil evaluasi kelas

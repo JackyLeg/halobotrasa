@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - pelaporanPdpt_menu
+  - prosedur_pelaporanPdpt
+  - persyaratan_pelaporanPdpt
+  - transaksi_pelaporanPdpt
+  - hasil_pelaporanPdpt
+
+slots:
+  menu_pelaporanPdpt:
+    type: categorical
+    influence_conversation: false
+    values:
+      - "Prosedur Pelaporan PDPT"
+      - "Persyaratan Pelaporan PDPT"
+      - "Transaksi Pelaporan PDPT"
+      - "Hasil Pelaporan PDPT"
+      - "PDPT Reporting Procedure"
+      - "PDPT Reporting Requirements"
+      - "PDPT Reporting Transaction"
+      - "PDPT Reporting Results"
+    mappings:
+      - type: custom
+
+  menu_pelaporanPdpt_confirmation:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_menu_pelaporanPdpt:
+    - text: "Silakan pilih salah satu opsi Pelaporan PDPT berikut:"
+      buttons:
+        - title: "Prosedur Pelaporan PDPT"
+          payload: "/prosedur_pelaporanPdpt"
+        - title: "Persyaratan Pelaporan PDPT"
+          payload: "/persyaratan_pelaporanPdpt"
+        - title: "Transaksi Pelaporan PDPT"
+          payload: "/transaksi_pelaporanPdpt"
+        - title: "Hasil Pelaporan PDPT"
+          payload: "/hasil_pelaporanPdpt"
+
+  utter_ask_menu_pelaporanPdpt_confirmation:
+    - text: "Anda telah memilih opsi: {menu_pelaporanPdpt}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
+  utter_menu_pelaporanPdpt_cancelled:
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi Pelaporan PDPT."
+
+  utter_menu_pelaporanPdpt_ok:
+    - text: "Anda telah berhasil memilih opsi Pelaporan PDPT: {menu_pelaporanPdpt}."
+
+  utter_answer_prosedur_pelaporanPdpt:
+    - text: "PROSEDUR PELAPORAN PDPT"
+
+  utter_answer_persyaratan_pelaporanPdpt:
+    - text: "PERSYARATAN PELAPORAN PDPT"
+
+  utter_answer_transaksi_pelaporanPdpt:
+    - text: "Silakan lengkapi data Pelaporan PDPT."
+
+  utter_answer_hasil_pelaporanPdpt:
+    - text: "Pengajuan Pelaporan PDPT kamu telah diproses."
+
+  utter_answer_error_pelaporanPdpt:
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
+actions:
+  - action_answer_pelaporanPdpt
+  - action_ask_confirmation_pelaporanPdpt
+  - action_deny_pelaporanPdpt

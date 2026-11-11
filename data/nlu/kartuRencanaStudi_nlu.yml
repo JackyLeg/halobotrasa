@@ -1,32 +1,44 @@
 version: "3.1"
 
 nlu:
-#MENU_KARTURENCANASTUDI#
 - intent: kartuRencanaStudi_menu
   examples: |
-    - menu krs
-    - saya ingin melihat menu krs
-    - apa saja menu krs yang tersedia
-    - tolong tunjukkan menu krs
-    - krs
-    - mau krs
+    - menu kartu rencana studi
+    - tolong buka menu kartu rencana studi
+    - saya ingin melihat menu kartu rencana studi
+    - apa saja menu kartu rencana studi yang tersedia
+    - kartu rencana studi
+    - mau kartu rencana studi
+    - buka kartu rencana studi
 
 - intent: prosedur_kartuRencanaStudi
   examples: |
     - Prosedur KRS
+    - prosedur krs
+    - bagaimana prosedur kartu rencana studi
+    - cara kartu rencana studi
+    - alur kartu rencana studi
 
 - intent: persyaratan_kartuRencanaStudi
   examples: |
     - Persyaratan KRS
+    - persyaratan krs
+    - apa saja syarat kartu rencana studi
+    - persyaratan kartu rencana studi
+    - syarat kartu rencana studi
 
 - intent: transaksi_kartuRencanaStudi
   examples: |
     - Transaksi KRS
+    - transaksi krs
+    - transaksi kartu rencana studi
+    - pengajuan kartu rencana studi
+    - ajukan kartu rencana studi
 
 - intent: hasil_kartuRencanaStudi
   examples: |
     - Hasil KRS
-
-- intent: status_kartuRencanaStudi
-  examples: |
-    - Status KRS
+    - hasil krs
+    - hasil kartu rencana studi
+    - cek hasil kartu rencana studi
+    - lihat hasil kartu rencana studi

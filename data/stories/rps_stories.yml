@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU rps #
+
+  - story: beginning of flow rps
+    steps:
+      - intent: rps_menu
+      - action: utter_ask_menu_rps
+      - checkpoint: check_menu_rps
+
+  - story: handle user menu rps
+    steps:
+      - checkpoint: check_menu_rps
+      - or:
+          - intent: prosedur_rps
+          - intent: persyaratan_rps
+          - intent: transaksi_rps
+          - intent: hasil_rps
+      - checkpoint: confirmation_menu_rps
+
+  - story: direct option select rps
+    steps:
+      - or:
+          - intent: prosedur_rps
+          - intent: persyaratan_rps
+          - intent: transaksi_rps
+          - intent: hasil_rps
+      - checkpoint: confirmation_menu_rps
+
+  - story: confirmation ok rps
+    steps:
+      - checkpoint: confirmation_menu_rps
+      - action: action_ask_confirmation_rps
+      - intent: affirm
+      - slot_was_set:
+          - menu_rps_confirmation: true
+      - checkpoint: affirm_menu_rps
+
+  - story: confirmation cancel rps
+    steps:
+      - checkpoint: confirmation_menu_rps
+      - action: action_ask_confirmation_rps
+      - intent: deny
+      - slot_was_set:
+          - menu_rps_confirmation: false
+      - action: action_deny_rps
+      - checkpoint: check_menu_rps
+
+  - story: handle after menu rps
+    steps:
+      - checkpoint: affirm_menu_rps
+      - action: action_answer_rps

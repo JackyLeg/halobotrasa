@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU melihatHonor #
+
+  - story: beginning of flow melihatHonor
+    steps:
+      - intent: melihatHonor_menu
+      - action: utter_ask_menu_melihatHonor
+      - checkpoint: check_menu_melihatHonor
+
+  - story: handle user menu melihatHonor
+    steps:
+      - checkpoint: check_menu_melihatHonor
+      - or:
+          - intent: prosedur_melihatHonor
+          - intent: persyaratan_melihatHonor
+          - intent: transaksi_melihatHonor
+          - intent: hasil_melihatHonor
+      - checkpoint: confirmation_menu_melihatHonor
+
+  - story: direct option select melihatHonor
+    steps:
+      - or:
+          - intent: prosedur_melihatHonor
+          - intent: persyaratan_melihatHonor
+          - intent: transaksi_melihatHonor
+          - intent: hasil_melihatHonor
+      - checkpoint: confirmation_menu_melihatHonor
+
+  - story: confirmation ok melihatHonor
+    steps:
+      - checkpoint: confirmation_menu_melihatHonor
+      - action: action_ask_confirmation_melihatHonor
+      - intent: affirm
+      - slot_was_set:
+          - menu_melihatHonor_confirmation: true
+      - checkpoint: affirm_menu_melihatHonor
+
+  - story: confirmation cancel melihatHonor
+    steps:
+      - checkpoint: confirmation_menu_melihatHonor
+      - action: action_ask_confirmation_melihatHonor
+      - intent: deny
+      - slot_was_set:
+          - menu_melihatHonor_confirmation: false
+      - action: action_deny_melihatHonor
+      - checkpoint: check_menu_melihatHonor
+
+  - story: handle after menu melihatHonor
+    steps:
+      - checkpoint: affirm_menu_melihatHonor
+      - action: action_answer_melihatHonor

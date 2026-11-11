@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - mentoringDosen_menu
+  - prosedur_mentoringDosen
+  - persyaratan_mentoringDosen
+  - transaksi_mentoringDosen
+  - hasil_mentoringDosen
+
+slots:
+  menu_mentoringDosen:
+    type: categorical
+    influence_conversation: false
+    values:
+      - "Prosedur Mentoring Dosen"
+      - "Persyaratan Mentoring Dosen"
+      - "Transaksi Mentoring Dosen"
+      - "Hasil Mentoring Dosen"
+      - "Lecturer Mentoring Procedure"
+      - "Lecturer Mentoring Requirements"
+      - "Lecturer Mentoring Transaction"
+      - "Lecturer Mentoring Results"
+    mappings:
+      - type: custom
+
+  menu_mentoringDosen_confirmation:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_menu_mentoringDosen:
+    - text: "Silakan pilih salah satu opsi Mentoring Dosen berikut:"
+      buttons:
+        - title: "Prosedur Mentoring Dosen"
+          payload: "/prosedur_mentoringDosen"
+        - title: "Persyaratan Mentoring Dosen"
+          payload: "/persyaratan_mentoringDosen"
+        - title: "Transaksi Mentoring Dosen"
+          payload: "/transaksi_mentoringDosen"
+        - title: "Hasil Mentoring Dosen"
+          payload: "/hasil_mentoringDosen"
+
+  utter_ask_menu_mentoringDosen_confirmation:
+    - text: "Anda telah memilih opsi: {menu_mentoringDosen}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
+  utter_menu_mentoringDosen_cancelled:
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi Mentoring Dosen."
+
+  utter_menu_mentoringDosen_ok:
+    - text: "Anda telah berhasil memilih opsi Mentoring Dosen: {menu_mentoringDosen}."
+
+  utter_answer_prosedur_mentoringDosen:
+    - text: "PROSEDUR MENTORING DOSEN"
+
+  utter_answer_persyaratan_mentoringDosen:
+    - text: "PERSYARATAN MENTORING DOSEN"
+
+  utter_answer_transaksi_mentoringDosen:
+    - text: "Silakan lengkapi data Mentoring Dosen."
+
+  utter_answer_hasil_mentoringDosen:
+    - text: "Pengajuan Mentoring Dosen kamu telah diproses."
+
+  utter_answer_error_mentoringDosen:
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
+actions:
+  - action_answer_mentoringDosen
+  - action_ask_confirmation_mentoringDosen
+  - action_deny_mentoringDosen

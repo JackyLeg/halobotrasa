@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - fastTrackApp_menu
+  - prosedur_fastTrackApp
+  - persyaratan_fastTrackApp
+  - transaksi_fastTrackApp
+  - hasil_fastTrackApp
+
+slots:
+  menu_fastTrackApp:
+    type: categorical
+    influence_conversation: false
+    values:
+      - "Prosedur Fast Track App"
+      - "Persyaratan Fast Track App"
+      - "Transaksi Fast Track App"
+      - "Hasil Fast Track App"
+      - "Fast Track App Procedure"
+      - "Fast Track App Requirements"
+      - "Fast Track App Transaction"
+      - "Fast Track App Results"
+    mappings:
+      - type: custom
+
+  menu_fastTrackApp_confirmation:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_menu_fastTrackApp:
+    - text: "Silakan pilih salah satu opsi fast track app berikut:"
+      buttons:
+        - title: "Prosedur Fast Track App"
+          payload: "/prosedur_fastTrackApp"
+        - title: "Persyaratan Fast Track App"
+          payload: "/persyaratan_fastTrackApp"
+        - title: "Transaksi Fast Track App"
+          payload: "/transaksi_fastTrackApp"
+        - title: "Hasil Fast Track App"
+          payload: "/hasil_fastTrackApp"
+
+  utter_ask_menu_fastTrackApp_confirmation:
+    - text: "Anda telah memilih opsi: {menu_fastTrackApp}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
+  utter_menu_fastTrackApp_cancelled:
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi fast track app."
+
+  utter_menu_fastTrackApp_ok:
+    - text: "Anda telah berhasil memilih opsi fast track app: {menu_fastTrackApp}."
+
+  utter_answer_prosedur_fastTrackApp:
+    - text: "PROSEDUR FAST TRACK APP"
+
+  utter_answer_persyaratan_fastTrackApp:
+    - text: "PERSYARATAN FAST TRACK APP"
+
+  utter_answer_transaksi_fastTrackApp:
+    - text: "Silakan lengkapi data pengajuan cuti akademik dan ajukan permohonan cuti."
+
+  utter_answer_hasil_fastTrackApp:
+    - text: "Pengajuan cuti akademik kamu telah diproses."
+
+  utter_answer_error_fastTrackApp:
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
+actions:
+  - action_answer_fastTrackApp
+  - action_ask_confirmation_fastTrackApp
+  - action_deny_fastTrackApp

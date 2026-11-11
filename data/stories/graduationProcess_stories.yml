@@ -1,7 +1,7 @@
 version: "3.1"
 
 stories:
-# MENU GRADUATION PROCESS #
+# MENU graduationProcess #
 
   - story: beginning of flow graduationProcess
     steps:
@@ -17,7 +17,15 @@ stories:
           - intent: persyaratan_graduationProcess
           - intent: transaksi_graduationProcess
           - intent: hasil_graduationProcess
-          - intent: status_graduationProcess
+      - checkpoint: confirmation_menu_graduationProcess
+
+  - story: direct option select graduationProcess
+    steps:
+      - or:
+          - intent: prosedur_graduationProcess
+          - intent: persyaratan_graduationProcess
+          - intent: transaksi_graduationProcess
+          - intent: hasil_graduationProcess
       - checkpoint: confirmation_menu_graduationProcess
 
   - story: confirmation ok graduationProcess
@@ -42,15 +50,4 @@ stories:
   - story: handle after menu graduationProcess
     steps:
       - checkpoint: affirm_menu_graduationProcess
-      - or:
-          - slot_was_set:
-              - menu_graduationProcess: "Prosedur Graduation Process"
-          - slot_was_set:
-              - menu_graduationProcess: "Persyaratan Graduation Process"
-          - slot_was_set:
-              - menu_graduationProcess: "Transaksi Graduation Process"
-          - slot_was_set:
-              - menu_graduationProcess: "Hasil Graduation Process"
-          - slot_was_set:
-              - menu_graduationProcess: "Status Graduation Process"
       - action: action_answer_graduationProcess

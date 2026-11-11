@@ -1,7 +1,7 @@
 version: "3.1"
 
 stories:
-# MENU KHS #
+# MENU kartuHasilStudi #
 
   - story: beginning of flow kartuHasilStudi
     steps:
@@ -15,9 +15,15 @@ stories:
       - or:
           - intent: prosedur_kartuHasilStudi
           - intent: persyaratan_kartuHasilStudi
-          - intent: transaksi_kartuHasilStudi
           - intent: hasil_kartuHasilStudi
-          - intent: status_kartuHasilStudi
+      - checkpoint: confirmation_menu_kartuHasilStudi
+
+  - story: direct option select kartuHasilStudi
+    steps:
+      - or:
+          - intent: prosedur_kartuHasilStudi
+          - intent: persyaratan_kartuHasilStudi
+          - intent: hasil_kartuHasilStudi
       - checkpoint: confirmation_menu_kartuHasilStudi
 
   - story: confirmation ok kartuHasilStudi
@@ -42,15 +48,4 @@ stories:
   - story: handle after menu kartuHasilStudi
     steps:
       - checkpoint: affirm_menu_kartuHasilStudi
-      - or:
-          - slot_was_set:
-              - menu_kartuHasilStudi: "Prosedur KHS"
-          - slot_was_set:
-              - menu_kartuHasilStudi: "Persyaratan KHS"
-          - slot_was_set:
-              - menu_kartuHasilStudi: "Transaksi KHS"
-          - slot_was_set:
-              - menu_kartuHasilStudi: "Hasil KHS"
-          - slot_was_set:
-              - menu_kartuHasilStudi: "Status KHS"
       - action: action_answer_kartuHasilStudi

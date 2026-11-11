@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU biodataMahasiswa #
+
+  - story: beginning of flow biodataMahasiswa
+    steps:
+      - intent: biodataMahasiswa_menu
+      - action: utter_ask_menu_biodataMahasiswa
+      - checkpoint: check_menu_biodataMahasiswa
+
+  - story: handle user menu biodataMahasiswa
+    steps:
+      - checkpoint: check_menu_biodataMahasiswa
+      - or:
+          - intent: prosedur_biodataMahasiswa
+          - intent: persyaratan_biodataMahasiswa
+          - intent: transaksi_biodataMahasiswa
+          - intent: hasil_biodataMahasiswa
+      - checkpoint: confirmation_menu_biodataMahasiswa
+
+  - story: direct option select biodataMahasiswa
+    steps:
+      - or:
+          - intent: prosedur_biodataMahasiswa
+          - intent: persyaratan_biodataMahasiswa
+          - intent: transaksi_biodataMahasiswa
+          - intent: hasil_biodataMahasiswa
+      - checkpoint: confirmation_menu_biodataMahasiswa
+
+  - story: confirmation ok biodataMahasiswa
+    steps:
+      - checkpoint: confirmation_menu_biodataMahasiswa
+      - action: action_ask_confirmation_biodataMahasiswa
+      - intent: affirm
+      - slot_was_set:
+          - menu_biodataMahasiswa_confirmation: true
+      - checkpoint: affirm_menu_biodataMahasiswa
+
+  - story: confirmation cancel biodataMahasiswa
+    steps:
+      - checkpoint: confirmation_menu_biodataMahasiswa
+      - action: action_ask_confirmation_biodataMahasiswa
+      - intent: deny
+      - slot_was_set:
+          - menu_biodataMahasiswa_confirmation: false
+      - action: action_deny_biodataMahasiswa
+      - checkpoint: check_menu_biodataMahasiswa
+
+  - story: handle after menu biodataMahasiswa
+    steps:
+      - checkpoint: affirm_menu_biodataMahasiswa
+      - action: action_answer_biodataMahasiswa

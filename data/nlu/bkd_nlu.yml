@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: bkd_menu
+  examples: |
+    - menu bkd
+    - tolong buka menu bkd
+    - saya ingin melihat menu bkd
+    - apa saja menu bkd yang tersedia
+    - bkd
+    - mau bkd
+    - buka bkd
+
+- intent: prosedur_bkd
+  examples: |
+    - Prosedur BKD
+    - prosedur bkd
+    - bagaimana prosedur bkd
+    - cara bkd
+    - alur bkd
+
+- intent: persyaratan_bkd
+  examples: |
+    - Persyaratan BKD
+    - persyaratan bkd
+    - apa saja syarat bkd
+    - persyaratan bkd
+    - syarat bkd
+
+- intent: transaksi_bkd
+  examples: |
+    - Transaksi BKD
+    - transaksi bkd
+    - transaksi bkd
+    - pengajuan bkd
+    - ajukan bkd
+
+- intent: hasil_bkd
+  examples: |
+    - Hasil BKD
+    - hasil bkd
+    - hasil bkd
+    - cek hasil bkd
+    - lihat hasil bkd

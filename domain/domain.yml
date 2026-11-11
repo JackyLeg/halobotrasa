@@ -5,32 +5,215 @@ intents:
   - goodbye
   - affirm
   - deny
+  - done
+  - bot_challenge
+  - ask_capabilities
+  - ask_list_menu
+  - change_language
   - mood_great
   - mood_unhappy
-  - bot_challenge
+
+slots:
+  name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  user_role:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  language:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  fakultas:
+    type: categorical
+    values:
+      - Fakultas Hukum
+      - Fakultas Ekonomi dan Bisnis
+      - Fakultas Kedokteran
+      - Fakultas Kedokteran Gigi
+      - Fakultas Teknik Sipil dan Perencanaan
+      - Fakultas Teknologi Industri
+      - Fakultas Teknologi Kebumian dan Energi
+      - Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
+      - Fakultas Seni Rupa dan Desain
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  list_menu:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
 
 responses:
+  utter_ask_name:
+    - text: "Siapa nama Anda?"
+
   utter_greet:
-  - text: "Hey! How are you?"
+    - text: "Halo, {name}! Bagaimana saya bisa membantu Anda hari ini?"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.redd.it/heeermei05i91.jpg"
+  utter_provide_info:
+    - text: |
+        Saya dapat memberikan informasi tentang layanan akademik Trisakti (student.trisakti.ac.id dan sis.trisakti.ac.id).
+        Anda dapat bertanya tentang:
+        - Cuti Akademik
+        - Kartu Rencana Studi (KRS)
+        - Pembayaran / Keuangan
+        - Hasil Studi (KHS & Transkrip)
+        - Jadwal Ujian & Tugas Akhir
+        - Dan layanan dosen / perkuliahan lainnya!
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_imabot:
+    - text: "Saya adalah UsaktiBot, asisten virtual Anda untuk menavigasi portal Trisakti."
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_unauthorized:
+    - text: "Maaf, Anda tidak memiliki akses untuk menu ini."
+
+  utter_language_changed:
+    - text: "Saya sekarang akan menggunakan bahasa Indonesia. Ada yang bisa saya bantu?"
 
   utter_goodbye:
-  - text: "Bye"
+    - text: "Terima kasih telah menggunakan UsaktiBot. Sampai jumpa lagi!"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  utter_happy:
+    - text: "Senang bisa membantu Anda! Silakan beri tahu jika ada hal lain."
 
+  utter_cheer_up:
+    - text: "Tetap semangat dalam studi dan aktivitas Anda!"
 
-# actions:
+  utter_did_that_help:
+    - text: "Apakah informasi tersebut membantu Anda?"
+
+  utter_ask_list_menu_mahasiswa:
+    - text: "Berikut adalah opsi menu untuk Mahasiswa:"
+      buttons:
+        - title: "MB Outbound Non PT"
+          payload: "/MBoutboundNonPT_menu"
+        - title: "Cuti"
+          payload: "/cuti_menu"
+        - title: "Fast Track App"
+          payload: "/fastTrackApp_menu"
+        - title: "Graduation Process"
+          payload: "/graduationProcess_menu"
+        - title: "Kartu Hasil Studi"
+          payload: "/kartuHasilStudi_menu"
+        - title: "Kartu Peserta Ujian"
+          payload: "/kartuPesertaUjian_menu"
+        - title: "Kartu Rencana Studi"
+          payload: "/kartuRencanaStudi_menu"
+        - title: "Konseling"
+          payload: "/konseling_menu"
+        - title: "Pembayaran"
+          payload: "/pembayaran_menu"
+        - title: "Pertukaran Mahasiswa"
+          payload: "/pertukaranMahasiswa_menu"
+        - title: "Profil"
+          payload: "/profil_menu"
+        - title: "SKPI"
+          payload: "/skpi_menu"
+        - title: "Transkrip"
+          payload: "/transkrip_menu"
+        - title: "Tugas Akhir"
+          payload: "/tugasAkhir_menu"
+        - title: "Wisuda"
+          payload: "/wisuda_menu"
+
+  utter_ask_list_menu_dosen:
+    - text: "Berikut adalah opsi menu untuk Dosen:"
+      buttons:
+        - title: "Absensi Kelas"
+          payload: "/absensiKelas_menu"
+        - title: "Absensi Ujian"
+          payload: "/absensiUjian_menu"
+        - title: "Bimbingan Diktisaintek Berdampak"
+          payload: "/bimbinganDiktisaintekBerdampak_menu"
+        - title: "Bimbingan Kerja Praktek"
+          payload: "/bimbinganKerjaPraktek_menu"
+        - title: "Bimbingan Skripsi"
+          payload: "/bimbinganSkripsi_menu"
+        - title: "BKD"
+          payload: "/bkd_menu"
+        - title: "Daftar Mahasiswa Per Kelas"
+          payload: "/daftarMahasiswaPerKelas_menu"
+        - title: "Evaluasi Kelas"
+          payload: "/evaluasiKelas_menu"
+        - title: "Melihat Honor"
+          payload: "/melihatHonor_menu"
+        - title: "Membuat Soal Ujian"
+          payload: "/membuatSoalUjian_menu"
+        - title: "Mentoring Dosen"
+          payload: "/mentoringDosen_menu"
+        - title: "Pelaporan PDPT"
+          payload: "/pelaporanPdpt_menu"
+        - title: "Pengisian Nilai"
+          payload: "/pengisianNilai_menu"
+        - title: "Portofolio"
+          payload: "/portofolio_menu"
+        - title: "RPS"
+          payload: "/rps_menu"
+
+  utter_ask_list_menu_dosenwali:
+    - text: "Berikut adalah opsi menu untuk Dosen Wali:"
+      buttons:
+        - title: "Absensi Kelas"
+          payload: "/absensiKelas_menu"
+        - title: "Absensi Ujian"
+          payload: "/absensiUjian_menu"
+        - title: "Bimbingan Diktisaintek Berdampak"
+          payload: "/bimbinganDiktisaintekBerdampak_menu"
+        - title: "Bimbingan Kerja Praktek"
+          payload: "/bimbinganKerjaPraktek_menu"
+        - title: "Bimbingan Skripsi"
+          payload: "/bimbinganSkripsi_menu"
+        - title: "BKD"
+          payload: "/bkd_menu"
+        - title: "Daftar Mahasiswa Per Kelas"
+          payload: "/daftarMahasiswaPerKelas_menu"
+        - title: "Evaluasi Kelas"
+          payload: "/evaluasiKelas_menu"
+        - title: "Melihat Honor"
+          payload: "/melihatHonor_menu"
+        - title: "Membuat Soal Ujian"
+          payload: "/membuatSoalUjian_menu"
+        - title: "Mentoring Dosen"
+          payload: "/mentoringDosen_menu"
+        - title: "Pelaporan PDPT"
+          payload: "/pelaporanPdpt_menu"
+        - title: "Pengisian Nilai"
+          payload: "/pengisianNilai_menu"
+        - title: "Portofolio"
+          payload: "/portofolio_menu"
+        - title: "RPS"
+          payload: "/rps_menu"
+        - title: "Bimbingan Akademik"
+          payload: "/bimbinganAkademik_menu"
+        - title: "Biodata Mahasiswa"
+          payload: "/biodataMahasiswa_menu"
+        - title: "Persetujuan Pengambilan KRS"
+          payload: "/persetujuanPengambilanKrs_menu"
+        - title: "Persetujuan Pengisian KRS"
+          payload: "/persetujuanPengisianKrs_menu"
+
+  utter_ask_list_menu:
+    - text: "Memuat daftar menu..."
+
+  utter_answer_error_list_menu:
+    - text: "Maaf, menu tidak dikenali. Silakan pilih opsi yang tersedia."
+
+actions:
+  - hello_world
+  - action_check_user_role
+  - action_detect_language
+  - action_show_list_menu
 
 session_config:
   session_expiration_time: 60

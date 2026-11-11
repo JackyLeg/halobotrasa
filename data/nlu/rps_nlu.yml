@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: rps_menu
+  examples: |
+    - menu rps
+    - tolong buka menu rps
+    - saya ingin melihat menu rps
+    - apa saja menu rps yang tersedia
+    - rps
+    - mau rps
+    - buka rps
+
+- intent: prosedur_rps
+  examples: |
+    - Prosedur RPS
+    - prosedur rps
+    - bagaimana prosedur rps
+    - cara rps
+    - alur rps
+
+- intent: persyaratan_rps
+  examples: |
+    - Persyaratan RPS
+    - persyaratan rps
+    - apa saja syarat rps
+    - persyaratan rps
+    - syarat rps
+
+- intent: transaksi_rps
+  examples: |
+    - Transaksi RPS
+    - transaksi rps
+    - transaksi rps
+    - pengajuan rps
+    - ajukan rps
+
+- intent: hasil_rps
+  examples: |
+    - Hasil RPS
+    - hasil rps
+    - hasil rps
+    - cek hasil rps
+    - lihat hasil rps

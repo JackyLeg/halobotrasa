@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU persetujuanPengisianKrs #
+
+  - story: beginning of flow persetujuanPengisianKrs
+    steps:
+      - intent: persetujuanPengisianKrs_menu
+      - action: utter_ask_menu_persetujuanPengisianKrs
+      - checkpoint: check_menu_persetujuanPengisianKrs
+
+  - story: handle user menu persetujuanPengisianKrs
+    steps:
+      - checkpoint: check_menu_persetujuanPengisianKrs
+      - or:
+          - intent: prosedur_persetujuanPengisianKrs
+          - intent: persyaratan_persetujuanPengisianKrs
+          - intent: transaksi_persetujuanPengisianKrs
+          - intent: hasil_persetujuanPengisianKrs
+      - checkpoint: confirmation_menu_persetujuanPengisianKrs
+
+  - story: direct option select persetujuanPengisianKrs
+    steps:
+      - or:
+          - intent: prosedur_persetujuanPengisianKrs
+          - intent: persyaratan_persetujuanPengisianKrs
+          - intent: transaksi_persetujuanPengisianKrs
+          - intent: hasil_persetujuanPengisianKrs
+      - checkpoint: confirmation_menu_persetujuanPengisianKrs
+
+  - story: confirmation ok persetujuanPengisianKrs
+    steps:
+      - checkpoint: confirmation_menu_persetujuanPengisianKrs
+      - action: action_ask_confirmation_persetujuanPengisianKrs
+      - intent: affirm
+      - slot_was_set:
+          - menu_persetujuanPengisianKrs_confirmation: true
+      - checkpoint: affirm_menu_persetujuanPengisianKrs
+
+  - story: confirmation cancel persetujuanPengisianKrs
+    steps:
+      - checkpoint: confirmation_menu_persetujuanPengisianKrs
+      - action: action_ask_confirmation_persetujuanPengisianKrs
+      - intent: deny
+      - slot_was_set:
+          - menu_persetujuanPengisianKrs_confirmation: false
+      - action: action_deny_persetujuanPengisianKrs
+      - checkpoint: check_menu_persetujuanPengisianKrs
+
+  - story: handle after menu persetujuanPengisianKrs
+    steps:
+      - checkpoint: affirm_menu_persetujuanPengisianKrs
+      - action: action_answer_persetujuanPengisianKrs

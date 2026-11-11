@@ -1,0 +1,26 @@
+version: "3.1"
+
+nlu:
+- intent: profil_menu
+  examples: |
+    - menu profil
+    - tolong buka menu profil
+    - saya ingin melihat menu profil
+    - apa saja menu profil yang tersedia
+    - profil
+    - mau profil
+    - buka profil
+
+- intent: ganti_password_profil
+  examples: |
+    - Ganti Password
+    - ganti password
+    - ganti kata sandi
+    - ubah password
+
+- intent: keluar_profil
+  examples: |
+    - Keluar
+    - keluar
+    - keluar akun
+    - logout

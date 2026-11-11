@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: membuatSoalUjian_menu
+  examples: |
+    - menu membuat soal ujian
+    - tolong buka menu membuat soal ujian
+    - saya ingin melihat menu membuat soal ujian
+    - apa saja menu membuat soal ujian yang tersedia
+    - membuat soal ujian
+    - mau membuat soal ujian
+    - buka membuat soal ujian
+
+- intent: prosedur_membuatSoalUjian
+  examples: |
+    - Prosedur Membuat Soal Ujian
+    - prosedur membuat soal ujian
+    - bagaimana prosedur membuat soal ujian
+    - cara membuat soal ujian
+    - alur membuat soal ujian
+
+- intent: persyaratan_membuatSoalUjian
+  examples: |
+    - Persyaratan Membuat Soal Ujian
+    - persyaratan membuat soal ujian
+    - apa saja syarat membuat soal ujian
+    - persyaratan membuat soal ujian
+    - syarat membuat soal ujian
+
+- intent: transaksi_membuatSoalUjian
+  examples: |
+    - Transaksi Membuat Soal Ujian
+    - transaksi membuat soal ujian
+    - transaksi membuat soal ujian
+    - pengajuan membuat soal ujian
+    - ajukan membuat soal ujian
+
+- intent: hasil_membuatSoalUjian
+  examples: |
+    - Hasil Membuat Soal Ujian
+    - hasil membuat soal ujian
+    - hasil membuat soal ujian
+    - cek hasil membuat soal ujian
+    - lihat hasil membuat soal ujian

@@ -1,0 +1,61 @@
+version: "3.1"
+
+intents:
+  - profil_menu
+  - ganti_password_profil
+  - keluar_profil
+
+slots:
+  menu_profil:
+    type: categorical
+    influence_conversation: false
+    values:
+      - "Ganti Password"
+      - "Keluar"
+      - "Change Password"
+      - "Logout"
+    mappings:
+      - type: custom
+
+  menu_profil_confirmation:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_menu_profil:
+    - text: "Silakan pilih salah satu opsi profil berikut:"
+      buttons:
+        - title: "Ganti Password"
+          payload: "/ganti_password_profil"
+        - title: "Keluar"
+          payload: "/keluar_profil"
+
+  utter_ask_menu_profil_confirmation:
+    - text: "Anda telah memilih opsi: {menu_profil}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
+  utter_menu_profil_cancelled:
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi profil."
+
+  utter_menu_profil_ok:
+    - text: "Anda telah berhasil memilih opsi profil: {menu_profil}."
+
+  utter_answer_ganti_password:
+    - text: "Anda telah berhasil memilih opsi ganti password."
+
+  utter_answer_keluar:
+    - text: "Anda telah berhasil memilih opsi keluar."
+
+  utter_answer_error_profil:
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
+actions:
+  - action_answer_profil
+  - action_ask_confirmation_profil
+  - action_deny_profil

@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - MBoutboundNonPT_menu
+  - prosedur_MBoutboundNonPT
+  - persyaratan_MBoutboundNonPT
+  - transaksi_MBoutboundNonPT
+  - hasil_MBoutboundNonPT
+
+slots:
+  menu_MBoutboundNonPT:
+    type: categorical
+    influence_conversation: false
+    values:
+      - "Prosedur MB Outbound Non PT"
+      - "Persyaratan MB Outbound Non PT"
+      - "Transaksi MB Outbound Non PT"
+      - "Hasil MB Outbound Non PT"
+      - "MB Outbound Non PT Procedure"
+      - "MB Outbound Non PT Requirements"
+      - "MB Outbound Non PT Transaction"
+      - "MB Outbound Non PT Results"
+    mappings:
+      - type: custom
+
+  menu_MBoutboundNonPT_confirmation:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_menu_MBoutboundNonPT:
+    - text: "Silakan pilih salah satu opsi MB Outbound Non PT berikut:"
+      buttons:
+        - title: "Prosedur MB Outbound Non PT"
+          payload: "/prosedur_MBoutboundNonPT"
+        - title: "Persyaratan MB Outbound Non PT"
+          payload: "/persyaratan_MBoutboundNonPT"
+        - title: "Transaksi MB Outbound Non PT"
+          payload: "/transaksi_MBoutboundNonPT"
+        - title: "Hasil MB Outbound Non PT"
+          payload: "/hasil_MBoutboundNonPT"
+
+  utter_ask_menu_MBoutboundNonPT_confirmation:
+    - text: "Anda telah memilih opsi: {menu_MBoutboundNonPT}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
+  utter_menu_MBoutboundNonPT_cancelled:
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi MB Outbound Non PT."
+
+  utter_menu_MBoutboundNonPT_ok:
+    - text: "Anda telah berhasil memilih opsi MB Outbound Non PT: {menu_MBoutboundNonPT}."
+
+  utter_answer_prosedur_MBoutboundNonPT:
+    - text: "PROSEDUR MB OUTBOUND NON PT"
+
+  utter_answer_persyaratan_MBoutboundNonPT:
+    - text: "PERSYARATAN MB OUTBOUND NON PT"
+
+  utter_answer_transaksi_MBoutboundNonPT:
+    - text: "Silakan lengkapi data pengajuan MB Outbound Non PT dan ajukan permohonan MB Outbound Non PT."
+
+  utter_answer_hasil_MBoutboundNonPT:
+    - text: "Pengajuan MB Outbound Non PT kamu telah diproses."
+
+  utter_answer_error_MBoutboundNonPT:
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
+actions:
+  - action_answer_MBoutboundNonPT
+  - action_ask_confirmation_MBoutboundNonPT
+  - action_deny_MBoutboundNonPT

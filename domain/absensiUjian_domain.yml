@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - absensiUjian_menu
+  - prosedur_absensiUjian
+  - persyaratan_absensiUjian
+  - transaksi_absensiUjian
+  - hasil_absensiUjian
+
+slots:
+  menu_absensiUjian:
+    type: categorical
+    influence_conversation: false
+    values:
+      - "Prosedur Absensi Ujian"
+      - "Persyaratan Absensi Ujian"
+      - "Transaksi Absensi Ujian"
+      - "Hasil Absensi Ujian"
+      - "Exam Attendance Procedure"
+      - "Exam Attendance Requirements"
+      - "Exam Attendance Transaction"
+      - "Exam Attendance Results"
+    mappings:
+      - type: custom
+
+  menu_absensiUjian_confirmation:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_menu_absensiUjian:
+    - text: "Silakan pilih salah satu opsi Absensi Ujian berikut:"
+      buttons:
+        - title: "Prosedur Absensi Ujian"
+          payload: "/prosedur_absensiUjian"
+        - title: "Persyaratan Absensi Ujian"
+          payload: "/persyaratan_absensiUjian"
+        - title: "Transaksi Absensi Ujian"
+          payload: "/transaksi_absensiUjian"
+        - title: "Hasil Absensi Ujian"
+          payload: "/hasil_absensiUjian"
+
+  utter_ask_menu_absensiUjian_confirmation:
+    - text: "Anda telah memilih opsi: {menu_absensiUjian}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
+  utter_menu_absensiUjian_cancelled:
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi Absensi Ujian."
+
+  utter_menu_absensiUjian_ok:
+    - text: "Anda telah berhasil memilih opsi Absensi Ujian: {menu_absensiUjian}."
+
+  utter_answer_prosedur_absensiUjian:
+    - text: "PROSEDUR ABSENSI UJIAN"
+
+  utter_answer_persyaratan_absensiUjian:
+    - text: "PERSYARATAN ABSENSI UJIAN"
+
+  utter_answer_transaksi_absensiUjian:
+    - text: "Silakan lengkapi data Absensi Ujian."
+
+  utter_answer_hasil_absensiUjian:
+    - text: "Pengajuan Absensi Ujian kamu telah diproses."
+
+  utter_answer_error_absensiUjian:
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
+actions:
+  - action_answer_absensiUjian
+  - action_ask_confirmation_absensiUjian
+  - action_deny_absensiUjian

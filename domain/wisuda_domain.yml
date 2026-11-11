@@ -1,191 +1,89 @@
-version: '3.1'
+version: "3.1"
+
 intents:
-- wisuda_menu
-- prosedur_wisuda
-- persyaratan_wisuda
-- transaksi_wisuda
-- hasil_wisuda
-- status_wisuda
+  - wisuda_menu
+  - prosedur_wisuda
+  - persyaratan_wisuda
+  - transaksi_wisuda
+  - hasil_wisuda
+
 slots:
   menu_wisuda:
     type: categorical
-    values:
-    - Prosedur Wisuda
-    - Persyaratan Wisuda
-    - Transaksi Wisuda
-    - Hasil Wisuda
-    mappings:
-    - type: custom
     influence_conversation: false
+    values:
+      - "Prosedur Wisuda"
+      - "Persyaratan Wisuda"
+      - "Transaksi Wisuda"
+      - "Hasil Wisuda"
+      - "Graduation Ceremony Procedure"
+      - "Graduation Ceremony Requirements"
+      - "Graduation Ceremony Transaction"
+      - "Graduation Ceremony Results"
+    mappings:
+      - type: custom
+
   menu_wisuda_confirmation:
     type: bool
-    mappings:
-    - type: custom
     influence_conversation: false
+    mappings:
+      - type: custom
+
 responses:
   utter_ask_menu_wisuda:
-  - text: 'Please select one of the following wisuda options:'
-    buttons:
-    - title: Prosedur Wisuda
-      payload: /prosedur_wisuda
-    - title: Persyaratan Wisuda
-      payload: /persyaratan_wisuda
-    - title: Transaksi Wisuda
-      payload: /transaksi_wisuda
-    - title: Hasil Wisuda
-      payload: /hasil_wisuda
+    - text: "Silakan pilih salah satu opsi wisuda berikut:"
+      buttons:
+        - title: "Prosedur Wisuda"
+          payload: "/prosedur_wisuda"
+        - title: "Persyaratan Wisuda"
+          payload: "/persyaratan_wisuda"
+        - title: "Transaksi Wisuda"
+          payload: "/transaksi_wisuda"
+        - title: "Hasil Wisuda"
+          payload: "/hasil_wisuda"
+
   utter_ask_menu_wisuda_confirmation:
-  - text: 'You have selected the option: {menu_wisuda}. Is that correct?'
-    buttons:
-    - title: 'Yes'
-      payload: /affirm
-    - title: 'No'
-      payload: /deny
+    - text: "Anda telah memilih opsi: {menu_wisuda}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
   utter_menu_wisuda_cancelled:
-  - text: Okay, let's try again. Please select one of the wisuda options.
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi wisuda."
+
   utter_menu_wisuda_ok:
-  - text: 'You have successfully selected the wisuda option: {menu_wisuda}.'
+    - text: "Anda telah berhasil memilih opsi wisuda: {menu_wisuda}."
+
   utter_answer_prosedur_wisuda:
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Hukum
-    text: 'PROSEDUR WISUDA (FH)
+    - text: |
+        PROSEDUR WISUDA
+        1. Hadir paling lambat 60 menit sebelum acara dimulai.
+        2. Dilarang membawa makanan, minuman, tas berukuran besar, kamera.
+        3. Disarankan sarapan atau makan sebelum wisuda bagi sesi pagi dan sesi siang sebelum memasuki ruangan wisuda.
+        4. Dilarang merokok sesuai Perda DKI Nomor: 2/2005 tentang larangan merokok dan kawasan dilarang merokok.
+        5. Wajib menjaga ketertiban dan kelancaran acara selama acara berlangsung.
+        6. Tidak dibenarkan mengaktifkan nada dering handphone selama berada di dalam ruangan.
+        7. Tidak dibenarkan meninggalkan ruangan sampai acara selesai.
+        8. Wisudawan yang izin ke toilet, harus melapor ke panitia dan meninggalkan topi toga wisuda di bangku masing-masing (secara bergantian maksimal 3 orang).
+        9. Untuk Wisudawati yang menggunakan jilbab, dan aksesoris seperti sanggul dan lain sebagainya harap memperhatikan posisi aksesoris tersebut agar tidak menutupi wajah.
+        10. Tidak ada aktivitas pemotretan, karena akan dilakukan oleh petugas dokumentasi dari panitia.
+        11. Jaga barang bawaan anda, karena panitia tidak bertanggung jawab apabila terjadi kehilangan.
 
-      '
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Ekonomi dan Bisnis
-    text: 'PROSEDUR WISUDA (FEB)
-
-      '
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Kedokteran
-    text: 'PROSEDUR WISUDA (FK)
-
-      '
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Kedokteran Gigi
-    text: 'PROSEDUR WISUDA (FKG)
-
-      '
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Teknik Sipil dan Perencanaan
-    text: 'PROSEDUR WISUDA (FTSP)
-
-      '
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Teknologi Industri
-    text: 'PROSEDUR WISUDA (FTI)
-
-      '
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Teknologi Kebumian dan Energi
-    text: 'PROSEDUR WISUDA (FTKE)
-
-      '
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
-    text: 'PROSEDUR WISUDA (FALTL)
-
-      '
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Seni Rupa dan Desain
-    text: 'PROSEDUR WISUDA (FSRD)
-
-      '
-  - text: 'PROSEDUR WISUDA
-
-      '
   utter_answer_persyaratan_wisuda:
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Hukum
-    text: 'PERSYARATAN WISUDA (FH)
+    - text: "PERSYARATAN WISUDA"
 
-      '
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Ekonomi dan Bisnis
-    text: 'PERSYARATAN WISUDA (FEB)
-
-      '
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Kedokteran
-    text: 'PERSYARATAN WISUDA (FK)
-
-      '
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Kedokteran Gigi
-    text: 'PERSYARATAN WISUDA (FKG)
-
-      '
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Teknik Sipil dan Perencanaan
-    text: 'PERSYARATAN WISUDA (FTSP)
-
-      '
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Teknologi Industri
-    text: 'PERSYARATAN WISUDA (FTI)
-
-      '
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Teknologi Kebumian dan Energi
-    text: 'PERSYARATAN WISUDA (FTKE)
-
-      '
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Arsitektur Lanskap dan Teknologi Lingkungan
-    text: 'PERSYARATAN WISUDA (FALTL)
-
-      '
-  - condition:
-    - type: slot
-      name: fakultas
-      value: Fakultas Seni Rupa dan Desain
-    text: 'PERSYARATAN WISUDA (FSRD)
-
-      '
-  - text: 'PERSYARATAN WISUDA
-
-      '
   utter_answer_transaksi_wisuda:
-  - text: Silakan lengkapi data pengajuan wisuda dan ajukan permohonan wisuda.
+    - text: "Silakan lengkapi data pengajuan wisuda dan ajukan permohonan wisuda."
+
   utter_answer_hasil_wisuda:
-  - text: Pengajuan wisuda kamu telah diproses.
+    - text: "Pengajuan wisuda kamu telah diproses."
+
   utter_answer_error_wisuda:
-  - text: Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia.
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
 actions:
-- action_answer_wisuda
-- action_ask_confirmation_wisuda
-- action_deny_wisuda
+  - action_answer_wisuda
+  - action_ask_confirmation_wisuda
+  - action_deny_wisuda

@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - melihatHonor_menu
+  - prosedur_melihatHonor
+  - persyaratan_melihatHonor
+  - transaksi_melihatHonor
+  - hasil_melihatHonor
+
+slots:
+  menu_melihatHonor:
+    type: categorical
+    influence_conversation: false
+    values:
+      - "Prosedur Melihat Honor"
+      - "Persyaratan Melihat Honor"
+      - "Transaksi Melihat Honor"
+      - "Hasil Melihat Honor"
+      - "View Honorarium Procedure"
+      - "View Honorarium Requirements"
+      - "View Honorarium Transaction"
+      - "View Honorarium Results"
+    mappings:
+      - type: custom
+
+  menu_melihatHonor_confirmation:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_menu_melihatHonor:
+    - text: "Silakan pilih salah satu opsi Melihat Honor berikut:"
+      buttons:
+        - title: "Prosedur Melihat Honor"
+          payload: "/prosedur_melihatHonor"
+        - title: "Persyaratan Melihat Honor"
+          payload: "/persyaratan_melihatHonor"
+        - title: "Transaksi Melihat Honor"
+          payload: "/transaksi_melihatHonor"
+        - title: "Hasil Melihat Honor"
+          payload: "/hasil_melihatHonor"
+
+  utter_ask_menu_melihatHonor_confirmation:
+    - text: "Anda telah memilih opsi: {menu_melihatHonor}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
+  utter_menu_melihatHonor_cancelled:
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi Melihat Honor."
+
+  utter_menu_melihatHonor_ok:
+    - text: "Anda telah berhasil memilih opsi Melihat Honor: {menu_melihatHonor}."
+
+  utter_answer_prosedur_melihatHonor:
+    - text: "PROSEDUR MELIHAT HONOR"
+
+  utter_answer_persyaratan_melihatHonor:
+    - text: "PERSYARATAN MELIHAT HONOR"
+
+  utter_answer_transaksi_melihatHonor:
+    - text: "Silakan lengkapi data Melihat Honor."
+
+  utter_answer_hasil_melihatHonor:
+    - text: "Pengajuan Melihat Honor kamu telah diproses."
+
+  utter_answer_error_melihatHonor:
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
+actions:
+  - action_answer_melihatHonor
+  - action_ask_confirmation_melihatHonor
+  - action_deny_melihatHonor

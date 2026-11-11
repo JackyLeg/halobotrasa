@@ -1,32 +1,44 @@
 version: "3.1"
 
 nlu:
-#MENU_KARTUPESERTAUJIAN#
 - intent: kartuPesertaUjian_menu
   examples: |
     - menu kartu peserta ujian
+    - tolong buka menu kartu peserta ujian
     - saya ingin melihat menu kartu peserta ujian
     - apa saja menu kartu peserta ujian yang tersedia
-    - tolong tunjukkan menu kartu peserta ujian
     - kartu peserta ujian
     - mau kartu peserta ujian
+    - buka kartu peserta ujian
 
 - intent: prosedur_kartuPesertaUjian
   examples: |
     - Prosedur Kartu Peserta Ujian
+    - prosedur kartu peserta ujian
+    - bagaimana prosedur kartu peserta ujian
+    - cara kartu peserta ujian
+    - alur kartu peserta ujian
 
 - intent: persyaratan_kartuPesertaUjian
   examples: |
     - Persyaratan Kartu Peserta Ujian
+    - persyaratan kartu peserta ujian
+    - apa saja syarat kartu peserta ujian
+    - persyaratan kartu peserta ujian
+    - syarat kartu peserta ujian
 
 - intent: transaksi_kartuPesertaUjian
   examples: |
     - Transaksi Kartu Peserta Ujian
+    - transaksi kartu peserta ujian
+    - transaksi kartu peserta ujian
+    - pengajuan kartu peserta ujian
+    - ajukan kartu peserta ujian
 
 - intent: hasil_kartuPesertaUjian
   examples: |
     - Hasil Kartu Peserta Ujian
-
-- intent: status_kartuPesertaUjian
-  examples: |
-    - Status Kartu Peserta Ujian
+    - hasil kartu peserta ujian
+    - hasil kartu peserta ujian
+    - cek hasil kartu peserta ujian
+    - lihat hasil kartu peserta ujian

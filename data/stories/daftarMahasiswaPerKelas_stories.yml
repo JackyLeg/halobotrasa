@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU daftarMahasiswaPerKelas #
+
+  - story: beginning of flow daftarMahasiswaPerKelas
+    steps:
+      - intent: daftarMahasiswaPerKelas_menu
+      - action: utter_ask_menu_daftarMahasiswaPerKelas
+      - checkpoint: check_menu_daftarMahasiswaPerKelas
+
+  - story: handle user menu daftarMahasiswaPerKelas
+    steps:
+      - checkpoint: check_menu_daftarMahasiswaPerKelas
+      - or:
+          - intent: prosedur_daftarMahasiswaPerKelas
+          - intent: persyaratan_daftarMahasiswaPerKelas
+          - intent: transaksi_daftarMahasiswaPerKelas
+          - intent: hasil_daftarMahasiswaPerKelas
+      - checkpoint: confirmation_menu_daftarMahasiswaPerKelas
+
+  - story: direct option select daftarMahasiswaPerKelas
+    steps:
+      - or:
+          - intent: prosedur_daftarMahasiswaPerKelas
+          - intent: persyaratan_daftarMahasiswaPerKelas
+          - intent: transaksi_daftarMahasiswaPerKelas
+          - intent: hasil_daftarMahasiswaPerKelas
+      - checkpoint: confirmation_menu_daftarMahasiswaPerKelas
+
+  - story: confirmation ok daftarMahasiswaPerKelas
+    steps:
+      - checkpoint: confirmation_menu_daftarMahasiswaPerKelas
+      - action: action_ask_confirmation_daftarMahasiswaPerKelas
+      - intent: affirm
+      - slot_was_set:
+          - menu_daftarMahasiswaPerKelas_confirmation: true
+      - checkpoint: affirm_menu_daftarMahasiswaPerKelas
+
+  - story: confirmation cancel daftarMahasiswaPerKelas
+    steps:
+      - checkpoint: confirmation_menu_daftarMahasiswaPerKelas
+      - action: action_ask_confirmation_daftarMahasiswaPerKelas
+      - intent: deny
+      - slot_was_set:
+          - menu_daftarMahasiswaPerKelas_confirmation: false
+      - action: action_deny_daftarMahasiswaPerKelas
+      - checkpoint: check_menu_daftarMahasiswaPerKelas
+
+  - story: handle after menu daftarMahasiswaPerKelas
+    steps:
+      - checkpoint: affirm_menu_daftarMahasiswaPerKelas
+      - action: action_answer_daftarMahasiswaPerKelas

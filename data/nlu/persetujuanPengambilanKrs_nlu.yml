@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: persetujuanPengambilanKrs_menu
+  examples: |
+    - menu persetujuan pengambilan krs
+    - tolong buka menu persetujuan pengambilan krs
+    - saya ingin melihat menu persetujuan pengambilan krs
+    - apa saja menu persetujuan pengambilan krs yang tersedia
+    - persetujuan pengambilan krs
+    - mau persetujuan pengambilan krs
+    - buka persetujuan pengambilan krs
+
+- intent: prosedur_persetujuanPengambilanKrs
+  examples: |
+    - Prosedur Persetujuan Pengambilan KRS
+    - prosedur persetujuan pengambilan krs
+    - bagaimana prosedur persetujuan pengambilan krs
+    - cara persetujuan pengambilan krs
+    - alur persetujuan pengambilan krs
+
+- intent: persyaratan_persetujuanPengambilanKrs
+  examples: |
+    - Persyaratan Persetujuan Pengambilan KRS
+    - persyaratan persetujuan pengambilan krs
+    - apa saja syarat persetujuan pengambilan krs
+    - persyaratan persetujuan pengambilan krs
+    - syarat persetujuan pengambilan krs
+
+- intent: transaksi_persetujuanPengambilanKrs
+  examples: |
+    - Transaksi Persetujuan Pengambilan KRS
+    - transaksi persetujuan pengambilan krs
+    - transaksi persetujuan pengambilan krs
+    - pengajuan persetujuan pengambilan krs
+    - ajukan persetujuan pengambilan krs
+
+- intent: hasil_persetujuanPengambilanKrs
+  examples: |
+    - Hasil Persetujuan Pengambilan KRS
+    - hasil persetujuan pengambilan krs
+    - hasil persetujuan pengambilan krs
+    - cek hasil persetujuan pengambilan krs
+    - lihat hasil persetujuan pengambilan krs

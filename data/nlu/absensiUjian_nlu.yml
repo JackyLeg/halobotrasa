@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: absensiUjian_menu
+  examples: |
+    - menu absensi ujian
+    - tolong buka menu absensi ujian
+    - saya ingin melihat menu absensi ujian
+    - apa saja menu absensi ujian yang tersedia
+    - absensi ujian
+    - mau absensi ujian
+    - buka absensi ujian
+
+- intent: prosedur_absensiUjian
+  examples: |
+    - Prosedur Absensi Ujian
+    - prosedur absensi ujian
+    - bagaimana prosedur absensi ujian
+    - cara absensi ujian
+    - alur absensi ujian
+
+- intent: persyaratan_absensiUjian
+  examples: |
+    - Persyaratan Absensi Ujian
+    - persyaratan absensi ujian
+    - apa saja syarat absensi ujian
+    - persyaratan absensi ujian
+    - syarat absensi ujian
+
+- intent: transaksi_absensiUjian
+  examples: |
+    - Transaksi Absensi Ujian
+    - transaksi absensi ujian
+    - transaksi absensi ujian
+    - pengajuan absensi ujian
+    - ajukan absensi ujian
+
+- intent: hasil_absensiUjian
+  examples: |
+    - Hasil Absensi Ujian
+    - hasil absensi ujian
+    - hasil absensi ujian
+    - cek hasil absensi ujian
+    - lihat hasil absensi ujian

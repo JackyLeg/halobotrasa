@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU pengisianNilai #
+
+  - story: beginning of flow pengisianNilai
+    steps:
+      - intent: pengisianNilai_menu
+      - action: utter_ask_menu_pengisianNilai
+      - checkpoint: check_menu_pengisianNilai
+
+  - story: handle user menu pengisianNilai
+    steps:
+      - checkpoint: check_menu_pengisianNilai
+      - or:
+          - intent: prosedur_pengisianNilai
+          - intent: persyaratan_pengisianNilai
+          - intent: transaksi_pengisianNilai
+          - intent: hasil_pengisianNilai
+      - checkpoint: confirmation_menu_pengisianNilai
+
+  - story: direct option select pengisianNilai
+    steps:
+      - or:
+          - intent: prosedur_pengisianNilai
+          - intent: persyaratan_pengisianNilai
+          - intent: transaksi_pengisianNilai
+          - intent: hasil_pengisianNilai
+      - checkpoint: confirmation_menu_pengisianNilai
+
+  - story: confirmation ok pengisianNilai
+    steps:
+      - checkpoint: confirmation_menu_pengisianNilai
+      - action: action_ask_confirmation_pengisianNilai
+      - intent: affirm
+      - slot_was_set:
+          - menu_pengisianNilai_confirmation: true
+      - checkpoint: affirm_menu_pengisianNilai
+
+  - story: confirmation cancel pengisianNilai
+    steps:
+      - checkpoint: confirmation_menu_pengisianNilai
+      - action: action_ask_confirmation_pengisianNilai
+      - intent: deny
+      - slot_was_set:
+          - menu_pengisianNilai_confirmation: false
+      - action: action_deny_pengisianNilai
+      - checkpoint: check_menu_pengisianNilai
+
+  - story: handle after menu pengisianNilai
+    steps:
+      - checkpoint: affirm_menu_pengisianNilai
+      - action: action_answer_pengisianNilai

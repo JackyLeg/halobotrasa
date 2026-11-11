@@ -1,32 +1,36 @@
 version: "3.1"
 
 nlu:
-#MENU_KARTUHASILSTUDI#
 - intent: kartuHasilStudi_menu
   examples: |
-    - menu khs
-    - saya ingin melihat menu khs
-    - apa saja menu khs yang tersedia
-    - tolong tunjukkan menu khs
-    - khs
-    - mau khs
+    - menu kartu hasil studi
+    - tolong buka menu kartu hasil studi
+    - saya ingin melihat menu kartu hasil studi
+    - apa saja menu kartu hasil studi yang tersedia
+    - kartu hasil studi
+    - mau kartu hasil studi
+    - buka kartu hasil studi
 
 - intent: prosedur_kartuHasilStudi
   examples: |
     - Prosedur KHS
+    - prosedur khs
+    - bagaimana prosedur kartu hasil studi
+    - cara kartu hasil studi
+    - alur kartu hasil studi
 
 - intent: persyaratan_kartuHasilStudi
   examples: |
     - Persyaratan KHS
-
-- intent: transaksi_kartuHasilStudi
-  examples: |
-    - Transaksi KHS
+    - persyaratan khs
+    - apa saja syarat kartu hasil studi
+    - persyaratan kartu hasil studi
+    - syarat kartu hasil studi
 
 - intent: hasil_kartuHasilStudi
   examples: |
     - Hasil KHS
-
-- intent: status_kartuHasilStudi
-  examples: |
-    - Status KHS
+    - hasil khs
+    - hasil kartu hasil studi
+    - cek hasil kartu hasil studi
+    - lihat hasil kartu hasil studi

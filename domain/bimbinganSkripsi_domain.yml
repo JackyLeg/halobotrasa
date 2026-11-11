@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - bimbinganSkripsi_menu
+  - prosedur_bimbinganSkripsi
+  - persyaratan_bimbinganSkripsi
+  - transaksi_bimbinganSkripsi
+  - hasil_bimbinganSkripsi
+
+slots:
+  menu_bimbinganSkripsi:
+    type: categorical
+    influence_conversation: false
+    values:
+      - "Prosedur Bimbingan Skripsi"
+      - "Persyaratan Bimbingan Skripsi"
+      - "Transaksi Bimbingan Skripsi"
+      - "Hasil Bimbingan Skripsi"
+      - "Thesis Mentoring Procedure"
+      - "Thesis Mentoring Requirements"
+      - "Thesis Mentoring Transaction"
+      - "Thesis Mentoring Results"
+    mappings:
+      - type: custom
+
+  menu_bimbinganSkripsi_confirmation:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_menu_bimbinganSkripsi:
+    - text: "Silakan pilih salah satu opsi Bimbingan Skripsi berikut:"
+      buttons:
+        - title: "Prosedur Bimbingan Skripsi"
+          payload: "/prosedur_bimbinganSkripsi"
+        - title: "Persyaratan Bimbingan Skripsi"
+          payload: "/persyaratan_bimbinganSkripsi"
+        - title: "Transaksi Bimbingan Skripsi"
+          payload: "/transaksi_bimbinganSkripsi"
+        - title: "Hasil Bimbingan Skripsi"
+          payload: "/hasil_bimbinganSkripsi"
+
+  utter_ask_menu_bimbinganSkripsi_confirmation:
+    - text: "Anda telah memilih opsi: {menu_bimbinganSkripsi}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
+  utter_menu_bimbinganSkripsi_cancelled:
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi Bimbingan Skripsi."
+
+  utter_menu_bimbinganSkripsi_ok:
+    - text: "Anda telah berhasil memilih opsi Bimbingan Skripsi: {menu_bimbinganSkripsi}."
+
+  utter_answer_prosedur_bimbinganSkripsi:
+    - text: "PROSEDUR BIMBINGAN SKRIPSI"
+
+  utter_answer_persyaratan_bimbinganSkripsi:
+    - text: "PERSYARATAN BIMBINGAN SKRIPSI"
+
+  utter_answer_transaksi_bimbinganSkripsi:
+    - text: "Silakan lengkapi data Bimbingan Skripsi."
+
+  utter_answer_hasil_bimbinganSkripsi:
+    - text: "Pengajuan Bimbingan Skripsi kamu telah diproses."
+
+  utter_answer_error_bimbinganSkripsi:
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
+actions:
+  - action_answer_bimbinganSkripsi
+  - action_ask_confirmation_bimbinganSkripsi
+  - action_deny_bimbinganSkripsi

@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU membuatSoalUjian #
+
+  - story: beginning of flow membuatSoalUjian
+    steps:
+      - intent: membuatSoalUjian_menu
+      - action: utter_ask_menu_membuatSoalUjian
+      - checkpoint: check_menu_membuatSoalUjian
+
+  - story: handle user menu membuatSoalUjian
+    steps:
+      - checkpoint: check_menu_membuatSoalUjian
+      - or:
+          - intent: prosedur_membuatSoalUjian
+          - intent: persyaratan_membuatSoalUjian
+          - intent: transaksi_membuatSoalUjian
+          - intent: hasil_membuatSoalUjian
+      - checkpoint: confirmation_menu_membuatSoalUjian
+
+  - story: direct option select membuatSoalUjian
+    steps:
+      - or:
+          - intent: prosedur_membuatSoalUjian
+          - intent: persyaratan_membuatSoalUjian
+          - intent: transaksi_membuatSoalUjian
+          - intent: hasil_membuatSoalUjian
+      - checkpoint: confirmation_menu_membuatSoalUjian
+
+  - story: confirmation ok membuatSoalUjian
+    steps:
+      - checkpoint: confirmation_menu_membuatSoalUjian
+      - action: action_ask_confirmation_membuatSoalUjian
+      - intent: affirm
+      - slot_was_set:
+          - menu_membuatSoalUjian_confirmation: true
+      - checkpoint: affirm_menu_membuatSoalUjian
+
+  - story: confirmation cancel membuatSoalUjian
+    steps:
+      - checkpoint: confirmation_menu_membuatSoalUjian
+      - action: action_ask_confirmation_membuatSoalUjian
+      - intent: deny
+      - slot_was_set:
+          - menu_membuatSoalUjian_confirmation: false
+      - action: action_deny_membuatSoalUjian
+      - checkpoint: check_menu_membuatSoalUjian
+
+  - story: handle after menu membuatSoalUjian
+    steps:
+      - checkpoint: affirm_menu_membuatSoalUjian
+      - action: action_answer_membuatSoalUjian

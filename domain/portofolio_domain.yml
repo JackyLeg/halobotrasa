@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - portofolio_menu
+  - prosedur_portofolio
+  - persyaratan_portofolio
+  - transaksi_portofolio
+  - hasil_portofolio
+
+slots:
+  menu_portofolio:
+    type: categorical
+    influence_conversation: false
+    values:
+      - "Prosedur Portofolio"
+      - "Persyaratan Portofolio"
+      - "Transaksi Portofolio"
+      - "Hasil Portofolio"
+      - "Portfolio Procedure"
+      - "Portfolio Requirements"
+      - "Portfolio Transaction"
+      - "Portfolio Results"
+    mappings:
+      - type: custom
+
+  menu_portofolio_confirmation:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_menu_portofolio:
+    - text: "Silakan pilih salah satu opsi Portofolio berikut:"
+      buttons:
+        - title: "Prosedur Portofolio"
+          payload: "/prosedur_portofolio"
+        - title: "Persyaratan Portofolio"
+          payload: "/persyaratan_portofolio"
+        - title: "Transaksi Portofolio"
+          payload: "/transaksi_portofolio"
+        - title: "Hasil Portofolio"
+          payload: "/hasil_portofolio"
+
+  utter_ask_menu_portofolio_confirmation:
+    - text: "Anda telah memilih opsi: {menu_portofolio}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
+  utter_menu_portofolio_cancelled:
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi Portofolio."
+
+  utter_menu_portofolio_ok:
+    - text: "Anda telah berhasil memilih opsi Portofolio: {menu_portofolio}."
+
+  utter_answer_prosedur_portofolio:
+    - text: "PROSEDUR PORTOFOLIO"
+
+  utter_answer_persyaratan_portofolio:
+    - text: "PERSYARATAN PORTOFOLIO"
+
+  utter_answer_transaksi_portofolio:
+    - text: "Silakan lengkapi data Portofolio."
+
+  utter_answer_hasil_portofolio:
+    - text: "Pengajuan Portofolio kamu telah diproses."
+
+  utter_answer_error_portofolio:
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
+actions:
+  - action_answer_portofolio
+  - action_ask_confirmation_portofolio
+  - action_deny_portofolio

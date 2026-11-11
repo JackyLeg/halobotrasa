@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: melihatHonor_menu
+  examples: |
+    - menu melihat honor
+    - tolong buka menu melihat honor
+    - saya ingin melihat menu melihat honor
+    - apa saja menu melihat honor yang tersedia
+    - melihat honor
+    - mau melihat honor
+    - buka melihat honor
+
+- intent: prosedur_melihatHonor
+  examples: |
+    - Prosedur Melihat Honor
+    - prosedur melihat honor
+    - bagaimana prosedur melihat honor
+    - cara melihat honor
+    - alur melihat honor
+
+- intent: persyaratan_melihatHonor
+  examples: |
+    - Persyaratan Melihat Honor
+    - persyaratan melihat honor
+    - apa saja syarat melihat honor
+    - persyaratan melihat honor
+    - syarat melihat honor
+
+- intent: transaksi_melihatHonor
+  examples: |
+    - Transaksi Melihat Honor
+    - transaksi melihat honor
+    - transaksi melihat honor
+    - pengajuan melihat honor
+    - ajukan melihat honor
+
+- intent: hasil_melihatHonor
+  examples: |
+    - Hasil Melihat Honor
+    - hasil melihat honor
+    - hasil melihat honor
+    - cek hasil melihat honor
+    - lihat hasil melihat honor

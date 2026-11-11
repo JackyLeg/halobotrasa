@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU pelaporanPdpt #
+
+  - story: beginning of flow pelaporanPdpt
+    steps:
+      - intent: pelaporanPdpt_menu
+      - action: utter_ask_menu_pelaporanPdpt
+      - checkpoint: check_menu_pelaporanPdpt
+
+  - story: handle user menu pelaporanPdpt
+    steps:
+      - checkpoint: check_menu_pelaporanPdpt
+      - or:
+          - intent: prosedur_pelaporanPdpt
+          - intent: persyaratan_pelaporanPdpt
+          - intent: transaksi_pelaporanPdpt
+          - intent: hasil_pelaporanPdpt
+      - checkpoint: confirmation_menu_pelaporanPdpt
+
+  - story: direct option select pelaporanPdpt
+    steps:
+      - or:
+          - intent: prosedur_pelaporanPdpt
+          - intent: persyaratan_pelaporanPdpt
+          - intent: transaksi_pelaporanPdpt
+          - intent: hasil_pelaporanPdpt
+      - checkpoint: confirmation_menu_pelaporanPdpt
+
+  - story: confirmation ok pelaporanPdpt
+    steps:
+      - checkpoint: confirmation_menu_pelaporanPdpt
+      - action: action_ask_confirmation_pelaporanPdpt
+      - intent: affirm
+      - slot_was_set:
+          - menu_pelaporanPdpt_confirmation: true
+      - checkpoint: affirm_menu_pelaporanPdpt
+
+  - story: confirmation cancel pelaporanPdpt
+    steps:
+      - checkpoint: confirmation_menu_pelaporanPdpt
+      - action: action_ask_confirmation_pelaporanPdpt
+      - intent: deny
+      - slot_was_set:
+          - menu_pelaporanPdpt_confirmation: false
+      - action: action_deny_pelaporanPdpt
+      - checkpoint: check_menu_pelaporanPdpt
+
+  - story: handle after menu pelaporanPdpt
+    steps:
+      - checkpoint: affirm_menu_pelaporanPdpt
+      - action: action_answer_pelaporanPdpt

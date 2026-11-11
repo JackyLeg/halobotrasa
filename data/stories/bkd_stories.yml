@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU bkd #
+
+  - story: beginning of flow bkd
+    steps:
+      - intent: bkd_menu
+      - action: utter_ask_menu_bkd
+      - checkpoint: check_menu_bkd
+
+  - story: handle user menu bkd
+    steps:
+      - checkpoint: check_menu_bkd
+      - or:
+          - intent: prosedur_bkd
+          - intent: persyaratan_bkd
+          - intent: transaksi_bkd
+          - intent: hasil_bkd
+      - checkpoint: confirmation_menu_bkd
+
+  - story: direct option select bkd
+    steps:
+      - or:
+          - intent: prosedur_bkd
+          - intent: persyaratan_bkd
+          - intent: transaksi_bkd
+          - intent: hasil_bkd
+      - checkpoint: confirmation_menu_bkd
+
+  - story: confirmation ok bkd
+    steps:
+      - checkpoint: confirmation_menu_bkd
+      - action: action_ask_confirmation_bkd
+      - intent: affirm
+      - slot_was_set:
+          - menu_bkd_confirmation: true
+      - checkpoint: affirm_menu_bkd
+
+  - story: confirmation cancel bkd
+    steps:
+      - checkpoint: confirmation_menu_bkd
+      - action: action_ask_confirmation_bkd
+      - intent: deny
+      - slot_was_set:
+          - menu_bkd_confirmation: false
+      - action: action_deny_bkd
+      - checkpoint: check_menu_bkd
+
+  - story: handle after menu bkd
+    steps:
+      - checkpoint: affirm_menu_bkd
+      - action: action_answer_bkd

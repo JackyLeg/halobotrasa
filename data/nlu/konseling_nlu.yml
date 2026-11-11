@@ -1,32 +1,44 @@
 version: "3.1"
 
 nlu:
-#MENU_KONSELING#
 - intent: konseling_menu
   examples: |
     - menu konseling
+    - tolong buka menu konseling
     - saya ingin melihat menu konseling
     - apa saja menu konseling yang tersedia
-    - tolong tunjukkan menu konseling
     - konseling
     - mau konseling
+    - buka konseling
 
 - intent: prosedur_konseling
   examples: |
     - Prosedur Konseling
+    - prosedur konseling
+    - bagaimana prosedur konseling
+    - cara konseling
+    - alur konseling
 
 - intent: persyaratan_konseling
   examples: |
     - Persyaratan Konseling
+    - persyaratan konseling
+    - apa saja syarat konseling
+    - persyaratan konseling
+    - syarat konseling
 
 - intent: transaksi_konseling
   examples: |
     - Transaksi Konseling
+    - transaksi konseling
+    - transaksi konseling
+    - pengajuan konseling
+    - ajukan konseling
 
 - intent: hasil_konseling
   examples: |
     - Hasil Konseling
-
-- intent: status_konseling
-  examples: |
-    - Status Konseling
+    - hasil konseling
+    - hasil konseling
+    - cek hasil konseling
+    - lihat hasil konseling

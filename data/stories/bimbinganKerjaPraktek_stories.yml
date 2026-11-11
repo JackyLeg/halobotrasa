@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU bimbinganKerjaPraktek #
+
+  - story: beginning of flow bimbinganKerjaPraktek
+    steps:
+      - intent: bimbinganKerjaPraktek_menu
+      - action: utter_ask_menu_bimbinganKerjaPraktek
+      - checkpoint: check_menu_bimbinganKerjaPraktek
+
+  - story: handle user menu bimbinganKerjaPraktek
+    steps:
+      - checkpoint: check_menu_bimbinganKerjaPraktek
+      - or:
+          - intent: prosedur_bimbinganKerjaPraktek
+          - intent: persyaratan_bimbinganKerjaPraktek
+          - intent: transaksi_bimbinganKerjaPraktek
+          - intent: hasil_bimbinganKerjaPraktek
+      - checkpoint: confirmation_menu_bimbinganKerjaPraktek
+
+  - story: direct option select bimbinganKerjaPraktek
+    steps:
+      - or:
+          - intent: prosedur_bimbinganKerjaPraktek
+          - intent: persyaratan_bimbinganKerjaPraktek
+          - intent: transaksi_bimbinganKerjaPraktek
+          - intent: hasil_bimbinganKerjaPraktek
+      - checkpoint: confirmation_menu_bimbinganKerjaPraktek
+
+  - story: confirmation ok bimbinganKerjaPraktek
+    steps:
+      - checkpoint: confirmation_menu_bimbinganKerjaPraktek
+      - action: action_ask_confirmation_bimbinganKerjaPraktek
+      - intent: affirm
+      - slot_was_set:
+          - menu_bimbinganKerjaPraktek_confirmation: true
+      - checkpoint: affirm_menu_bimbinganKerjaPraktek
+
+  - story: confirmation cancel bimbinganKerjaPraktek
+    steps:
+      - checkpoint: confirmation_menu_bimbinganKerjaPraktek
+      - action: action_ask_confirmation_bimbinganKerjaPraktek
+      - intent: deny
+      - slot_was_set:
+          - menu_bimbinganKerjaPraktek_confirmation: false
+      - action: action_deny_bimbinganKerjaPraktek
+      - checkpoint: check_menu_bimbinganKerjaPraktek
+
+  - story: handle after menu bimbinganKerjaPraktek
+    steps:
+      - checkpoint: affirm_menu_bimbinganKerjaPraktek
+      - action: action_answer_bimbinganKerjaPraktek

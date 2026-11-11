@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - persetujuanPengambilanKrs_menu
+  - prosedur_persetujuanPengambilanKrs
+  - persyaratan_persetujuanPengambilanKrs
+  - transaksi_persetujuanPengambilanKrs
+  - hasil_persetujuanPengambilanKrs
+
+slots:
+  menu_persetujuanPengambilanKrs:
+    type: categorical
+    influence_conversation: false
+    values:
+      - "Prosedur Persetujuan Pengambilan KRS"
+      - "Persyaratan Persetujuan Pengambilan KRS"
+      - "Transaksi Persetujuan Pengambilan KRS"
+      - "Hasil Persetujuan Pengambilan KRS"
+      - "KRS Enrollment Approval Procedure"
+      - "KRS Enrollment Approval Requirements"
+      - "KRS Enrollment Approval Transaction"
+      - "KRS Enrollment Approval Results"
+    mappings:
+      - type: custom
+
+  menu_persetujuanPengambilanKrs_confirmation:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_menu_persetujuanPengambilanKrs:
+    - text: "Silakan pilih salah satu opsi Persetujuan Pengambilan KRS berikut:"
+      buttons:
+        - title: "Prosedur Persetujuan Pengambilan KRS"
+          payload: "/prosedur_persetujuanPengambilanKrs"
+        - title: "Persyaratan Persetujuan Pengambilan KRS"
+          payload: "/persyaratan_persetujuanPengambilanKrs"
+        - title: "Transaksi Persetujuan Pengambilan KRS"
+          payload: "/transaksi_persetujuanPengambilanKrs"
+        - title: "Hasil Persetujuan Pengambilan KRS"
+          payload: "/hasil_persetujuanPengambilanKrs"
+
+  utter_ask_menu_persetujuanPengambilanKrs_confirmation:
+    - text: "Anda telah memilih opsi: {menu_persetujuanPengambilanKrs}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
+  utter_menu_persetujuanPengambilanKrs_cancelled:
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi Persetujuan Pengambilan KRS."
+
+  utter_menu_persetujuanPengambilanKrs_ok:
+    - text: "Anda telah berhasil memilih opsi Persetujuan Pengambilan KRS: {menu_persetujuanPengambilanKrs}."
+
+  utter_answer_prosedur_persetujuanPengambilanKrs:
+    - text: "PROSEDUR PERSETUJUAN PENGAMBILAN KRS"
+
+  utter_answer_persyaratan_persetujuanPengambilanKrs:
+    - text: "PERSYARATAN PERSETUJUAN PENGAMBILAN KRS"
+
+  utter_answer_transaksi_persetujuanPengambilanKrs:
+    - text: "Silakan lengkapi data Persetujuan Pengambilan KRS."
+
+  utter_answer_hasil_persetujuanPengambilanKrs:
+    - text: "Pengajuan Persetujuan Pengambilan KRS kamu telah diproses."
+
+  utter_answer_error_persetujuanPengambilanKrs:
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
+actions:
+  - action_answer_persetujuanPengambilanKrs
+  - action_ask_confirmation_persetujuanPengambilanKrs
+  - action_deny_persetujuanPengambilanKrs

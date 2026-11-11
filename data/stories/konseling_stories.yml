@@ -1,7 +1,7 @@
 version: "3.1"
 
 stories:
-# MENU KONSELING #
+# MENU konseling #
 
   - story: beginning of flow konseling
     steps:
@@ -17,7 +17,15 @@ stories:
           - intent: persyaratan_konseling
           - intent: transaksi_konseling
           - intent: hasil_konseling
-          - intent: status_konseling
+      - checkpoint: confirmation_menu_konseling
+
+  - story: direct option select konseling
+    steps:
+      - or:
+          - intent: prosedur_konseling
+          - intent: persyaratan_konseling
+          - intent: transaksi_konseling
+          - intent: hasil_konseling
       - checkpoint: confirmation_menu_konseling
 
   - story: confirmation ok konseling
@@ -42,15 +50,4 @@ stories:
   - story: handle after menu konseling
     steps:
       - checkpoint: affirm_menu_konseling
-      - or:
-          - slot_was_set:
-              - menu_konseling: "Prosedur Konseling"
-          - slot_was_set:
-              - menu_konseling: "Persyaratan Konseling"
-          - slot_was_set:
-              - menu_konseling: "Transaksi Konseling"
-          - slot_was_set:
-              - menu_konseling: "Hasil Konseling"
-          - slot_was_set:
-              - menu_konseling: "Status Konseling"
       - action: action_answer_konseling

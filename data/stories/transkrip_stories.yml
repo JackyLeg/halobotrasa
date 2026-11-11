@@ -1,7 +1,7 @@
 version: "3.1"
 
 stories:
-# MENU TRANSKRIP #
+# MENU transkrip #
 
   - story: beginning of flow transkrip
     steps:
@@ -17,7 +17,15 @@ stories:
           - intent: persyaratan_transkrip
           - intent: transaksi_transkrip
           - intent: hasil_transkrip
-          - intent: status_transkrip
+      - checkpoint: confirmation_menu_transkrip
+
+  - story: direct option select transkrip
+    steps:
+      - or:
+          - intent: prosedur_transkrip
+          - intent: persyaratan_transkrip
+          - intent: transaksi_transkrip
+          - intent: hasil_transkrip
       - checkpoint: confirmation_menu_transkrip
 
   - story: confirmation ok transkrip
@@ -42,15 +50,4 @@ stories:
   - story: handle after menu transkrip
     steps:
       - checkpoint: affirm_menu_transkrip
-      - or:
-          - slot_was_set:
-              - menu_transkrip: "Prosedur Transkrip"
-          - slot_was_set:
-              - menu_transkrip: "Persyaratan Transkrip"
-          - slot_was_set:
-              - menu_transkrip: "Transaksi Transkrip"
-          - slot_was_set:
-              - menu_transkrip: "Hasil Transkrip"
-          - slot_was_set:
-              - menu_transkrip: "Status Transkrip"
       - action: action_answer_transkrip

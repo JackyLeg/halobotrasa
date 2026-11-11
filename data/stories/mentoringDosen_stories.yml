@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU mentoringDosen #
+
+  - story: beginning of flow mentoringDosen
+    steps:
+      - intent: mentoringDosen_menu
+      - action: utter_ask_menu_mentoringDosen
+      - checkpoint: check_menu_mentoringDosen
+
+  - story: handle user menu mentoringDosen
+    steps:
+      - checkpoint: check_menu_mentoringDosen
+      - or:
+          - intent: prosedur_mentoringDosen
+          - intent: persyaratan_mentoringDosen
+          - intent: transaksi_mentoringDosen
+          - intent: hasil_mentoringDosen
+      - checkpoint: confirmation_menu_mentoringDosen
+
+  - story: direct option select mentoringDosen
+    steps:
+      - or:
+          - intent: prosedur_mentoringDosen
+          - intent: persyaratan_mentoringDosen
+          - intent: transaksi_mentoringDosen
+          - intent: hasil_mentoringDosen
+      - checkpoint: confirmation_menu_mentoringDosen
+
+  - story: confirmation ok mentoringDosen
+    steps:
+      - checkpoint: confirmation_menu_mentoringDosen
+      - action: action_ask_confirmation_mentoringDosen
+      - intent: affirm
+      - slot_was_set:
+          - menu_mentoringDosen_confirmation: true
+      - checkpoint: affirm_menu_mentoringDosen
+
+  - story: confirmation cancel mentoringDosen
+    steps:
+      - checkpoint: confirmation_menu_mentoringDosen
+      - action: action_ask_confirmation_mentoringDosen
+      - intent: deny
+      - slot_was_set:
+          - menu_mentoringDosen_confirmation: false
+      - action: action_deny_mentoringDosen
+      - checkpoint: check_menu_mentoringDosen
+
+  - story: handle after menu mentoringDosen
+    steps:
+      - checkpoint: affirm_menu_mentoringDosen
+      - action: action_answer_mentoringDosen

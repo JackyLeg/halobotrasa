@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU MBoutboundNonPT #
+
+  - story: beginning of flow MBoutboundNonPT
+    steps:
+      - intent: MBoutboundNonPT_menu
+      - action: utter_ask_menu_MBoutboundNonPT
+      - checkpoint: check_menu_MBoutboundNonPT
+
+  - story: handle user menu MBoutboundNonPT
+    steps:
+      - checkpoint: check_menu_MBoutboundNonPT
+      - or:
+          - intent: prosedur_MBoutboundNonPT
+          - intent: persyaratan_MBoutboundNonPT
+          - intent: transaksi_MBoutboundNonPT
+          - intent: hasil_MBoutboundNonPT
+      - checkpoint: confirmation_menu_MBoutboundNonPT
+
+  - story: direct option select MBoutboundNonPT
+    steps:
+      - or:
+          - intent: prosedur_MBoutboundNonPT
+          - intent: persyaratan_MBoutboundNonPT
+          - intent: transaksi_MBoutboundNonPT
+          - intent: hasil_MBoutboundNonPT
+      - checkpoint: confirmation_menu_MBoutboundNonPT
+
+  - story: confirmation ok MBoutboundNonPT
+    steps:
+      - checkpoint: confirmation_menu_MBoutboundNonPT
+      - action: action_ask_confirmation_MBoutboundNonPT
+      - intent: affirm
+      - slot_was_set:
+          - menu_MBoutboundNonPT_confirmation: true
+      - checkpoint: affirm_menu_MBoutboundNonPT
+
+  - story: confirmation cancel MBoutboundNonPT
+    steps:
+      - checkpoint: confirmation_menu_MBoutboundNonPT
+      - action: action_ask_confirmation_MBoutboundNonPT
+      - intent: deny
+      - slot_was_set:
+          - menu_MBoutboundNonPT_confirmation: false
+      - action: action_deny_MBoutboundNonPT
+      - checkpoint: check_menu_MBoutboundNonPT
+
+  - story: handle after menu MBoutboundNonPT
+    steps:
+      - checkpoint: affirm_menu_MBoutboundNonPT
+      - action: action_answer_MBoutboundNonPT

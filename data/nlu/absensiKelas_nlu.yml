@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: absensiKelas_menu
+  examples: |
+    - menu absensi kelas
+    - tolong buka menu absensi kelas
+    - saya ingin melihat menu absensi kelas
+    - apa saja menu absensi kelas yang tersedia
+    - absensi kelas
+    - mau absensi kelas
+    - buka absensi kelas
+
+- intent: prosedur_absensiKelas
+  examples: |
+    - Prosedur Absensi Kelas
+    - prosedur absensi kelas
+    - bagaimana prosedur absensi kelas
+    - cara absensi kelas
+    - alur absensi kelas
+
+- intent: persyaratan_absensiKelas
+  examples: |
+    - Persyaratan Absensi Kelas
+    - persyaratan absensi kelas
+    - apa saja syarat absensi kelas
+    - persyaratan absensi kelas
+    - syarat absensi kelas
+
+- intent: transaksi_absensiKelas
+  examples: |
+    - Transaksi Absensi Kelas
+    - transaksi absensi kelas
+    - transaksi absensi kelas
+    - pengajuan absensi kelas
+    - ajukan absensi kelas
+
+- intent: hasil_absensiKelas
+  examples: |
+    - Hasil Absensi Kelas
+    - hasil absensi kelas
+    - hasil absensi kelas
+    - cek hasil absensi kelas
+    - lihat hasil absensi kelas

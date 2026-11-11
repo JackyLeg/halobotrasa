@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: portofolio_menu
+  examples: |
+    - menu portofolio
+    - tolong buka menu portofolio
+    - saya ingin melihat menu portofolio
+    - apa saja menu portofolio yang tersedia
+    - portofolio
+    - mau portofolio
+    - buka portofolio
+
+- intent: prosedur_portofolio
+  examples: |
+    - Prosedur Portofolio
+    - prosedur portofolio
+    - bagaimana prosedur portofolio
+    - cara portofolio
+    - alur portofolio
+
+- intent: persyaratan_portofolio
+  examples: |
+    - Persyaratan Portofolio
+    - persyaratan portofolio
+    - apa saja syarat portofolio
+    - persyaratan portofolio
+    - syarat portofolio
+
+- intent: transaksi_portofolio
+  examples: |
+    - Transaksi Portofolio
+    - transaksi portofolio
+    - transaksi portofolio
+    - pengajuan portofolio
+    - ajukan portofolio
+
+- intent: hasil_portofolio
+  examples: |
+    - Hasil Portofolio
+    - hasil portofolio
+    - hasil portofolio
+    - cek hasil portofolio
+    - lihat hasil portofolio

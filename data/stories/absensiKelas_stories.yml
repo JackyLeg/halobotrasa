@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU absensiKelas #
+
+  - story: beginning of flow absensiKelas
+    steps:
+      - intent: absensiKelas_menu
+      - action: utter_ask_menu_absensiKelas
+      - checkpoint: check_menu_absensiKelas
+
+  - story: handle user menu absensiKelas
+    steps:
+      - checkpoint: check_menu_absensiKelas
+      - or:
+          - intent: prosedur_absensiKelas
+          - intent: persyaratan_absensiKelas
+          - intent: transaksi_absensiKelas
+          - intent: hasil_absensiKelas
+      - checkpoint: confirmation_menu_absensiKelas
+
+  - story: direct option select absensiKelas
+    steps:
+      - or:
+          - intent: prosedur_absensiKelas
+          - intent: persyaratan_absensiKelas
+          - intent: transaksi_absensiKelas
+          - intent: hasil_absensiKelas
+      - checkpoint: confirmation_menu_absensiKelas
+
+  - story: confirmation ok absensiKelas
+    steps:
+      - checkpoint: confirmation_menu_absensiKelas
+      - action: action_ask_confirmation_absensiKelas
+      - intent: affirm
+      - slot_was_set:
+          - menu_absensiKelas_confirmation: true
+      - checkpoint: affirm_menu_absensiKelas
+
+  - story: confirmation cancel absensiKelas
+    steps:
+      - checkpoint: confirmation_menu_absensiKelas
+      - action: action_ask_confirmation_absensiKelas
+      - intent: deny
+      - slot_was_set:
+          - menu_absensiKelas_confirmation: false
+      - action: action_deny_absensiKelas
+      - checkpoint: check_menu_absensiKelas
+
+  - story: handle after menu absensiKelas
+    steps:
+      - checkpoint: affirm_menu_absensiKelas
+      - action: action_answer_absensiKelas

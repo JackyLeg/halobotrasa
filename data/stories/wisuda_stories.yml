@@ -1,7 +1,7 @@
 version: "3.1"
 
 stories:
-# MENU WISUDA #
+# MENU wisuda #
 
   - story: beginning of flow wisuda
     steps:
@@ -17,7 +17,15 @@ stories:
           - intent: persyaratan_wisuda
           - intent: transaksi_wisuda
           - intent: hasil_wisuda
-          - intent: status_wisuda
+      - checkpoint: confirmation_menu_wisuda
+
+  - story: direct option select wisuda
+    steps:
+      - or:
+          - intent: prosedur_wisuda
+          - intent: persyaratan_wisuda
+          - intent: transaksi_wisuda
+          - intent: hasil_wisuda
       - checkpoint: confirmation_menu_wisuda
 
   - story: confirmation ok wisuda
@@ -42,15 +50,4 @@ stories:
   - story: handle after menu wisuda
     steps:
       - checkpoint: affirm_menu_wisuda
-      - or:
-          - slot_was_set:
-              - menu_wisuda: "Prosedur Wisuda"
-          - slot_was_set:
-              - menu_wisuda: "Persyaratan Wisuda"
-          - slot_was_set:
-              - menu_wisuda: "Transaksi Wisuda"
-          - slot_was_set:
-              - menu_wisuda: "Hasil Wisuda"
-          - slot_was_set:
-              - menu_wisuda: "Status Wisuda"
       - action: action_answer_wisuda

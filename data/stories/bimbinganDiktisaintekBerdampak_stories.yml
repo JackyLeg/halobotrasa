@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU bimbinganDiktisaintekBerdampak #
+
+  - story: beginning of flow bimbinganDiktisaintekBerdampak
+    steps:
+      - intent: bimbinganDiktisaintekBerdampak_menu
+      - action: utter_ask_menu_bimbinganDiktisaintekBerdampak
+      - checkpoint: check_menu_bimbinganDiktisaintekBerdampak
+
+  - story: handle user menu bimbinganDiktisaintekBerdampak
+    steps:
+      - checkpoint: check_menu_bimbinganDiktisaintekBerdampak
+      - or:
+          - intent: prosedur_bimbinganDiktisaintekBerdampak
+          - intent: persyaratan_bimbinganDiktisaintekBerdampak
+          - intent: transaksi_bimbinganDiktisaintekBerdampak
+          - intent: hasil_bimbinganDiktisaintekBerdampak
+      - checkpoint: confirmation_menu_bimbinganDiktisaintekBerdampak
+
+  - story: direct option select bimbinganDiktisaintekBerdampak
+    steps:
+      - or:
+          - intent: prosedur_bimbinganDiktisaintekBerdampak
+          - intent: persyaratan_bimbinganDiktisaintekBerdampak
+          - intent: transaksi_bimbinganDiktisaintekBerdampak
+          - intent: hasil_bimbinganDiktisaintekBerdampak
+      - checkpoint: confirmation_menu_bimbinganDiktisaintekBerdampak
+
+  - story: confirmation ok bimbinganDiktisaintekBerdampak
+    steps:
+      - checkpoint: confirmation_menu_bimbinganDiktisaintekBerdampak
+      - action: action_ask_confirmation_bimbinganDiktisaintekBerdampak
+      - intent: affirm
+      - slot_was_set:
+          - menu_bimbinganDiktisaintekBerdampak_confirmation: true
+      - checkpoint: affirm_menu_bimbinganDiktisaintekBerdampak
+
+  - story: confirmation cancel bimbinganDiktisaintekBerdampak
+    steps:
+      - checkpoint: confirmation_menu_bimbinganDiktisaintekBerdampak
+      - action: action_ask_confirmation_bimbinganDiktisaintekBerdampak
+      - intent: deny
+      - slot_was_set:
+          - menu_bimbinganDiktisaintekBerdampak_confirmation: false
+      - action: action_deny_bimbinganDiktisaintekBerdampak
+      - checkpoint: check_menu_bimbinganDiktisaintekBerdampak
+
+  - story: handle after menu bimbinganDiktisaintekBerdampak
+    steps:
+      - checkpoint: affirm_menu_bimbinganDiktisaintekBerdampak
+      - action: action_answer_bimbinganDiktisaintekBerdampak

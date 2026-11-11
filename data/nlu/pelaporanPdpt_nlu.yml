@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: pelaporanPdpt_menu
+  examples: |
+    - menu pelaporan pdpt
+    - tolong buka menu pelaporan pdpt
+    - saya ingin melihat menu pelaporan pdpt
+    - apa saja menu pelaporan pdpt yang tersedia
+    - pelaporan pdpt
+    - mau pelaporan pdpt
+    - buka pelaporan pdpt
+
+- intent: prosedur_pelaporanPdpt
+  examples: |
+    - Prosedur Pelaporan PDPT
+    - prosedur pelaporan pdpt
+    - bagaimana prosedur pelaporan pdpt
+    - cara pelaporan pdpt
+    - alur pelaporan pdpt
+
+- intent: persyaratan_pelaporanPdpt
+  examples: |
+    - Persyaratan Pelaporan PDPT
+    - persyaratan pelaporan pdpt
+    - apa saja syarat pelaporan pdpt
+    - persyaratan pelaporan pdpt
+    - syarat pelaporan pdpt
+
+- intent: transaksi_pelaporanPdpt
+  examples: |
+    - Transaksi Pelaporan PDPT
+    - transaksi pelaporan pdpt
+    - transaksi pelaporan pdpt
+    - pengajuan pelaporan pdpt
+    - ajukan pelaporan pdpt
+
+- intent: hasil_pelaporanPdpt
+  examples: |
+    - Hasil Pelaporan PDPT
+    - hasil pelaporan pdpt
+    - hasil pelaporan pdpt
+    - cek hasil pelaporan pdpt
+    - lihat hasil pelaporan pdpt

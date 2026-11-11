@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU evaluasiKelas #
+
+  - story: beginning of flow evaluasiKelas
+    steps:
+      - intent: evaluasiKelas_menu
+      - action: utter_ask_menu_evaluasiKelas
+      - checkpoint: check_menu_evaluasiKelas
+
+  - story: handle user menu evaluasiKelas
+    steps:
+      - checkpoint: check_menu_evaluasiKelas
+      - or:
+          - intent: prosedur_evaluasiKelas
+          - intent: persyaratan_evaluasiKelas
+          - intent: transaksi_evaluasiKelas
+          - intent: hasil_evaluasiKelas
+      - checkpoint: confirmation_menu_evaluasiKelas
+
+  - story: direct option select evaluasiKelas
+    steps:
+      - or:
+          - intent: prosedur_evaluasiKelas
+          - intent: persyaratan_evaluasiKelas
+          - intent: transaksi_evaluasiKelas
+          - intent: hasil_evaluasiKelas
+      - checkpoint: confirmation_menu_evaluasiKelas
+
+  - story: confirmation ok evaluasiKelas
+    steps:
+      - checkpoint: confirmation_menu_evaluasiKelas
+      - action: action_ask_confirmation_evaluasiKelas
+      - intent: affirm
+      - slot_was_set:
+          - menu_evaluasiKelas_confirmation: true
+      - checkpoint: affirm_menu_evaluasiKelas
+
+  - story: confirmation cancel evaluasiKelas
+    steps:
+      - checkpoint: confirmation_menu_evaluasiKelas
+      - action: action_ask_confirmation_evaluasiKelas
+      - intent: deny
+      - slot_was_set:
+          - menu_evaluasiKelas_confirmation: false
+      - action: action_deny_evaluasiKelas
+      - checkpoint: check_menu_evaluasiKelas
+
+  - story: handle after menu evaluasiKelas
+    steps:
+      - checkpoint: affirm_menu_evaluasiKelas
+      - action: action_answer_evaluasiKelas

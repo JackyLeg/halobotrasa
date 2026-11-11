@@ -1,32 +1,44 @@
 version: "3.1"
 
 nlu:
-#MENU_GRADUATIONPROCESS#
 - intent: graduationProcess_menu
   examples: |
     - menu graduation process
+    - tolong buka menu graduation process
     - saya ingin melihat menu graduation process
     - apa saja menu graduation process yang tersedia
-    - tolong tunjukkan menu graduation process
     - graduation process
     - mau graduation process
+    - buka graduation process
 
 - intent: prosedur_graduationProcess
   examples: |
     - Prosedur Graduation Process
+    - prosedur graduation process
+    - bagaimana prosedur graduation process
+    - cara graduation process
+    - alur graduation process
 
 - intent: persyaratan_graduationProcess
   examples: |
     - Persyaratan Graduation Process
+    - persyaratan graduation process
+    - apa saja syarat graduation process
+    - persyaratan graduation process
+    - syarat graduation process
 
 - intent: transaksi_graduationProcess
   examples: |
     - Transaksi Graduation Process
+    - transaksi graduation process
+    - transaksi graduation process
+    - pengajuan graduation process
+    - ajukan graduation process
 
 - intent: hasil_graduationProcess
   examples: |
     - Hasil Graduation Process
-
-- intent: status_graduationProcess
-  examples: |
-    - Status Graduation Process
+    - hasil graduation process
+    - hasil graduation process
+    - cek hasil graduation process
+    - lihat hasil graduation process

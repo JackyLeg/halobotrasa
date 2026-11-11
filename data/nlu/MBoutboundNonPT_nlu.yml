@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: MBoutboundNonPT_menu
+  examples: |
+    - menu mb outbound non pt
+    - tolong buka menu mb outbound non pt
+    - saya ingin melihat menu mb outbound non pt
+    - apa saja menu mb outbound non pt yang tersedia
+    - mb outbound non pt
+    - mau mb outbound non pt
+    - buka mb outbound non pt
+
+- intent: prosedur_MBoutboundNonPT
+  examples: |
+    - Prosedur MB Outbound Non PT
+    - prosedur mb outbound non pt
+    - bagaimana prosedur mb outbound non pt
+    - cara mb outbound non pt
+    - alur mb outbound non pt
+
+- intent: persyaratan_MBoutboundNonPT
+  examples: |
+    - Persyaratan MB Outbound Non PT
+    - persyaratan mb outbound non pt
+    - apa saja syarat mb outbound non pt
+    - persyaratan mb outbound non pt
+    - syarat mb outbound non pt
+
+- intent: transaksi_MBoutboundNonPT
+  examples: |
+    - Transaksi MB Outbound Non PT
+    - transaksi mb outbound non pt
+    - transaksi mb outbound non pt
+    - pengajuan mb outbound non pt
+    - ajukan mb outbound non pt
+
+- intent: hasil_MBoutboundNonPT
+  examples: |
+    - Hasil MB Outbound Non PT
+    - hasil mb outbound non pt
+    - hasil mb outbound non pt
+    - cek hasil mb outbound non pt
+    - lihat hasil mb outbound non pt

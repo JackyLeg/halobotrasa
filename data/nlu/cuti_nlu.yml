@@ -1,37 +1,44 @@
 version: "3.1"
 
 nlu:
-#MENU_CUTI#
 - intent: cuti_menu
   examples: |
     - menu cuti
+    - tolong buka menu cuti
     - saya ingin melihat menu cuti
     - apa saja menu cuti yang tersedia
-    - tolong tunjukkan menu cuti
     - cuti
     - mau cuti
+    - buka cuti
 
 - intent: prosedur_cuti
   examples: |
     - Prosedur Cuti
+    - prosedur cuti
+    - bagaimana prosedur cuti
+    - cara cuti
+    - alur cuti
 
 - intent: persyaratan_cuti
   examples: |
     - Persyaratan Cuti
+    - persyaratan cuti
+    - apa saja syarat cuti
+    - persyaratan cuti
+    - syarat cuti
 
 - intent: transaksi_cuti
   examples: |
     - Transaksi Cuti
+    - transaksi cuti
+    - transaksi cuti
+    - pengajuan cuti
+    - ajukan cuti
 
 - intent: hasil_cuti
   examples: |
     - Hasil Cuti
-
-- intent: done
-  examples: |
-    - selesai
-    - terima kasih
-    - itu saja
-    - sudah cukup
-    - tidak ada lagi
-    - done
+    - hasil cuti
+    - hasil cuti
+    - cek hasil cuti
+    - lihat hasil cuti

@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - pengisianNilai_menu
+  - prosedur_pengisianNilai
+  - persyaratan_pengisianNilai
+  - transaksi_pengisianNilai
+  - hasil_pengisianNilai
+
+slots:
+  menu_pengisianNilai:
+    type: categorical
+    influence_conversation: false
+    values:
+      - "Prosedur Pengisian Nilai"
+      - "Persyaratan Pengisian Nilai"
+      - "Transaksi Pengisian Nilai"
+      - "Hasil Pengisian Nilai"
+      - "Grade Input Procedure"
+      - "Grade Input Requirements"
+      - "Grade Input Transaction"
+      - "Grade Input Results"
+    mappings:
+      - type: custom
+
+  menu_pengisianNilai_confirmation:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_menu_pengisianNilai:
+    - text: "Silakan pilih salah satu opsi Pengisian Nilai berikut:"
+      buttons:
+        - title: "Prosedur Pengisian Nilai"
+          payload: "/prosedur_pengisianNilai"
+        - title: "Persyaratan Pengisian Nilai"
+          payload: "/persyaratan_pengisianNilai"
+        - title: "Transaksi Pengisian Nilai"
+          payload: "/transaksi_pengisianNilai"
+        - title: "Hasil Pengisian Nilai"
+          payload: "/hasil_pengisianNilai"
+
+  utter_ask_menu_pengisianNilai_confirmation:
+    - text: "Anda telah memilih opsi: {menu_pengisianNilai}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
+  utter_menu_pengisianNilai_cancelled:
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi Pengisian Nilai."
+
+  utter_menu_pengisianNilai_ok:
+    - text: "Anda telah berhasil memilih opsi Pengisian Nilai: {menu_pengisianNilai}."
+
+  utter_answer_prosedur_pengisianNilai:
+    - text: "PROSEDUR PENGISIAN NILAI"
+
+  utter_answer_persyaratan_pengisianNilai:
+    - text: "PERSYARATAN PENGISIAN NILAI"
+
+  utter_answer_transaksi_pengisianNilai:
+    - text: "Silakan lengkapi data Pengisian Nilai."
+
+  utter_answer_hasil_pengisianNilai:
+    - text: "Pengajuan Pengisian Nilai kamu telah diproses."
+
+  utter_answer_error_pengisianNilai:
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
+actions:
+  - action_answer_pengisianNilai
+  - action_ask_confirmation_pengisianNilai
+  - action_deny_pengisianNilai

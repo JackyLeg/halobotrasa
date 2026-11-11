@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: bimbinganAkademik_menu
+  examples: |
+    - menu bimbingan akademik
+    - tolong buka menu bimbingan akademik
+    - saya ingin melihat menu bimbingan akademik
+    - apa saja menu bimbingan akademik yang tersedia
+    - bimbingan akademik
+    - mau bimbingan akademik
+    - buka bimbingan akademik
+
+- intent: prosedur_bimbinganAkademik
+  examples: |
+    - Prosedur Bimbingan Akademik
+    - prosedur bimbingan akademik
+    - bagaimana prosedur bimbingan akademik
+    - cara bimbingan akademik
+    - alur bimbingan akademik
+
+- intent: persyaratan_bimbinganAkademik
+  examples: |
+    - Persyaratan Bimbingan Akademik
+    - persyaratan bimbingan akademik
+    - apa saja syarat bimbingan akademik
+    - persyaratan bimbingan akademik
+    - syarat bimbingan akademik
+
+- intent: transaksi_bimbinganAkademik
+  examples: |
+    - Transaksi Bimbingan Akademik
+    - transaksi bimbingan akademik
+    - transaksi bimbingan akademik
+    - pengajuan bimbingan akademik
+    - ajukan bimbingan akademik
+
+- intent: hasil_bimbinganAkademik
+  examples: |
+    - Hasil Bimbingan Akademik
+    - hasil bimbingan akademik
+    - hasil bimbingan akademik
+    - cek hasil bimbingan akademik
+    - lihat hasil bimbingan akademik

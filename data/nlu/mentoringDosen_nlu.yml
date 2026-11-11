@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: mentoringDosen_menu
+  examples: |
+    - menu mentoring dosen
+    - tolong buka menu mentoring dosen
+    - saya ingin melihat menu mentoring dosen
+    - apa saja menu mentoring dosen yang tersedia
+    - mentoring dosen
+    - mau mentoring dosen
+    - buka mentoring dosen
+
+- intent: prosedur_mentoringDosen
+  examples: |
+    - Prosedur Mentoring Dosen
+    - prosedur mentoring dosen
+    - bagaimana prosedur mentoring dosen
+    - cara mentoring dosen
+    - alur mentoring dosen
+
+- intent: persyaratan_mentoringDosen
+  examples: |
+    - Persyaratan Mentoring Dosen
+    - persyaratan mentoring dosen
+    - apa saja syarat mentoring dosen
+    - persyaratan mentoring dosen
+    - syarat mentoring dosen
+
+- intent: transaksi_mentoringDosen
+  examples: |
+    - Transaksi Mentoring Dosen
+    - transaksi mentoring dosen
+    - transaksi mentoring dosen
+    - pengajuan mentoring dosen
+    - ajukan mentoring dosen
+
+- intent: hasil_mentoringDosen
+  examples: |
+    - Hasil Mentoring Dosen
+    - hasil mentoring dosen
+    - hasil mentoring dosen
+    - cek hasil mentoring dosen
+    - lihat hasil mentoring dosen

@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU portofolio #
+
+  - story: beginning of flow portofolio
+    steps:
+      - intent: portofolio_menu
+      - action: utter_ask_menu_portofolio
+      - checkpoint: check_menu_portofolio
+
+  - story: handle user menu portofolio
+    steps:
+      - checkpoint: check_menu_portofolio
+      - or:
+          - intent: prosedur_portofolio
+          - intent: persyaratan_portofolio
+          - intent: transaksi_portofolio
+          - intent: hasil_portofolio
+      - checkpoint: confirmation_menu_portofolio
+
+  - story: direct option select portofolio
+    steps:
+      - or:
+          - intent: prosedur_portofolio
+          - intent: persyaratan_portofolio
+          - intent: transaksi_portofolio
+          - intent: hasil_portofolio
+      - checkpoint: confirmation_menu_portofolio
+
+  - story: confirmation ok portofolio
+    steps:
+      - checkpoint: confirmation_menu_portofolio
+      - action: action_ask_confirmation_portofolio
+      - intent: affirm
+      - slot_was_set:
+          - menu_portofolio_confirmation: true
+      - checkpoint: affirm_menu_portofolio
+
+  - story: confirmation cancel portofolio
+    steps:
+      - checkpoint: confirmation_menu_portofolio
+      - action: action_ask_confirmation_portofolio
+      - intent: deny
+      - slot_was_set:
+          - menu_portofolio_confirmation: false
+      - action: action_deny_portofolio
+      - checkpoint: check_menu_portofolio
+
+  - story: handle after menu portofolio
+    steps:
+      - checkpoint: affirm_menu_portofolio
+      - action: action_answer_portofolio

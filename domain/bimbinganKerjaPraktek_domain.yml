@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - bimbinganKerjaPraktek_menu
+  - prosedur_bimbinganKerjaPraktek
+  - persyaratan_bimbinganKerjaPraktek
+  - transaksi_bimbinganKerjaPraktek
+  - hasil_bimbinganKerjaPraktek
+
+slots:
+  menu_bimbinganKerjaPraktek:
+    type: categorical
+    influence_conversation: false
+    values:
+      - "Prosedur Bimbingan Kerja Praktek"
+      - "Persyaratan Bimbingan Kerja Praktek"
+      - "Transaksi Bimbingan Kerja Praktek"
+      - "Hasil Bimbingan Kerja Praktek"
+      - "Practical Work Mentoring Procedure"
+      - "Practical Work Mentoring Requirements"
+      - "Practical Work Mentoring Transaction"
+      - "Practical Work Mentoring Results"
+    mappings:
+      - type: custom
+
+  menu_bimbinganKerjaPraktek_confirmation:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_menu_bimbinganKerjaPraktek:
+    - text: "Silakan pilih salah satu opsi Bimbingan Kerja Praktek berikut:"
+      buttons:
+        - title: "Prosedur Bimbingan Kerja Praktek"
+          payload: "/prosedur_bimbinganKerjaPraktek"
+        - title: "Persyaratan Bimbingan Kerja Praktek"
+          payload: "/persyaratan_bimbinganKerjaPraktek"
+        - title: "Transaksi Bimbingan Kerja Praktek"
+          payload: "/transaksi_bimbinganKerjaPraktek"
+        - title: "Hasil Bimbingan Kerja Praktek"
+          payload: "/hasil_bimbinganKerjaPraktek"
+
+  utter_ask_menu_bimbinganKerjaPraktek_confirmation:
+    - text: "Anda telah memilih opsi: {menu_bimbinganKerjaPraktek}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
+  utter_menu_bimbinganKerjaPraktek_cancelled:
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi Bimbingan Kerja Praktek."
+
+  utter_menu_bimbinganKerjaPraktek_ok:
+    - text: "Anda telah berhasil memilih opsi Bimbingan Kerja Praktek: {menu_bimbinganKerjaPraktek}."
+
+  utter_answer_prosedur_bimbinganKerjaPraktek:
+    - text: "PROSEDUR BIMBINGAN KERJA PRAKTEK"
+
+  utter_answer_persyaratan_bimbinganKerjaPraktek:
+    - text: "PERSYARATAN BIMBINGAN KERJA PRAKTEK"
+
+  utter_answer_transaksi_bimbinganKerjaPraktek:
+    - text: "Silakan lengkapi data Bimbingan Kerja Praktek."
+
+  utter_answer_hasil_bimbinganKerjaPraktek:
+    - text: "Pengajuan Bimbingan Kerja Praktek kamu telah diproses."
+
+  utter_answer_error_bimbinganKerjaPraktek:
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
+actions:
+  - action_answer_bimbinganKerjaPraktek
+  - action_ask_confirmation_bimbinganKerjaPraktek
+  - action_deny_bimbinganKerjaPraktek

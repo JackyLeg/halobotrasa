@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: bimbinganSkripsi_menu
+  examples: |
+    - menu bimbingan skripsi
+    - tolong buka menu bimbingan skripsi
+    - saya ingin melihat menu bimbingan skripsi
+    - apa saja menu bimbingan skripsi yang tersedia
+    - bimbingan skripsi
+    - mau bimbingan skripsi
+    - buka bimbingan skripsi
+
+- intent: prosedur_bimbinganSkripsi
+  examples: |
+    - Prosedur Bimbingan Skripsi
+    - prosedur bimbingan skripsi
+    - bagaimana prosedur bimbingan skripsi
+    - cara bimbingan skripsi
+    - alur bimbingan skripsi
+
+- intent: persyaratan_bimbinganSkripsi
+  examples: |
+    - Persyaratan Bimbingan Skripsi
+    - persyaratan bimbingan skripsi
+    - apa saja syarat bimbingan skripsi
+    - persyaratan bimbingan skripsi
+    - syarat bimbingan skripsi
+
+- intent: transaksi_bimbinganSkripsi
+  examples: |
+    - Transaksi Bimbingan Skripsi
+    - transaksi bimbingan skripsi
+    - transaksi bimbingan skripsi
+    - pengajuan bimbingan skripsi
+    - ajukan bimbingan skripsi
+
+- intent: hasil_bimbinganSkripsi
+  examples: |
+    - Hasil Bimbingan Skripsi
+    - hasil bimbingan skripsi
+    - hasil bimbingan skripsi
+    - cek hasil bimbingan skripsi
+    - lihat hasil bimbingan skripsi

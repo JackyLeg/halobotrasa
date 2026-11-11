@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bot BOT bekbekbek</title>
+    <title>UsaktiBot - Rasa Open Source</title>
 
     <script type="module"
         src="https://unpkg.com/@rasahq/chat-widget-ui/dist/rasa-chatwidget/rasa-chatwidget.esm.js"></script>
@@ -14,14 +14,14 @@
 </head>
 
 <body>
-    <rasa-chatbot-widget server-url="http://localhost:5003"
+    <rasa-chatbot-widget server-url="http://localhost:5005"
         authentication-token="" sender-id="" initial-payload="/greet" rest-enabled="false"
-        widget-title="Bot terbaik" bot-icon="assets/punpun.jpeg" widget-icon="" font-family="Lato, sans-serif"
-        toggle-full-screen="true" message-delay="1000" stream-messages="false" display-timestamp="true"
-        message-timestamp="" input-message-placeholder="Tanya apa saja..."
-        error-message="Something went wrong. Please try again." auto-open="false" enable-feedback="false"
-        feedback-question-text="Was this conversation helpful?" feedback-thank-you-text="Thank you for your feedback!"
-        session-started-text="Session started"></rasa-chatbot-widget>
+        widget-title="UsaktiBot" bot-icon="assets/punpun.jpeg" widget-icon="" font-family="Lato, sans-serif"
+        toggle-full-screen="true" message-delay="1000" stream-messages="false" display-timestamp="false"
+        message-timestamp="" input-message-placeholder="Tanya apa saja seputar Trisakti..."
+        error-message="Terjadi kesalahan. Silakan coba lagi." auto-open="false" enable-feedback="false"
+        feedback-question-text="Apakah percakapan ini membantu?" feedback-thank-you-text="Terima kasih atas masukan Anda!"
+        session-started-text="Sesi dimulai"></rasa-chatbot-widget>
 </body>
 
 </html>

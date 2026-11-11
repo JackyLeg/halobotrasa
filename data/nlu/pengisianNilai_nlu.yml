@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: pengisianNilai_menu
+  examples: |
+    - menu pengisian nilai
+    - tolong buka menu pengisian nilai
+    - saya ingin melihat menu pengisian nilai
+    - apa saja menu pengisian nilai yang tersedia
+    - pengisian nilai
+    - mau pengisian nilai
+    - buka pengisian nilai
+
+- intent: prosedur_pengisianNilai
+  examples: |
+    - Prosedur Pengisian Nilai
+    - prosedur pengisian nilai
+    - bagaimana prosedur pengisian nilai
+    - cara pengisian nilai
+    - alur pengisian nilai
+
+- intent: persyaratan_pengisianNilai
+  examples: |
+    - Persyaratan Pengisian Nilai
+    - persyaratan pengisian nilai
+    - apa saja syarat pengisian nilai
+    - persyaratan pengisian nilai
+    - syarat pengisian nilai
+
+- intent: transaksi_pengisianNilai
+  examples: |
+    - Transaksi Pengisian Nilai
+    - transaksi pengisian nilai
+    - transaksi pengisian nilai
+    - pengajuan pengisian nilai
+    - ajukan pengisian nilai
+
+- intent: hasil_pengisianNilai
+  examples: |
+    - Hasil Pengisian Nilai
+    - hasil pengisian nilai
+    - hasil pengisian nilai
+    - cek hasil pengisian nilai
+    - lihat hasil pengisian nilai

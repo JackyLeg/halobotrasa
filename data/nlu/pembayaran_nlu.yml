@@ -1,32 +1,43 @@
 version: "3.1"
 
 nlu:
-#MENU_PEMBAYARAN#
 - intent: pembayaran_menu
   examples: |
     - menu pembayaran
+    - tolong buka menu pembayaran
     - saya ingin melihat menu pembayaran
     - apa saja menu pembayaran yang tersedia
-    - tolong tunjukkan menu pembayaran
     - pembayaran
     - mau pembayaran
+    - buka pembayaran
 
 - intent: prosedur_pembayaran
   examples: |
     - Prosedur Pembayaran
+    - prosedur pembayaran
+    - bagaimana prosedur pembayaran
+    - cara pembayaran
+    - alur pembayaran
 
 - intent: persyaratan_pembayaran
   examples: |
     - Persyaratan Pembayaran
+    - persyaratan pembayaran
+    - apa saja syarat pembayaran
+    - persyaratan pembayaran
+    - syarat pembayaran
 
 - intent: transaksi_pembayaran
   examples: |
     - Transaksi Pembayaran
-
-- intent: hasil_pembayaran
-  examples: |
-    - Hasil Pembayaran
+    - transaksi pembayaran
+    - transaksi pembayaran
+    - pengajuan pembayaran
+    - ajukan pembayaran
 
 - intent: status_pembayaran
   examples: |
     - Status Pembayaran
+    - status pembayaran
+    - status pembayaran
+    - cek status pembayaran

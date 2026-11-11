@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: daftarMahasiswaPerKelas_menu
+  examples: |
+    - menu daftar mahasiswa per kelas
+    - tolong buka menu daftar mahasiswa per kelas
+    - saya ingin melihat menu daftar mahasiswa per kelas
+    - apa saja menu daftar mahasiswa per kelas yang tersedia
+    - daftar mahasiswa per kelas
+    - mau daftar mahasiswa per kelas
+    - buka daftar mahasiswa per kelas
+
+- intent: prosedur_daftarMahasiswaPerKelas
+  examples: |
+    - Prosedur Daftar Mahasiswa per Kelas
+    - prosedur daftar mahasiswa per kelas
+    - bagaimana prosedur daftar mahasiswa per kelas
+    - cara daftar mahasiswa per kelas
+    - alur daftar mahasiswa per kelas
+
+- intent: persyaratan_daftarMahasiswaPerKelas
+  examples: |
+    - Persyaratan Daftar Mahasiswa per Kelas
+    - persyaratan daftar mahasiswa per kelas
+    - apa saja syarat daftar mahasiswa per kelas
+    - persyaratan daftar mahasiswa per kelas
+    - syarat daftar mahasiswa per kelas
+
+- intent: transaksi_daftarMahasiswaPerKelas
+  examples: |
+    - Transaksi Daftar Mahasiswa per Kelas
+    - transaksi daftar mahasiswa per kelas
+    - transaksi daftar mahasiswa per kelas
+    - pengajuan daftar mahasiswa per kelas
+    - ajukan daftar mahasiswa per kelas
+
+- intent: hasil_daftarMahasiswaPerKelas
+  examples: |
+    - Hasil Daftar Mahasiswa per Kelas
+    - hasil daftar mahasiswa per kelas
+    - hasil daftar mahasiswa per kelas
+    - cek hasil daftar mahasiswa per kelas
+    - lihat hasil daftar mahasiswa per kelas

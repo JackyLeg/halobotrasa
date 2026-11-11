@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU bimbinganSkripsi #
+
+  - story: beginning of flow bimbinganSkripsi
+    steps:
+      - intent: bimbinganSkripsi_menu
+      - action: utter_ask_menu_bimbinganSkripsi
+      - checkpoint: check_menu_bimbinganSkripsi
+
+  - story: handle user menu bimbinganSkripsi
+    steps:
+      - checkpoint: check_menu_bimbinganSkripsi
+      - or:
+          - intent: prosedur_bimbinganSkripsi
+          - intent: persyaratan_bimbinganSkripsi
+          - intent: transaksi_bimbinganSkripsi
+          - intent: hasil_bimbinganSkripsi
+      - checkpoint: confirmation_menu_bimbinganSkripsi
+
+  - story: direct option select bimbinganSkripsi
+    steps:
+      - or:
+          - intent: prosedur_bimbinganSkripsi
+          - intent: persyaratan_bimbinganSkripsi
+          - intent: transaksi_bimbinganSkripsi
+          - intent: hasil_bimbinganSkripsi
+      - checkpoint: confirmation_menu_bimbinganSkripsi
+
+  - story: confirmation ok bimbinganSkripsi
+    steps:
+      - checkpoint: confirmation_menu_bimbinganSkripsi
+      - action: action_ask_confirmation_bimbinganSkripsi
+      - intent: affirm
+      - slot_was_set:
+          - menu_bimbinganSkripsi_confirmation: true
+      - checkpoint: affirm_menu_bimbinganSkripsi
+
+  - story: confirmation cancel bimbinganSkripsi
+    steps:
+      - checkpoint: confirmation_menu_bimbinganSkripsi
+      - action: action_ask_confirmation_bimbinganSkripsi
+      - intent: deny
+      - slot_was_set:
+          - menu_bimbinganSkripsi_confirmation: false
+      - action: action_deny_bimbinganSkripsi
+      - checkpoint: check_menu_bimbinganSkripsi
+
+  - story: handle after menu bimbinganSkripsi
+    steps:
+      - checkpoint: affirm_menu_bimbinganSkripsi
+      - action: action_answer_bimbinganSkripsi

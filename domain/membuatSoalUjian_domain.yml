@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - membuatSoalUjian_menu
+  - prosedur_membuatSoalUjian
+  - persyaratan_membuatSoalUjian
+  - transaksi_membuatSoalUjian
+  - hasil_membuatSoalUjian
+
+slots:
+  menu_membuatSoalUjian:
+    type: categorical
+    influence_conversation: false
+    values:
+      - "Prosedur Membuat Soal Ujian"
+      - "Persyaratan Membuat Soal Ujian"
+      - "Transaksi Membuat Soal Ujian"
+      - "Hasil Membuat Soal Ujian"
+      - "Create Exam Questions Procedure"
+      - "Create Exam Questions Requirements"
+      - "Create Exam Questions Transaction"
+      - "Create Exam Questions Results"
+    mappings:
+      - type: custom
+
+  menu_membuatSoalUjian_confirmation:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_menu_membuatSoalUjian:
+    - text: "Silakan pilih salah satu opsi Membuat Soal Ujian berikut:"
+      buttons:
+        - title: "Prosedur Membuat Soal Ujian"
+          payload: "/prosedur_membuatSoalUjian"
+        - title: "Persyaratan Membuat Soal Ujian"
+          payload: "/persyaratan_membuatSoalUjian"
+        - title: "Transaksi Membuat Soal Ujian"
+          payload: "/transaksi_membuatSoalUjian"
+        - title: "Hasil Membuat Soal Ujian"
+          payload: "/hasil_membuatSoalUjian"
+
+  utter_ask_menu_membuatSoalUjian_confirmation:
+    - text: "Anda telah memilih opsi: {menu_membuatSoalUjian}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
+  utter_menu_membuatSoalUjian_cancelled:
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi Membuat Soal Ujian."
+
+  utter_menu_membuatSoalUjian_ok:
+    - text: "Anda telah berhasil memilih opsi Membuat Soal Ujian: {menu_membuatSoalUjian}."
+
+  utter_answer_prosedur_membuatSoalUjian:
+    - text: "PROSEDUR MEMBUAT SOAL UJIAN"
+
+  utter_answer_persyaratan_membuatSoalUjian:
+    - text: "PERSYARATAN MEMBUAT SOAL UJIAN"
+
+  utter_answer_transaksi_membuatSoalUjian:
+    - text: "Silakan lengkapi data Membuat Soal Ujian."
+
+  utter_answer_hasil_membuatSoalUjian:
+    - text: "Pengajuan Membuat Soal Ujian kamu telah diproses."
+
+  utter_answer_error_membuatSoalUjian:
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
+actions:
+  - action_answer_membuatSoalUjian
+  - action_ask_confirmation_membuatSoalUjian
+  - action_deny_membuatSoalUjian

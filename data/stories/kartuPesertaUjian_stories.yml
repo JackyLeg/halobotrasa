@@ -1,7 +1,7 @@
 version: "3.1"
 
 stories:
-# MENU KARTU PESERTA UJIAN #
+# MENU kartuPesertaUjian #
 
   - story: beginning of flow kartuPesertaUjian
     steps:
@@ -17,7 +17,15 @@ stories:
           - intent: persyaratan_kartuPesertaUjian
           - intent: transaksi_kartuPesertaUjian
           - intent: hasil_kartuPesertaUjian
-          - intent: status_kartuPesertaUjian
+      - checkpoint: confirmation_menu_kartuPesertaUjian
+
+  - story: direct option select kartuPesertaUjian
+    steps:
+      - or:
+          - intent: prosedur_kartuPesertaUjian
+          - intent: persyaratan_kartuPesertaUjian
+          - intent: transaksi_kartuPesertaUjian
+          - intent: hasil_kartuPesertaUjian
       - checkpoint: confirmation_menu_kartuPesertaUjian
 
   - story: confirmation ok kartuPesertaUjian
@@ -42,15 +50,4 @@ stories:
   - story: handle after menu kartuPesertaUjian
     steps:
       - checkpoint: affirm_menu_kartuPesertaUjian
-      - or:
-          - slot_was_set:
-              - menu_kartuPesertaUjian: "Prosedur Kartu Peserta Ujian"
-          - slot_was_set:
-              - menu_kartuPesertaUjian: "Persyaratan Kartu Peserta Ujian"
-          - slot_was_set:
-              - menu_kartuPesertaUjian: "Transaksi Kartu Peserta Ujian"
-          - slot_was_set:
-              - menu_kartuPesertaUjian: "Hasil Kartu Peserta Ujian"
-          - slot_was_set:
-              - menu_kartuPesertaUjian: "Status Kartu Peserta Ujian"
       - action: action_answer_kartuPesertaUjian

@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - bimbinganDiktisaintekBerdampak_menu
+  - prosedur_bimbinganDiktisaintekBerdampak
+  - persyaratan_bimbinganDiktisaintekBerdampak
+  - transaksi_bimbinganDiktisaintekBerdampak
+  - hasil_bimbinganDiktisaintekBerdampak
+
+slots:
+  menu_bimbinganDiktisaintekBerdampak:
+    type: categorical
+    influence_conversation: false
+    values:
+      - "Prosedur Bimbingan Diktisaintek Berdampak"
+      - "Persyaratan Bimbingan Diktisaintek Berdampak"
+      - "Transaksi Bimbingan Diktisaintek Berdampak"
+      - "Hasil Bimbingan Diktisaintek Berdampak"
+      - "Impactful Diktisaintek Mentoring Procedure"
+      - "Impactful Diktisaintek Mentoring Requirements"
+      - "Impactful Diktisaintek Mentoring Transaction"
+      - "Impactful Diktisaintek Mentoring Results"
+    mappings:
+      - type: custom
+
+  menu_bimbinganDiktisaintekBerdampak_confirmation:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_ask_menu_bimbinganDiktisaintekBerdampak:
+    - text: "Silakan pilih salah satu opsi Bimbingan Diktisaintek Berdampak berikut:"
+      buttons:
+        - title: "Prosedur Bimbingan Diktisaintek Berdampak"
+          payload: "/prosedur_bimbinganDiktisaintekBerdampak"
+        - title: "Persyaratan Bimbingan Diktisaintek Berdampak"
+          payload: "/persyaratan_bimbinganDiktisaintekBerdampak"
+        - title: "Transaksi Bimbingan Diktisaintek Berdampak"
+          payload: "/transaksi_bimbinganDiktisaintekBerdampak"
+        - title: "Hasil Bimbingan Diktisaintek Berdampak"
+          payload: "/hasil_bimbinganDiktisaintekBerdampak"
+
+  utter_ask_menu_bimbinganDiktisaintekBerdampak_confirmation:
+    - text: "Anda telah memilih opsi: {menu_bimbinganDiktisaintekBerdampak}. Apakah itu benar?"
+      buttons:
+        - title: "Ya"
+          payload: "/affirm"
+        - title: "Tidak"
+          payload: "/deny"
+
+  utter_menu_bimbinganDiktisaintekBerdampak_cancelled:
+    - text: "Baik, mari coba lagi. Silakan pilih salah satu opsi Bimbingan Diktisaintek Berdampak."
+
+  utter_menu_bimbinganDiktisaintekBerdampak_ok:
+    - text: "Anda telah berhasil memilih opsi Bimbingan Diktisaintek Berdampak: {menu_bimbinganDiktisaintekBerdampak}."
+
+  utter_answer_prosedur_bimbinganDiktisaintekBerdampak:
+    - text: "PROSEDUR BIMBINGAN DIKTISAINTEK BERDAMPAK"
+
+  utter_answer_persyaratan_bimbinganDiktisaintekBerdampak:
+    - text: "PERSYARATAN BIMBINGAN DIKTISAINTEK BERDAMPAK"
+
+  utter_answer_transaksi_bimbinganDiktisaintekBerdampak:
+    - text: "Silakan lengkapi data Bimbingan Diktisaintek Berdampak."
+
+  utter_answer_hasil_bimbinganDiktisaintekBerdampak:
+    - text: "Pengajuan Bimbingan Diktisaintek Berdampak kamu telah diproses."
+
+  utter_answer_error_bimbinganDiktisaintekBerdampak:
+    - text: "Maaf, menu tidak ditemukan. Silakan pilih opsi yang tersedia."
+
+actions:
+  - action_answer_bimbinganDiktisaintekBerdampak
+  - action_ask_confirmation_bimbinganDiktisaintekBerdampak
+  - action_deny_bimbinganDiktisaintekBerdampak

@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU fastTrackApp #
+
+  - story: beginning of flow fastTrackApp
+    steps:
+      - intent: fastTrackApp_menu
+      - action: utter_ask_menu_fastTrackApp
+      - checkpoint: check_menu_fastTrackApp
+
+  - story: handle user menu fastTrackApp
+    steps:
+      - checkpoint: check_menu_fastTrackApp
+      - or:
+          - intent: prosedur_fastTrackApp
+          - intent: persyaratan_fastTrackApp
+          - intent: transaksi_fastTrackApp
+          - intent: hasil_fastTrackApp
+      - checkpoint: confirmation_menu_fastTrackApp
+
+  - story: direct option select fastTrackApp
+    steps:
+      - or:
+          - intent: prosedur_fastTrackApp
+          - intent: persyaratan_fastTrackApp
+          - intent: transaksi_fastTrackApp
+          - intent: hasil_fastTrackApp
+      - checkpoint: confirmation_menu_fastTrackApp
+
+  - story: confirmation ok fastTrackApp
+    steps:
+      - checkpoint: confirmation_menu_fastTrackApp
+      - action: action_ask_confirmation_fastTrackApp
+      - intent: affirm
+      - slot_was_set:
+          - menu_fastTrackApp_confirmation: true
+      - checkpoint: affirm_menu_fastTrackApp
+
+  - story: confirmation cancel fastTrackApp
+    steps:
+      - checkpoint: confirmation_menu_fastTrackApp
+      - action: action_ask_confirmation_fastTrackApp
+      - intent: deny
+      - slot_was_set:
+          - menu_fastTrackApp_confirmation: false
+      - action: action_deny_fastTrackApp
+      - checkpoint: check_menu_fastTrackApp
+
+  - story: handle after menu fastTrackApp
+    steps:
+      - checkpoint: affirm_menu_fastTrackApp
+      - action: action_answer_fastTrackApp

@@ -1,7 +1,7 @@
 version: "3.1"
 
 stories:
-# MENU PERTUKARAN MAHASISWA #
+# MENU pertukaranMahasiswa #
 
   - story: beginning of flow pertukaranMahasiswa
     steps:
@@ -17,7 +17,15 @@ stories:
           - intent: persyaratan_pertukaranMahasiswa
           - intent: transaksi_pertukaranMahasiswa
           - intent: hasil_pertukaranMahasiswa
-          - intent: status_pertukaranMahasiswa
+      - checkpoint: confirmation_menu_pertukaranMahasiswa
+
+  - story: direct option select pertukaranMahasiswa
+    steps:
+      - or:
+          - intent: prosedur_pertukaranMahasiswa
+          - intent: persyaratan_pertukaranMahasiswa
+          - intent: transaksi_pertukaranMahasiswa
+          - intent: hasil_pertukaranMahasiswa
       - checkpoint: confirmation_menu_pertukaranMahasiswa
 
   - story: confirmation ok pertukaranMahasiswa
@@ -42,15 +50,4 @@ stories:
   - story: handle after menu pertukaranMahasiswa
     steps:
       - checkpoint: affirm_menu_pertukaranMahasiswa
-      - or:
-          - slot_was_set:
-              - menu_pertukaranMahasiswa: "Prosedur Pertukaran Mahasiswa"
-          - slot_was_set:
-              - menu_pertukaranMahasiswa: "Persyaratan Pertukaran Mahasiswa"
-          - slot_was_set:
-              - menu_pertukaranMahasiswa: "Transaksi Pertukaran Mahasiswa"
-          - slot_was_set:
-              - menu_pertukaranMahasiswa: "Hasil Pertukaran Mahasiswa"
-          - slot_was_set:
-              - menu_pertukaranMahasiswa: "Status Pertukaran Mahasiswa"
       - action: action_answer_pertukaranMahasiswa

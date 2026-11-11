@@ -1,101 +1,125 @@
 version: "3.1"
 
 nlu:
-#DEFAULT#
 - intent: greet
   examples: |
+    - halo
+    - hai
+    - helo
     - hey
     - hello
     - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+    - selamat pagi
+    - selamat siang
+    - selamat sore
+    - selamat malam
+    - salam
 
 - intent: goodbye
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
+    - selamat tinggal
+    - sampai jumpa
+    - dadah
     - bye
     - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+    - see you
+    - sampai bertemu lagi
 
 - intent: affirm
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
     - ya
     - ya itu benar
     - benar
     - iya
+    - betul
+    - yes
+    - y
+    - ya benar
+    - tepat
+    - tentu saja
+    - of course
+    - correct
 
 - intent: deny
   examples: |
+    - tidak
     - tidak, saya ingin mengubahnya
+    - batal
+    - bukan
+    - batalkan
+    - tidak benar
     - no
     - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
-    - tidak
-    - tidak saya ingin mengubahnya
-    - batal
+    - nope
+    - jangan
 
-- intent: mood_great
+- intent: done
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - selesai
+    - sudah selesai
+    - terima kasih
+    - makasih
+    - tengkyu
+    - sudah cukup
+    - itu saja
+    - tidak ada lagi
+    - done
+    - thanks
+    - thank you
 
 - intent: bot_challenge
   examples: |
+    - apakah kamu bot?
+    - kamu siapa?
+    - siapa kamu?
     - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - who are you?
+    - apakah ini bot?
 
+- intent: ask_capabilities
+  examples: |
+    - apa yang bisa kamu lakukan?
+    - fitur apa saja yang ada?
+    - kamu bisa bantu apa?
+    - apa fungsi kamu?
+    - bantuan apa yang tersedia?
+    - what can you do?
+    - help
+
+- intent: ask_list_menu
+  examples: |
+    - menu
+    - daftar menu
+    - list menu
+    - tampilkan menu
+    - apa saja menunya
+    - menu apa saja yang ada
+    - opsi menu
+    - menu trisakti
+
+- intent: change_language
+  examples: |
+    - ganti bahasa
+    - ubah bahasa
+    - speak english
+    - change language
+    - bahasa indonesia
+
+- intent: mood_great
+  examples: |
+    - hebat
+    - luar biasa
+    - mantap
+    - senang sekali
+    - good
+    - great
+    - keren
+
+- intent: mood_unhappy
+  examples: |
+    - buruk
+    - sedih
+    - tidak senang
+    - kecewa
+    - bad
+    - sad

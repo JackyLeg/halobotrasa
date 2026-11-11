@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: fastTrackApp_menu
+  examples: |
+    - menu fast track app
+    - tolong buka menu fast track app
+    - saya ingin melihat menu fast track app
+    - apa saja menu fast track app yang tersedia
+    - fast track app
+    - mau fast track app
+    - buka fast track app
+
+- intent: prosedur_fastTrackApp
+  examples: |
+    - Prosedur Fast Track App
+    - prosedur fast track app
+    - bagaimana prosedur fast track app
+    - cara fast track app
+    - alur fast track app
+
+- intent: persyaratan_fastTrackApp
+  examples: |
+    - Persyaratan Fast Track App
+    - persyaratan fast track app
+    - apa saja syarat fast track app
+    - persyaratan fast track app
+    - syarat fast track app
+
+- intent: transaksi_fastTrackApp
+  examples: |
+    - Transaksi Fast Track App
+    - transaksi fast track app
+    - transaksi fast track app
+    - pengajuan fast track app
+    - ajukan fast track app
+
+- intent: hasil_fastTrackApp
+  examples: |
+    - Hasil Fast Track App
+    - hasil fast track app
+    - hasil fast track app
+    - cek hasil fast track app
+    - lihat hasil fast track app

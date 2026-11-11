@@ -1,18 +1,33 @@
 version: "3.1"
 
 rules:
+  - rule: Say goodbye anytime
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
 
-- rule: greet
-  steps:
-    - intent: greet
-    - action: utter_greet
-    
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
+  - rule: Say 'I am a bot' anytime
+    steps:
+      - intent: bot_challenge
+      - action: utter_imabot
 
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - rule: Provide info anytime
+    steps:
+      - intent: ask_capabilities
+      - action: utter_provide_info
+
+  - rule: Handle done anytime
+    steps:
+      - intent: done
+      - action: utter_goodbye
+
+  - rule: Handle change language
+    steps:
+      - intent: change_language
+      - action: action_detect_language
+      - action: utter_language_changed
+
+  - rule: Show list menu
+    steps:
+      - intent: ask_list_menu
+      - action: action_show_list_menu

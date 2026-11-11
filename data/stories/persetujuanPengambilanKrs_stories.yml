@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU persetujuanPengambilanKrs #
+
+  - story: beginning of flow persetujuanPengambilanKrs
+    steps:
+      - intent: persetujuanPengambilanKrs_menu
+      - action: utter_ask_menu_persetujuanPengambilanKrs
+      - checkpoint: check_menu_persetujuanPengambilanKrs
+
+  - story: handle user menu persetujuanPengambilanKrs
+    steps:
+      - checkpoint: check_menu_persetujuanPengambilanKrs
+      - or:
+          - intent: prosedur_persetujuanPengambilanKrs
+          - intent: persyaratan_persetujuanPengambilanKrs
+          - intent: transaksi_persetujuanPengambilanKrs
+          - intent: hasil_persetujuanPengambilanKrs
+      - checkpoint: confirmation_menu_persetujuanPengambilanKrs
+
+  - story: direct option select persetujuanPengambilanKrs
+    steps:
+      - or:
+          - intent: prosedur_persetujuanPengambilanKrs
+          - intent: persyaratan_persetujuanPengambilanKrs
+          - intent: transaksi_persetujuanPengambilanKrs
+          - intent: hasil_persetujuanPengambilanKrs
+      - checkpoint: confirmation_menu_persetujuanPengambilanKrs
+
+  - story: confirmation ok persetujuanPengambilanKrs
+    steps:
+      - checkpoint: confirmation_menu_persetujuanPengambilanKrs
+      - action: action_ask_confirmation_persetujuanPengambilanKrs
+      - intent: affirm
+      - slot_was_set:
+          - menu_persetujuanPengambilanKrs_confirmation: true
+      - checkpoint: affirm_menu_persetujuanPengambilanKrs
+
+  - story: confirmation cancel persetujuanPengambilanKrs
+    steps:
+      - checkpoint: confirmation_menu_persetujuanPengambilanKrs
+      - action: action_ask_confirmation_persetujuanPengambilanKrs
+      - intent: deny
+      - slot_was_set:
+          - menu_persetujuanPengambilanKrs_confirmation: false
+      - action: action_deny_persetujuanPengambilanKrs
+      - checkpoint: check_menu_persetujuanPengambilanKrs
+
+  - story: handle after menu persetujuanPengambilanKrs
+    steps:
+      - checkpoint: affirm_menu_persetujuanPengambilanKrs
+      - action: action_answer_persetujuanPengambilanKrs

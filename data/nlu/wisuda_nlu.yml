@@ -1,32 +1,44 @@
 version: "3.1"
 
 nlu:
-#MENU_WISUDA#
 - intent: wisuda_menu
   examples: |
     - menu wisuda
+    - tolong buka menu wisuda
     - saya ingin melihat menu wisuda
     - apa saja menu wisuda yang tersedia
-    - tolong tunjukkan menu wisuda
     - wisuda
     - mau wisuda
+    - buka wisuda
 
 - intent: prosedur_wisuda
   examples: |
     - Prosedur Wisuda
+    - prosedur wisuda
+    - bagaimana prosedur wisuda
+    - cara wisuda
+    - alur wisuda
 
 - intent: persyaratan_wisuda
   examples: |
     - Persyaratan Wisuda
+    - persyaratan wisuda
+    - apa saja syarat wisuda
+    - persyaratan wisuda
+    - syarat wisuda
 
 - intent: transaksi_wisuda
   examples: |
     - Transaksi Wisuda
+    - transaksi wisuda
+    - transaksi wisuda
+    - pengajuan wisuda
+    - ajukan wisuda
 
 - intent: hasil_wisuda
   examples: |
     - Hasil Wisuda
-
-- intent: status_wisuda
-  examples: |
-    - Status Wisuda
+    - hasil wisuda
+    - hasil wisuda
+    - cek hasil wisuda
+    - lihat hasil wisuda

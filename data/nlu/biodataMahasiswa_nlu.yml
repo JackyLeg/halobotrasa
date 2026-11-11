@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: biodataMahasiswa_menu
+  examples: |
+    - menu biodata mahasiswa
+    - tolong buka menu biodata mahasiswa
+    - saya ingin melihat menu biodata mahasiswa
+    - apa saja menu biodata mahasiswa yang tersedia
+    - biodata mahasiswa
+    - mau biodata mahasiswa
+    - buka biodata mahasiswa
+
+- intent: prosedur_biodataMahasiswa
+  examples: |
+    - Prosedur Biodata Mahasiswa
+    - prosedur biodata mahasiswa
+    - bagaimana prosedur biodata mahasiswa
+    - cara biodata mahasiswa
+    - alur biodata mahasiswa
+
+- intent: persyaratan_biodataMahasiswa
+  examples: |
+    - Persyaratan Biodata Mahasiswa
+    - persyaratan biodata mahasiswa
+    - apa saja syarat biodata mahasiswa
+    - persyaratan biodata mahasiswa
+    - syarat biodata mahasiswa
+
+- intent: transaksi_biodataMahasiswa
+  examples: |
+    - Transaksi Biodata Mahasiswa
+    - transaksi biodata mahasiswa
+    - transaksi biodata mahasiswa
+    - pengajuan biodata mahasiswa
+    - ajukan biodata mahasiswa
+
+- intent: hasil_biodataMahasiswa
+  examples: |
+    - Hasil Biodata Mahasiswa
+    - hasil biodata mahasiswa
+    - hasil biodata mahasiswa
+    - cek hasil biodata mahasiswa
+    - lihat hasil biodata mahasiswa

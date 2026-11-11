@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: bimbinganDiktisaintekBerdampak_menu
+  examples: |
+    - menu bimbingan diktisaintek berdampak
+    - tolong buka menu bimbingan diktisaintek berdampak
+    - saya ingin melihat menu bimbingan diktisaintek berdampak
+    - apa saja menu bimbingan diktisaintek berdampak yang tersedia
+    - bimbingan diktisaintek berdampak
+    - mau bimbingan diktisaintek berdampak
+    - buka bimbingan diktisaintek berdampak
+
+- intent: prosedur_bimbinganDiktisaintekBerdampak
+  examples: |
+    - Prosedur Bimbingan Diktisaintek Berdampak
+    - prosedur bimbingan diktisaintek berdampak
+    - bagaimana prosedur bimbingan diktisaintek berdampak
+    - cara bimbingan diktisaintek berdampak
+    - alur bimbingan diktisaintek berdampak
+
+- intent: persyaratan_bimbinganDiktisaintekBerdampak
+  examples: |
+    - Persyaratan Bimbingan Diktisaintek Berdampak
+    - persyaratan bimbingan diktisaintek berdampak
+    - apa saja syarat bimbingan diktisaintek berdampak
+    - persyaratan bimbingan diktisaintek berdampak
+    - syarat bimbingan diktisaintek berdampak
+
+- intent: transaksi_bimbinganDiktisaintekBerdampak
+  examples: |
+    - Transaksi Bimbingan Diktisaintek Berdampak
+    - transaksi bimbingan diktisaintek berdampak
+    - transaksi bimbingan diktisaintek berdampak
+    - pengajuan bimbingan diktisaintek berdampak
+    - ajukan bimbingan diktisaintek berdampak
+
+- intent: hasil_bimbinganDiktisaintekBerdampak
+  examples: |
+    - Hasil Bimbingan Diktisaintek Berdampak
+    - hasil bimbingan diktisaintek berdampak
+    - hasil bimbingan diktisaintek berdampak
+    - cek hasil bimbingan diktisaintek berdampak
+    - lihat hasil bimbingan diktisaintek berdampak

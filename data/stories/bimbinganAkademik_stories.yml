@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU bimbinganAkademik #
+
+  - story: beginning of flow bimbinganAkademik
+    steps:
+      - intent: bimbinganAkademik_menu
+      - action: utter_ask_menu_bimbinganAkademik
+      - checkpoint: check_menu_bimbinganAkademik
+
+  - story: handle user menu bimbinganAkademik
+    steps:
+      - checkpoint: check_menu_bimbinganAkademik
+      - or:
+          - intent: prosedur_bimbinganAkademik
+          - intent: persyaratan_bimbinganAkademik
+          - intent: transaksi_bimbinganAkademik
+          - intent: hasil_bimbinganAkademik
+      - checkpoint: confirmation_menu_bimbinganAkademik
+
+  - story: direct option select bimbinganAkademik
+    steps:
+      - or:
+          - intent: prosedur_bimbinganAkademik
+          - intent: persyaratan_bimbinganAkademik
+          - intent: transaksi_bimbinganAkademik
+          - intent: hasil_bimbinganAkademik
+      - checkpoint: confirmation_menu_bimbinganAkademik
+
+  - story: confirmation ok bimbinganAkademik
+    steps:
+      - checkpoint: confirmation_menu_bimbinganAkademik
+      - action: action_ask_confirmation_bimbinganAkademik
+      - intent: affirm
+      - slot_was_set:
+          - menu_bimbinganAkademik_confirmation: true
+      - checkpoint: affirm_menu_bimbinganAkademik
+
+  - story: confirmation cancel bimbinganAkademik
+    steps:
+      - checkpoint: confirmation_menu_bimbinganAkademik
+      - action: action_ask_confirmation_bimbinganAkademik
+      - intent: deny
+      - slot_was_set:
+          - menu_bimbinganAkademik_confirmation: false
+      - action: action_deny_bimbinganAkademik
+      - checkpoint: check_menu_bimbinganAkademik
+
+  - story: handle after menu bimbinganAkademik
+    steps:
+      - checkpoint: affirm_menu_bimbinganAkademik
+      - action: action_answer_bimbinganAkademik

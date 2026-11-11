@@ -1,0 +1,44 @@
+version: "3.1"
+
+nlu:
+- intent: bimbinganKerjaPraktek_menu
+  examples: |
+    - menu bimbingan kerja praktek
+    - tolong buka menu bimbingan kerja praktek
+    - saya ingin melihat menu bimbingan kerja praktek
+    - apa saja menu bimbingan kerja praktek yang tersedia
+    - bimbingan kerja praktek
+    - mau bimbingan kerja praktek
+    - buka bimbingan kerja praktek
+
+- intent: prosedur_bimbinganKerjaPraktek
+  examples: |
+    - Prosedur Bimbingan Kerja Praktek
+    - prosedur bimbingan kerja praktek
+    - bagaimana prosedur bimbingan kerja praktek
+    - cara bimbingan kerja praktek
+    - alur bimbingan kerja praktek
+
+- intent: persyaratan_bimbinganKerjaPraktek
+  examples: |
+    - Persyaratan Bimbingan Kerja Praktek
+    - persyaratan bimbingan kerja praktek
+    - apa saja syarat bimbingan kerja praktek
+    - persyaratan bimbingan kerja praktek
+    - syarat bimbingan kerja praktek
+
+- intent: transaksi_bimbinganKerjaPraktek
+  examples: |
+    - Transaksi Bimbingan Kerja Praktek
+    - transaksi bimbingan kerja praktek
+    - transaksi bimbingan kerja praktek
+    - pengajuan bimbingan kerja praktek
+    - ajukan bimbingan kerja praktek
+
+- intent: hasil_bimbinganKerjaPraktek
+  examples: |
+    - Hasil Bimbingan Kerja Praktek
+    - hasil bimbingan kerja praktek
+    - hasil bimbingan kerja praktek
+    - cek hasil bimbingan kerja praktek
+    - lihat hasil bimbingan kerja praktek

@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+# MENU absensiUjian #
+
+  - story: beginning of flow absensiUjian
+    steps:
+      - intent: absensiUjian_menu
+      - action: utter_ask_menu_absensiUjian
+      - checkpoint: check_menu_absensiUjian
+
+  - story: handle user menu absensiUjian
+    steps:
+      - checkpoint: check_menu_absensiUjian
+      - or:
+          - intent: prosedur_absensiUjian
+          - intent: persyaratan_absensiUjian
+          - intent: transaksi_absensiUjian
+          - intent: hasil_absensiUjian
+      - checkpoint: confirmation_menu_absensiUjian
+
+  - story: direct option select absensiUjian
+    steps:
+      - or:
+          - intent: prosedur_absensiUjian
+          - intent: persyaratan_absensiUjian
+          - intent: transaksi_absensiUjian
+          - intent: hasil_absensiUjian
+      - checkpoint: confirmation_menu_absensiUjian
+
+  - story: confirmation ok absensiUjian
+    steps:
+      - checkpoint: confirmation_menu_absensiUjian
+      - action: action_ask_confirmation_absensiUjian
+      - intent: affirm
+      - slot_was_set:
+          - menu_absensiUjian_confirmation: true
+      - checkpoint: affirm_menu_absensiUjian
+
+  - story: confirmation cancel absensiUjian
+    steps:
+      - checkpoint: confirmation_menu_absensiUjian
+      - action: action_ask_confirmation_absensiUjian
+      - intent: deny
+      - slot_was_set:
+          - menu_absensiUjian_confirmation: false
+      - action: action_deny_absensiUjian
+      - checkpoint: check_menu_absensiUjian
+
+  - story: handle after menu absensiUjian
+    steps:
+      - checkpoint: affirm_menu_absensiUjian
+      - action: action_answer_absensiUjian
